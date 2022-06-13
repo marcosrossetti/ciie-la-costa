@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
 
-        <!-- LINKS META prueba -->
+        <!-- LINKS META -->
 
         <!-- LINKS META -->
 
