@@ -35,7 +35,7 @@
     </head>
     <body>
 
-        <!-- LINK HEADER sdasad -->
+        <!-- LINK HEADER -->
 
         <?php include("modulos/header.php") ?>
 
