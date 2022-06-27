@@ -59,12 +59,14 @@
 
         <!-- CONTENIDO -->
 
-        <div class="container">
+        <div class="container">    
             <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="col-lg-8 col-md-10 mx-auto  contenedorOfertas">
+                    <h1 class="tituloIndex">Ofertas Activas</h1>
+                    <hr class="hrTitulo">
                     <div class="post-preview">
                         <a href="post.php">
-                            <h2 class="post-title">Oferta de Formación Nivel Secundario </h2>
+                            <h2 class="post-title">Formación Nivel Secundario </h2>
                             <h3 class="post-subtitle">Junio - Julio 2022</h3>
                         </a>
                         <p class="post-meta">
@@ -74,7 +76,7 @@
                     <hr />
                     <div class="post-preview">
                         <a href="post.php">
-                            <h2 class="post-title">Oferta de formación Nivel Primario</h2>
+                            <h2 class="post-title">Formación Nivel Primario</h2>
                             <h3 class="post-subtitle">Junio - Julio 2022</h3>
                         </a>
                         <p class="post-meta">
@@ -87,7 +89,7 @@
                     <hr />
                     <div class="post-preview">
                         <a href="post.php">
-                            <h2 class="post-title">Oferta de formación Nivel Inicial </h2>
+                            <h2 class="post-title">Formación Nivel Inicial </h2>
                             <h3 class="post-subtitle">Junio - Julio 2022</h3>
                         </a>
                         <p class="post-meta">
@@ -96,7 +98,7 @@
                     </div>
                     <hr />
                     <!-- Pager-->
-                    <div class="clearfix"><a class="btn btn-primary float-right" href="noticias.php">Ofertas Antiguas →</a></div>
+                    <div class="clearfix"><a class="btn btn-primary float-right btnOfertas" href="noticias.php">Ofertas Antiguas →</a></div>
                 </div>
             </div>
         </div>

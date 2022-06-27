@@ -26,6 +26,9 @@
 
         <link href="css/styles.css" rel="stylesheet"/>
 
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v14.0" nonce="dqIsRKbt"></script>
+
         <!-- TITULO -->
 
         <title>CIIE La Costa</title>
@@ -45,8 +48,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="page-heading">
-                            <h1>Noticias</h1>
-                            <span class="subheading">Noticias y Ofertas</span>
+                            <h1>Noticias y Ofertas</h1>
                         </div>
                     </div>
                 </div>
@@ -56,6 +58,48 @@
         <!-- CIERRE ENCABEZADO -->
 
         <!-- CONTENIDO -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-8 mx-auto">
+                    <div class="post-preview">
+                        <a href="post.php">
+                            <h2 class="post-title">Oferta de Formación Nivel Secundario </h2>
+                            <h3 class="post-subtitle">Junio - Julio 2022</h3>
+                        </a>
+                        <p class="post-meta">
+                        CIIE's - Región 18 - Inscripción: PARA NIVEL SECUNDARIO - Inicio de la cursada: A confirmar por el formador
+                        </p>
+                    </div>
+                    <hr />
+                    <div class="post-preview">
+                        <a href="post.php">
+                            <h2 class="post-title">Oferta de formación Nivel Primario</h2>
+                            <h3 class="post-subtitle">Junio - Julio 2022</h3>
+                        </a>
+                        <p class="post-meta">
+                        CIIE's - Región 18 - Inscripción: PARA NIVEL PRIMARIO - Inicio de la cursada: Comienzan entre la primer y segunda semana de Junio. 
+                        <br> 
+                        Destinado a equipos de conducción, MG, Docentes de grado Educación Especial y Educación de Jóvenes, Adultos y Adultos Mayores. 
+                        Profesores segun modalidad, Estudiantes avanzados del 4° año del profesorado de educación primaria o modalidad según corresponda.
+                        </p>
+                    </div>
+                    <hr />
+                    <div class="post-preview">
+                        <a href="post.php">
+                            <h2 class="post-title">Oferta de formación Nivel Inicial </h2>
+                            <h3 class="post-subtitle">Junio - Julio 2022</h3>
+                        </a>
+                        <p class="post-meta">
+                        CIIE's - Región 18 - Inscripción: PARA NIVEL INICIAL - Inicio de la cursada: A confirmar por el formador.
+                        </p>
+                    </div>
+                    <hr />
+                </div>      
+            </div>
+        </div>
+
+        <!--
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
@@ -116,6 +160,7 @@
                 </div>
             </div>
         </div>
+-->
         <hr/>
 
         <!-- CIERRE CONTENIDO -->

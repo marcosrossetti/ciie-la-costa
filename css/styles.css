@@ -124,6 +124,48 @@ img::-moz-selection {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+.post-facebook{
+
+  margin-bottom: 15px;
+
+}
+
+.tituloIndex {
+
+  margin: auto;
+  text-align: center;
+
+}
+
+.contenedorOfertas {
+
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 5px 5px 5px #B6B6B6;
+  margin: 15px;
+
+}
+
+.btnOfertas {
+
+  border-radius: 6px;
+
+}
+
+.hrTitulo {
+
+  width: 50%;
+
+}
+
+hr { 
+
+  border: #CCCCCC solid 1px;
+
+}
+
 @media only screen and (min-width: 992px) {
   #mainNav {
     border-bottom: 1px solid transparent;
