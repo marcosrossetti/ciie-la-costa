@@ -27,8 +27,10 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <?php include("modulos/slidebar.php") ?>
+        <!-- Sidebar -->
 
+        <?php include("modulos/slidebar.php") ?>
+        
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
