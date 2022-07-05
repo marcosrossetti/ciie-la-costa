@@ -1,3 +1,10 @@
+<?php
+session_start();
+$email = $_SESSION['email'];
+$dni = $_SESSION['dni'];
+include("modulos/segUrl.php");
+destroyAdmin();
+?>
 <!DOCTYPE html>
 <html lang="en">
 

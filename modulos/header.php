@@ -18,7 +18,7 @@
     <!-- HEADER -->
     <div class="bg-dark py-0">
         <div class="container">
-            <a class="text-white" href="admin/login.php">Login Temporal</a>
+            <a class="text-white" href="admin/login.php">Log In</a>
         </div>
     </div>
 
