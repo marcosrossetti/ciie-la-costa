@@ -44,7 +44,7 @@
 
                     <!-- Page Heading -->
 
-                    <h1 class="h3 mb-4 text-gray-800">Agregar Oferta</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Agregar tutoriales</h1>
 
                     <div class="card shadow mb-4">
                         <div class="card-body">
@@ -62,9 +62,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Imagen</label>
-                                    <input type="file" class="form-control-file">
+                                    <label>Url del video</label>
+                                    <input type="text" class="form-control" required>
                                 </div>
+
 
                                 <button type="submit" class="btn btn-primary">Enviar</button>
                             </form>
