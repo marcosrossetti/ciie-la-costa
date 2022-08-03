@@ -9,20 +9,36 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
     <!--css rel -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Login!</title>
   </head>
 
   <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navLogin">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">CIIE La Costa</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="noticias.php">Noticias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="biblioteca.php">Biblioteca Digital</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tutoriales.php">Tutoriales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.php">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 <!--section -->
   <section class="vh-100">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://pbs.twimg.com/profile_images/1205171381782142977/-A60h9o0_400x400.jpg"
-          class="img-fluid" alt="Sample image">
-      </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+      <div class="col-md-8 col-lg-6 col-xl-4">
         <!--form -->
         <form action="modulos/logMod.php" method="post">
           <!-- <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
@@ -39,7 +55,7 @@
               <i class="fab fa-linkedin-in"></i>
             </button>
           </div> -->
-
+          <h2 class="text-center">CIIE LA COSTA</h2>
           <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0">ADMINISTRADOR</p>
           </div>
@@ -48,16 +64,14 @@
 
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Ingrese un email valido" name="email" />
-            <label class="form-label" for="form3Example3">Su email</label>
+            <label class="form-label" for="form3Example3">Email</label>
+            <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Ingrese un email valido" name="email" />
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Ingrese su contraseña" name="password" />
-            <label class="form-label" for="form3Example4">Su Contraseña</label>
+            <label class="form-label" for="form3Example4">Contraseña</label>
+            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Ingrese su contraseña" name="password" />
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
@@ -72,8 +86,7 @@
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="submit" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;" name="submit">Login</button>
+            <button type="submit" class="btn btn-primary btnOfertas" name="submit">Login</button>
             <!-- <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
                 class="link-danger">Register</a></p> -->
           </div>
@@ -83,30 +96,10 @@
       </div>
     </div>
   </div>
-  <div
-    class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+  <div class="d-flex flex-column flex-row text-center justify-content-between py-4 bg-primary">
     <!-- Copyright -->
-    <div class="text-white mb-3 mb-md-0">
-      CIIE Pdo. La Costa, todos los derechos reservados 2022
-    </div>
+      <b class="text-white">CIIE Pdo. La Costa, todos los derechos reservados 2022</b>
     <!-- Copyright -->
-
-    <!-- Right -->
-    <div>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="#!" class="text-white me-4">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="#!" class="text-white">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-    </div>
-    <!-- Right -->
   </div>
 </section>
 
