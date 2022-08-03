@@ -1,11 +1,3 @@
-
-<?php
-//seguridad de redireccionamiento
-session_start();
-include('modulos/segUrl.php');
-destroyAdmin();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,9 +19,6 @@ destroyAdmin();
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -54,53 +43,32 @@ destroyAdmin();
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Administrar Ofertas</h1>
-                    
+
+                    <h1 class="h3 mb-4 text-gray-800">Agregar tutoriales</h1>
+
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                        <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                    <tr>
-                                            <th>Nombre Curso</th>
-                                            <th>Area</th>
-                                            <th>Formador</th>
-                                            <th>Dia</th>
-                                            <th>Horario</th>
-                                            <th>Enlace</th>
-                                            <th>Descripcion</th>
-                                            <th>Mantenimiento</th>
-                                        </tr>
-                                    </thead>
+                            <!-- Formulario -->
+                            <form action="" method="POST">
 
-                                    <tbody>
-                                       <?php
-                                       include('../connection.php');
+                                <div class="form-group">
+                                    <label>Titulo</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
 
-                                       $sql = "SELECT * FROM `cursos` WHERE 1";
-                                       $sqlEX = mysqli_query($con, $sql);
-                                       if($sqlEX){
-                                        $row = mysqli_fetch_array($sqlEX);
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    <textarea class="form-control" rows="3" required></textarea>
+                                </div>
 
-                                        foreach($sqlEX as $row){
-                                            echo "<tr>";
-                                            echo '<td>' .$row['nombre'] . '</td>';
-                                            echo '<td>' .$row['area'] . '</td>';
-                                            echo '<td>' .'<a href="cambiarFormador?id='.$row['id_curso'].'.php">' .$row['formador'] .'</a>' . '</td>';
-                                            echo '<td>' .'<a href="cambiarDia.php?id='.$row['id_curso'].'">' .$row['dia'] .'</a>' . '</td>';
-                                            echo '<td>' .'<a href="cambiarHorario.php?id='.$row['id_curso'].'">' .$row['horario'] .'</a>' . '</td>';
-                                            echo '<td>' .'<a href='. $row['url'] .'>Ver</a>' . '</td>';
-                                            echo '<td>' .$row['descripcion'] . '</td>';
-                                            echo '<td>' . '<button>Deshabilitar curso</button>' . '</td>';
+                                <div class="form-group">
+                                    <label>Url del video</label>
+                                    <input type="text" class="form-control" required>
+                                </div>
 
-                                            echo "</tr>";
-                                        }
-                                       }
-                                       ?> 
-                                      
-                                    </tbody>
-                                </table>
-                            </div>
+
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </form>
                         </div>
                     </div>
 
@@ -160,13 +128,6 @@ destroyAdmin();
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 

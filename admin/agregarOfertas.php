@@ -46,6 +46,7 @@ destroyAdmin();
             <!-- Main Content -->
             <div id="content">
 
+<<<<<<< HEAD
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -249,29 +250,33 @@ destroyAdmin();
                 </nav>
                 <!-- End of Topbar -->
 
+=======
+>>>>>>> af31a7b7ffb185fa7a1ced3a07034ad8dfbb5a1a
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
+
                     <h1 class="h3 mb-4 text-gray-800">Agregar Oferta</h1>
 
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <!-- Formulario -->
                             <form action="" method="POST">
+
                                 <div class="form-group">
-                                    <label for="inputTutulo">Titulo</label>
-                                    <input type="text" class="form-control" id="inputTutulo" required>
+                                    <label>Titulo</label>
+                                    <input type="text" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="txtDesc">Descripción</label>
-                                    <textarea class="form-control" id="txtDesc" rows="3" required></textarea>
+                                    <label>Descripción</label>
+                                    <textarea class="form-control" rows="3" required></textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="fcImagen">Imagen</label>
-                                    <input type="file" class="form-control-file" id="fcImagen">
+                                    <label>Imagen</label>
+                                    <input type="file" class="form-control-file">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Enviar</button>

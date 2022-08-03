@@ -1,10 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-text mx-3">CIIE La Costa</div>
             </a>
 
@@ -12,7 +9,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <span>Estadisticas</span>
                 </a>
@@ -34,7 +31,6 @@
                 </a>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header"> Lista de ofertas:</h6>
                         <a class="collapse-item" href="agregarOfertas.php">Agregar</a>
                         <a class="collapse-item" href="administrarOfertas.php">Administrar</a>
                     </div>
@@ -49,9 +45,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="agregarTutoriales.php">Agregar</a>
+                        <a class="collapse-item" href="administrarTutoriales.php">Administrar</a>
                     </div>
                 </div>
             </li>
@@ -65,13 +60,15 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <a class="collapse-item" href="utilities-color.html">Administrar</a>
                     </div>
                 </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">
+                    <span>Cerrar sesión</span>
+                </a>
             </li>
 
             <!-- Divider -->
