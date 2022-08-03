@@ -16,11 +16,11 @@
 <body>
 
     <!-- HEADER -->
-    <div class="bg-dark py-0">
+    <!-- <div class="bg-dark py-0">
         <div class="container">
             <a class="text-white" href="admin/login.php">Log In</a>
         </div>
-    </div>
+    </div> -->
 
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top margen" id="mainNav">
@@ -37,6 +37,7 @@
                     <li class="nav-item"><a class="nav-link" href="biblioteca.php">Biblioteca Digital</a></li>
                     <li class="nav-item"><a class="nav-link" href="tutoriales.php">Tutoriales</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.php">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin/login.php">Admin</a></li>
                 </ul>
             </div>
         </div>

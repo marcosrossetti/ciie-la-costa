@@ -18,5 +18,6 @@
 
 		return $mysqli;
 	}
+	$con = conectame();
 
 ?>

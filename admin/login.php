@@ -19,8 +19,7 @@
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://pbs.twimg.com/profile_images/1205171381782142977/-A60h9o0_400x400.jpg"
-          class="img-fluid" alt="Sample image">
+        <img src="img/logolacosta.webp" class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <!--form -->

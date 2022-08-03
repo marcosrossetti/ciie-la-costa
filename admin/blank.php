@@ -1,3 +1,9 @@
+<?php
+//seguridad de redireccionamiento
+session_start();
+include('modulos/segUrl.php');
+destroyAdmin();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
