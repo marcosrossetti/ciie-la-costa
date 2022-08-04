@@ -58,13 +58,14 @@
         <!-- CIERRE ENCABEZADO -->
 
         <?php
-                    include('connection.php');
-                    $sql = "SELECT * FROM `cursos` WHERE 1";
-                    $sqlEX = mysqli_query($con, $sql);
-                    if($sqlEX){
-                        $row = mysqli_fetch_array($sqlEX);
-                    }
-                        ?>
+            include('connection.php');
+            $sql = "SELECT * FROM `cursos` WHERE 1";
+            $sqlEX = mysqli_query($con, $sql);
+
+            if($sqlEX) {
+                $row = mysqli_fetch_array($sqlEX);
+            }
+        ?>
 
         <!-- CONTENIDO -->
 

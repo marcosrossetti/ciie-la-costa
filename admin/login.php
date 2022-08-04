@@ -10,41 +10,36 @@
 
     <!--css rel -->
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
     <title>Login!</title>
   </head>
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navLogin">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">CIIE La Costa</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="noticias.php">Noticias</a></li>
-                    <li class="nav-item"><a class="nav-link" href="biblioteca.php">Biblioteca Digital</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tutoriales.php">Tutoriales</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.php">Contacto</a></li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navLogin">
+      <div class="container">
+        <a class="navbar-brand" href="../index.php">CIIE La Costa</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="../index.php">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="../noticias.php">Noticias</a></li>
+            <li class="nav-item"><a class="nav-link" href="../biblioteca.php">Biblioteca Digital</a></li>
+            <li class="nav-item"><a class="nav-link" href="../tutoriales.php">Tutoriales</a></li>
+            <li class="nav-item"><a class="nav-link" href="../contacto.php">Contacto</a></li>
+          </ul>
         </div>
+      </div>
     </nav>
 
 <!--section -->
   <section class="vh-100">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
-
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="img/logolacosta.webp" class="img-fluid" alt="Sample image">
-      </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
       <div class="col-md-8 col-lg-6 col-xl-4">
-
         <!--form -->
         <form action="modulos/logMod.php" method="post">
           <!-- <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
@@ -65,8 +60,6 @@
           <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0">ADMINISTRADOR</p>
           </div>
-
-          <br>
 
           <!-- Email input -->
           <div class="form-outline mb-4">

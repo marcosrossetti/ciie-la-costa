@@ -28,12 +28,6 @@
                 var currentTop = $(window).scrollTop();
                 //check if user is scrolling up
 
-                if(currentTop <= 5) {
-                    $('#mainNav').addClass('margen');
-                } else {
-                    $('#mainNav').removeClass('margen');
-                }
-
                 if (currentTop < this.previousTop) {
                     //if scrolling up...
                     if (currentTop > 0 && $('#mainNav').hasClass('is-fixed')) {

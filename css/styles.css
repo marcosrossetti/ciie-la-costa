@@ -430,8 +430,6 @@ header.masthead .post-heading .meta a {
 }
 
 #navLogin {
-  position: absolute;
-  border-bottom: 1px solid #e9ecef;
   background-color: white;
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
