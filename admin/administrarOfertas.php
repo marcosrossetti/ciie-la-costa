@@ -86,7 +86,7 @@ destroyAdmin();
                                             echo "<tr>";
                                             echo '<td>' .$row['nombre'] . '</td>';
                                             echo '<td>' .$row['area'] . '</td>';
-                                            echo '<td>' .'<a href="cambiarFormador?id='.$row['id_curso'].'.php">' .$row['formador'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href="cambiarFormador.php?id='.$row['id_curso'].'">' .$row['formador'] .'</a>' . '</td>';
                                             echo '<td>' .'<a href="cambiarDia.php?id='.$row['id_curso'].'">' .$row['dia'] .'</a>' . '</td>';
                                             echo '<td>' .'<a href="cambiarHorario.php?id='.$row['id_curso'].'">' .$row['horario'] .'</a>' . '</td>';
                                             echo '<td>' .'<a href='. $row['url'] .'>Ver</a>' . '</td>';
