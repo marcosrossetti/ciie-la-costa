@@ -36,7 +36,7 @@
     </nav>
 
 <!--section -->
-  <section class="vh-100">
+  <section class="vh-100 bg-light">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-8 col-lg-6 col-xl-4">
@@ -95,11 +95,8 @@
       </div>
     </div>
   </div>
-  <div class="d-flex flex-column flex-row text-center justify-content-between py-4 bg-primary">
-    <!-- Copyright -->
-      <b class="text-white">CIIE Pdo. La Costa, todos los derechos reservados 2022</b>
-    <!-- Copyright -->
-  </div>
+  <!-- Footer -->
+  <?php include('modulos/footer.php'); ?>
 </section>
 
 
