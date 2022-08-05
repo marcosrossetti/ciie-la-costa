@@ -64,13 +64,13 @@
           <!-- Email input -->
           <div class="form-outline mb-4">
             <label class="form-label" for="form3Example3">Email</label>
-            <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Ingrese un email valido" name="email" />
+            <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Ingrese un email valido" name="email" required>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
             <label class="form-label" for="form3Example4">Contraseña</label>
-            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Ingrese su contraseña" name="password" />
+            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Ingrese su contraseña" name="password" required>
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
