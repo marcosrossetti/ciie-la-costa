@@ -34,7 +34,6 @@
 
 <?php 
 include("../../connection.php");
-$con = conectame();
 session_start();
 
 
@@ -44,15 +43,14 @@ if (isset($submitBtn)) {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
   //consultamos sus datos en nuestra bd
-    	$query = "SELECT * FROM `user` WHERE `email` = '$email'";
-    	$result = mysqli_query($con, $query);
+    	$query = "SELECT * FROM `users` WHERE `email` = '$email'";
+    	$result = mysqli_query($connection, $query);
     	$row = mysqli_fetch_assoc($result);
-
-      //!!!!Falta encriptar la contraseña del administrador¡¡¡¡
 
     	if($email == $row['email']){
     		//si coinciden iniciamos la sesion y redirigimos
     		if($password == $row['password']){
+                $_SESSION['dni'] = $row['dni'];
                 $_SESSION['email'] = $row['email'];
                 header("location: ../index.php");
     		}

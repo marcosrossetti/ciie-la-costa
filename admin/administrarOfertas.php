@@ -78,7 +78,7 @@ destroyAdmin();
                                        include('../connection.php');
 
                                        $sql = "SELECT * FROM `cursos` WHERE 1";
-                                       $sqlEX = mysqli_query($con, $sql);
+                                       $sqlEX = mysqli_query($connection, $sql);
                                        if($sqlEX){
                                         $row = mysqli_fetch_array($sqlEX);
 
@@ -86,12 +86,12 @@ destroyAdmin();
                                             echo "<tr>";
                                             echo '<td>' .$row['nombre'] . '</td>';
                                             echo '<td>' .$row['area'] . '</td>';
-                                            echo '<td>' .'<a href="cambiarFormador.php?id='.$row['id_curso'].'">' .$row['formador'] .'</a>' . '</td>';
-                                            echo '<td>' .'<a href="cambiarDia.php?id='.$row['id_curso'].'">' .$row['dia'] .'</a>' . '</td>';
-                                            echo '<td>' .'<a href="cambiarHorario.php?id='.$row['id_curso'].'">' .$row['horario'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href="modulos/cambiarFormador.php?id='.$row['id_curso'].'">' .$row['formador'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href="modulos/cambiarDia.php?id='.$row['id_curso'].'">' .$row['dia'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href="modulos/cambiarHorario.php?id='.$row['id_curso'].'">' .$row['horario'] .'</a>' . '</td>';
                                             echo '<td>' .'<a href='. $row['url'] .'>Ver</a>' . '</td>';
                                             echo '<td>' .$row['descripcion'] . '</td>';
-                                            echo '<td>' . '<button>Deshabilitar curso</button>' . '</td>';
+                                            echo '<td>' . '<button name="submit"><a href="modulos/deshabilitarCurso.php?id='.$row['id_curso'].'">Deshabilitar curso</a></button>' . '</td>';
 
                                             echo "</tr>";
                                         }
@@ -111,7 +111,13 @@ destroyAdmin();
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php include('modulos/footer.php'); ?>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
             <!-- End of Footer -->
 
         </div>

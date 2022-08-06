@@ -2,6 +2,7 @@
 //seguridad de redireccionamiento
 session_start();
 include('modulos/segUrl.php');
+include('modulos/funciones.php');
 destroyAdmin();
 ?>
 
@@ -56,24 +57,52 @@ destroyAdmin();
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <!-- Formulario -->
-                            <form action="" method="POST">
+                            <form action="#" method="POST">
 
                                 <div class="form-group">
-                                    <label>Titulo</label>
-                                    <input type="text" class="form-control" required>
+                                    <label>Nombre</label>
+                                    <input type="text" name="nombre" class="form-control" required>
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Area</label>
+                                    <input type="text" name="area" class="form-control" rows="3" required></input>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Formador</label>
+                                    <input type="text" name="formador" class="form-control" rows="3" required></input>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Dia</label>
+                                    <select name="dia">
+                                        <option value="LUNES">LUNES</option>
+                                        <option value="MARTES">MARTES</option>
+                                        <option value="MIERCOLES">MIERCOLES</option>
+                                        <option value="JUEVES">JUEVES</option>
+                                        <option value="VIERNES">VIERNES</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Horario</label>
+                                    <input type="time" name="horario" class="form-control" rows="3" required></input>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Enlace del Curso</label>
+                                    <input type="text" name="url" class="form-control" rows="3" required></input>
+                                </div>
+                                
 
                                 <div class="form-group">
                                     <label>Descripción</label>
-                                    <textarea class="form-control" rows="3" required></textarea>
+                                    <textarea name="descripcion" class="form-control" rows="3" required></textarea>
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Imagen</label>
-                                    <input type="file" class="form-control-file">
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                <button type="submit" name="submitA" onclick="<?php agregarCurso();?>" class="btn btn-primary">Enviar</button>
                             </form>
                         </div>
                     </div>
@@ -85,7 +114,13 @@ destroyAdmin();
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php include('modulos/footer.php'); ?>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
             <!-- End of Footer -->
 
         </div>
