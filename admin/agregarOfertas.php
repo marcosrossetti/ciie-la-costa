@@ -2,7 +2,6 @@
 //seguridad de redireccionamiento
 session_start();
 include('modulos/segUrl.php');
-include('modulos/funciones.php');
 destroyAdmin();
 ?>
 
@@ -57,26 +56,25 @@ destroyAdmin();
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <!-- Formulario -->
-                            <form action="#" method="POST">
-
-                                <div class="form-group">
+                            <form id="agregar">
+                            <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" name="nombre" class="form-control" required>
+                                    <input type="text" name="nombre" id="nombre" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Area</label>
-                                    <input type="text" name="area" class="form-control" rows="3" required></input>
+                                    <input type="text" name="area" id="area" class="form-control" rows="3" required></input>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Formador</label>
-                                    <input type="text" name="formador" class="form-control" rows="3" required></input>
+                                    <input type="text" name="formador" id="formador" class="form-control" rows="3" required></input>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Dia</label>
-                                    <select name="dia">
+                                    <select name="dia" id="dia">
                                         <option value="LUNES">LUNES</option>
                                         <option value="MARTES">MARTES</option>
                                         <option value="MIERCOLES">MIERCOLES</option>
@@ -88,21 +86,32 @@ destroyAdmin();
 
                                 <div class="form-group">
                                     <label>Horario</label>
-                                    <input type="time" name="horario" class="form-control" rows="3" required></input>
+                                    <input type="time" name="horario" id="horario" class="form-control" rows="3" required></input>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Enlace del Curso</label>
-                                    <input type="text" name="url" class="form-control" rows="3" required></input>
+                                    <input type="text" name="url" id="url" class="form-control" rows="3" required></input>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Nivel</label>
+                                    <input type="text" name="nivel" id="nivel" class="form-control" rows="3" required></input>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Mes Cursada</label>
+                                    <input type="text" name="mes_cursada" id="mes_cursada" class="form-control" rows="3" required></input>
                                 </div>
                                 
 
                                 <div class="form-group">
                                     <label>Descripción</label>
-                                    <textarea name="descripcion" class="form-control" rows="3" required></textarea>
+                                    <textarea name="descripcion" id="descripcion" class="form-control" rows="3" required></textarea>
                                 </div>
 
-                                <button type="submit" name="submitA" onclick="<?php agregarCurso();?>" class="btn btn-primary">Enviar</button>
+                                <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Enviar</button>
+
                             </form>
                         </div>
                     </div>
@@ -163,7 +172,7 @@ destroyAdmin();
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
+<script src="modulos/funciones.js"></script>
 </body>
 
 </html>

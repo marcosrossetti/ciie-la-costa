@@ -69,6 +69,8 @@ destroyAdmin();
                                             <th>Horario</th>
                                             <th>Enlace</th>
                                             <th>Descripcion</th>
+                                            <th>Nivel</th>
+                                            <th>Mes de la cursada</th>
                                             <th>Mantenimiento</th>
                                         </tr>
                                     </thead>
@@ -91,6 +93,8 @@ destroyAdmin();
                                             echo '<td>' .'<a href="modulos/cambiarHorario.php?id='.$row['id_curso'].'">' .$row['horario'] .'</a>' . '</td>';
                                             echo '<td>' .'<a href='. $row['url'] .'>Ver</a>' . '</td>';
                                             echo '<td>' .$row['descripcion'] . '</td>';
+                                            echo '<td>' .$row['nivel'] . '</td>';
+                                            echo '<td>' .$row['mes_cursada'] . '</td>';
                                             echo '<td>' . '<button name="submit"><a href="modulos/deshabilitarCurso.php?id='.$row['id_curso'].'">Deshabilitar curso</a></button>' . '</td>';
 
                                             echo "</tr>";

@@ -51,17 +51,6 @@ function deshabilitarCurso(){
     }
 }
 
-function agregarCurso(){
-    include('../../connection.php'); 
-    $nombre = $_POST['nombre'];
-    $area = $_POST['area'];
-    $formador = $_POST['formador'];
-    $dia = $_POST['dia'];
-    $horario = $_POST['horario'];
-    $url = $_POST['url'];
-    $descripcion = $_POST['descripcion'];
-    $sql = "INSERT INTO `cursos`(`nombre`, `area`, `formador`, `dia`, `horario`, `url`, `descripcion`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]','[value-8]')";
-}
 
 
 ?>
