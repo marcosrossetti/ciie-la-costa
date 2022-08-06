@@ -60,7 +60,7 @@
         <?php
             include('connection.php');
             $sql = "SELECT * FROM `cursos` WHERE 1";
-            $sqlEX = mysqli_query($con, $sql);
+            $sqlEX = mysqli_query($connection, $sql);
 
             if($sqlEX) {
                 $row = mysqli_fetch_array($sqlEX);
