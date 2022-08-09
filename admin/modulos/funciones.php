@@ -51,6 +51,19 @@ function deshabilitarCurso(){
     }
 }
 
+function editarMes(){
+    include('../../connection.php');
+    $submitBtn = $_POST['submitM'];
+        if(isset($submitBtn)){
+    $id = $_GET['id'];
+    $mes_cursada = $_POST['nuevoM'];
+    $sql = "UPDATE `cursos` SET `mes_cursada` = '$mes_cursada' WHERE `id_curso` = '$id'";
+    $sqlEX = mysqli_query($connection, $sql);
+    if($sqlEX){
+        header('location:../administrarOfertas.php');
+    }
+}
+}
 
 
 ?>

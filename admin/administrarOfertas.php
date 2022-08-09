@@ -94,7 +94,7 @@ destroyAdmin();
                                             echo '<td>' .'<a href='. $row['url'] .'>Ver</a>' . '</td>';
                                             echo '<td>' .$row['descripcion'] . '</td>';
                                             echo '<td>' .$row['nivel'] . '</td>';
-                                            echo '<td>' .$row['mes_cursada'] . '</td>';
+                                            echo '<td>' . '<a href="modulos/cambiarMes.php?id='.$row['id_curso'].'">' .$row['mes_cursada'] . '</a>' . '</td>';
                                             echo '<td>' . '<button name="submit"><a href="modulos/deshabilitarCurso.php?id='.$row['id_curso'].'">Deshabilitar curso</a></button>' . '</td>';
 
                                             echo "</tr>";

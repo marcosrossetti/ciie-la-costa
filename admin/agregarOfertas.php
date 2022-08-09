@@ -58,7 +58,7 @@ destroyAdmin();
                             <!-- Formulario -->
                             <form id="agregar">
                             <div class="form-group">
-                                    <label>Nombre</label>
+                                    <label>Nombre Curso</label>
                                     <input type="text" name="nombre" id="nombre" class="form-control" required>
                                 </div>
 
