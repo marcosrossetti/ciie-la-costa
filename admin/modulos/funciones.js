@@ -1,6 +1,6 @@
 $(document).ready(function() {
     console.log("jQuery is working");
-//Add a single Task
+//Agregar Curso
 $('#agregar').submit(e => {
 
     
