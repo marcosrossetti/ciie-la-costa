@@ -1,3 +1,4 @@
+
 <?php
 //seguridad de redireccionamiento
 session_start();
@@ -53,19 +54,20 @@ destroyAdmin();
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Administrar ofertas</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Administrar cursos</h1>
                     
                     <div class="card shadow mb-4">
                         <div class="card-body">
                         <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                        <tr>
-                                            <th>Titulo de la oferta</th>
-                                            <th>Nivel</th>
-                                            <th>Fecha</th>
-                                            <th>Descripcion</th>
-                                            <th>Estado</th>
+                                    <tr>
+                                            <th>Nombre del curso</th>
+                                            <th>Area</th>
+                                            <th>Formador</th>
+                                            <th>Dia</th>
+                                            <th>Horario</th>
+                                            <th>Enlace</th>
                                             <th>Mantenimiento</th>
                                         </tr>
                                     </thead>
@@ -74,19 +76,20 @@ destroyAdmin();
                                        <?php
                                        include('../connection.php');
 
-                                       $sql = "SELECT * FROM `ofertas` WHERE 1";
+                                       $sql = "SELECT * FROM `cursos` WHERE 1";
                                        $sqlEX = mysqli_query($connection, $sql);
                                        if($sqlEX){
                                         $row = mysqli_fetch_array($sqlEX);
 
                                         foreach($sqlEX as $row){
                                             echo "<tr>";
-                                            echo '<td>' .$row['titulo'] . '</td>';
-                                            echo '<td>' .$row['nivel'] . '</td>';
-                                            echo '<td>' .$row['fecha'] . '</td>';
-                                            echo '<td>' .$row['descripcion'] . '</td>';
-                                            echo '<td>' .$row['estado'] . '</td>';
-                                            echo '<td>' . '<button name="submit">Deshabilitar oferta</button>' . '</td>';
+                                            echo '<td>' .$row['nombre'] . '</td>';
+                                            echo '<td>' .$row['area'] . '</td>';
+                                            echo '<td>' .'<a href="modulos/cambiarFormador.php?id='.$row['id_curso'].'">' .$row['formador'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href="modulos/cambiarDia.php?id='.$row['id_curso'].'">' .$row['dia'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href="modulos/cambiarHorario.php?id='.$row['id_curso'].'">' .$row['horario'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href='. $row['url'] .'>Ver</a>' . '</td>';
+                                            echo '<td>' . '<button name="submit"><a href="modulos/deshabilitarCurso.php?id='.$row['id_curso'].'">Deshabilitar curso</a></button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }

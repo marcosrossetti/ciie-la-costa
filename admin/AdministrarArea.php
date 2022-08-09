@@ -53,18 +53,15 @@ destroyAdmin();
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Administrar ofertas</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Administrar formadores</h1>
                     
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                        <div class="table-responsive">
+                            <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Titulo de la oferta</th>
-                                            <th>Nivel</th>
-                                            <th>Fecha</th>
-                                            <th>Descripcion</th>
+                                            <th>Nombre</th>
                                             <th>Estado</th>
                                             <th>Mantenimiento</th>
                                         </tr>
@@ -74,19 +71,16 @@ destroyAdmin();
                                        <?php
                                        include('../connection.php');
 
-                                       $sql = "SELECT * FROM `ofertas` WHERE 1";
+                                       $sql = "SELECT * FROM `formador` WHERE 1";
                                        $sqlEX = mysqli_query($connection, $sql);
                                        if($sqlEX){
                                         $row = mysqli_fetch_array($sqlEX);
 
                                         foreach($sqlEX as $row){
                                             echo "<tr>";
-                                            echo '<td>' .$row['titulo'] . '</td>';
-                                            echo '<td>' .$row['nivel'] . '</td>';
-                                            echo '<td>' .$row['fecha'] . '</td>';
-                                            echo '<td>' .$row['descripcion'] . '</td>';
+                                            echo '<td>' .$row['nombre'] . '</td>';
                                             echo '<td>' .$row['estado'] . '</td>';
-                                            echo '<td>' . '<button name="submit">Deshabilitar oferta</button>' . '</td>';
+                                            echo '<td>' . '<button name="submit">Deshabilitar formador</button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }

@@ -20,16 +20,16 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Añadir  y modificar contenido
+                Administrar ofertas y cursos
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOfertas"
                     aria-expanded="true" aria-controls="collapseOne">
                     <span>Ofertas</span>
                 </a>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseOfertas" class="collapse" aria-labelledby="headingOfertas" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="agregarOfertas.php">Agregar</a>
                         <a class="collapse-item" href="administrarOfertas.php">Administrar</a>
@@ -37,13 +37,59 @@
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCursos"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <span>Cursos</span>
+                </a>
+                <div id="collapseCursos" class="collapse" aria-labelledby="headingCursos" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="agregarCursos.php">Agregar</a>
+                        <a class="collapse-item" href="administrarCursos.php">Administrar</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFormadores"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <span>Formadores</span>
+                </a>
+                <div id="collapseFormadores" class="collapse" aria-labelledby="headingFormadores" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="agregarFormador.php">Agregar</a>
+                        <a class="collapse-item" href="administrarFormador.php">Administrar</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAreas"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <span>Areas</span>
+                </a>
+                <div id="collapseAreas" class="collapse" aria-labelledby="headingAreas" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="agregarArea.php">Agregar</a>
+                        <a class="collapse-item" href="administrarArea.php">Administrar</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Administrar tutoriales y redes
+            </div>
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTutoriales"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>Tutoriales</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTutoriales" class="collapse" aria-labelledby="headingTutoriales" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="agregarTutoriales.php">Agregar</a>
                         <a class="collapse-item" href="administrarTutoriales.php">Administrar</a>
@@ -53,17 +99,24 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRedes"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <span>Contacto y redes</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapseRedes" class="collapse" aria-labelledby="headingRedes"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="utilities-color.html">Administrar</a>
                     </div>
                 </div>
             </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Cerrar sesión
+            </div>
 
             <li class="nav-item">
                 <a class="nav-link" href="index.php">

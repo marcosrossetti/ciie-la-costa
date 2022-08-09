@@ -51,34 +51,48 @@ destroyAdmin();
 
                     <!-- Page Heading -->
 
-                    <h1 class="h3 mb-4 text-gray-800">Agregar ofertas</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Agregar cursos</h1>
 
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <!-- Formulario -->
                             <form id="agregar">
+
                                 <div class="form-group">
-                                    <label>Titulo de la oferta</label>
-                                    <input type="text" name="tituloOferta" id="tituloOferta" class="form-control" required>
+                                    <label>Area</label>
+                                    <input type="text" name="area" id="area" class="form-control" rows="3" required></input>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Nivel</label>
-                                        <select name="nivel" id="nivel" class="form-control">
-                                            <option value="inicial">Inicial</option>
-                                            <option value="primario">Primario</option>
-                                            <option value="secundario">Secundario</option>
-                                        </select>
+                                    <label>Nombre del curso</label>
+                                    <input type="text" name="nombre" id="nombre" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Fecha</label>
-                                    <input type="text" name="fecha" id="fecha" class="form-control" rows="3" required></input>
+                                    <label>Formador</label>
+                                    <input type="text" name="formador" id="formador" class="form-control" rows="3" required></input>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Descripcion</label>
-                                    <input type="text" name="descripcion" id="descripcion" class="form-control" rows="3" required></input>
+                                    <label>Dia</label>
+                                    <select name="dia" id="dia" class="form-control">
+                                        <option value="lunes">Lunes</option>
+                                        <option value="martes">Martes</option>
+                                        <option value="miercoles">Miercoles</option>
+                                        <option value="jueves">Jueves</option>
+                                        <option value="viernes">Viernes</option>
+                                        <option value="sabado">Sabado</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Horario</label>
+                                    <input type="time" name="horario" id="horario" class="form-control" rows="3" required></input>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Enlace del Curso</label>
+                                    <input type="text" name="url" id="url" class="form-control" rows="3" required></input>
                                 </div>                    
 
                                 <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>

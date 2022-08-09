@@ -51,35 +51,31 @@ destroyAdmin();
 
                     <!-- Page Heading -->
 
-                    <h1 class="h3 mb-4 text-gray-800">Agregar ofertas</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Agregar formador</h1>
 
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <!-- Formulario -->
                             <form id="agregar">
                                 <div class="form-group">
-                                    <label>Titulo de la oferta</label>
-                                    <input type="text" name="tituloOferta" id="tituloOferta" class="form-control" required>
+                                    <label>Nombre completo</label>
+                                    <input type="text" name="nombreCompleto" id="nombreCompleto" class="form-control" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Nivel</label>
-                                        <select name="nivel" id="nivel" class="form-control">
-                                            <option value="inicial">Inicial</option>
-                                            <option value="primario">Primario</option>
-                                            <option value="secundario">Secundario</option>
-                                        </select>
+                                    <label>DNI</label>
+                                    <input type="text" name="dni" id="dni" class="form-control" rows="3" required></input>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Fecha</label>
-                                    <input type="text" name="fecha" id="fecha" class="form-control" rows="3" required></input>
-                                </div>
-
+                                    <label>Email</label>
+                                    <input type="text" name="email" id="email" class="form-control" rows="3" required></input>
+                                </div>         
+                                
                                 <div class="form-group">
-                                    <label>Descripcion</label>
-                                    <input type="text" name="descripcion" id="descripcion" class="form-control" rows="3" required></input>
-                                </div>                    
+                                    <label>Telefono</label>
+                                    <input type="text" name="telefono" id="telefono" class="form-control" rows="3" required></input>
+                                </div>    
 
                                 <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
 
