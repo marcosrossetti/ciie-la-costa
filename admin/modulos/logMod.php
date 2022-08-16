@@ -43,7 +43,7 @@ if (isset($submitBtn)) {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
   //consultamos sus datos en nuestra bd
-    	$query = "SELECT * FROM `users` WHERE `email` = '$email'";
+    	$query = "SELECT * FROM `user` WHERE `email` = '$email'";
     	$result = mysqli_query($connection, $query);
     	$row = mysqli_fetch_assoc($result);
 

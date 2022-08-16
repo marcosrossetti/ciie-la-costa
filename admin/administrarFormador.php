@@ -54,6 +54,44 @@ destroyAdmin();
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-4 text-gray-800">Administrar formadores</h1>
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Agregar formador
+                                </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+
+                                    <form id="agregar">
+                                        <div class="form-group">
+                                            <label>Nombre completo</label>
+                                            <input type="text" name="nombreCompleto" id="nombreCompleto" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>DNI</label>
+                                            <input type="text" name="dni" id="dni" class="form-control" rows="3" required></input>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="text" name="email" id="email" class="form-control" rows="3" required></input>
+                                        </div>         
+                                        <div class="form-group">
+                                            <label>Telefono</label>
+                                            <input type="text" name="telefono" id="telefono" class="form-control" rows="3" required></input>
+                                        </div>    
+                                        <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="card shadow mb-4">
                         <div class="card-body">

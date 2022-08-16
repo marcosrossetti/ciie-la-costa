@@ -54,7 +54,61 @@ destroyAdmin();
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
+                    
                     <h1 class="h3 mb-4 text-gray-800">Administrar cursos</h1>
+
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Agregar cursos
+                                </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+
+                                    <form id="agregar">
+                                        <div class="form-group">
+                                            <label>Area</label>
+                                            <input type="text" name="area" id="area" class="form-control" rows="3" required></input>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nombre del curso</label>
+                                            <input type="text" name="nombre" id="nombre" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Formador</label>
+                                            <input type="text" name="formador" id="formador" class="form-control" rows="3" required></input>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Dia</label>
+                                            <select name="dia" id="dia" class="form-control">
+                                                <option value="lunes">Lunes</option>
+                                                <option value="martes">Martes</option>
+                                                <option value="miercoles">Miercoles</option>
+                                                <option value="jueves">Jueves</option>
+                                                <option value="viernes">Viernes</option>
+                                                <option value="sabado">Sabado</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Horario</label>
+                                            <input type="time" name="horario" id="horario" class="form-control" rows="3" required></input>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Enlace del Curso</label>
+                                            <input type="text" name="url" id="url" class="form-control" rows="3" required></input>
+                                        </div>                    
+                                        <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="card shadow mb-4">
                         <div class="card-body">
