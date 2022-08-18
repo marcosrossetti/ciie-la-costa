@@ -57,11 +57,11 @@ destroyAdmin();
 
                     <div class="accordion" id="accordionExample">
                         <div class="card">
-                            <div class="card-header" id="headingOne">
+                            <div class="card-header p-0" id="headingOne">
                                 <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Agregar ofertas
-                                </button>
+                                    <button class="btn btn-primary btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Agregar ofertas
+                                    </button>
                                 </h2>
                             </div>
 

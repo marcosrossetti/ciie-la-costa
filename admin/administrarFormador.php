@@ -6,7 +6,7 @@ destroyAdmin();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -57,9 +57,9 @@ destroyAdmin();
 
                     <div class="accordion" id="accordionExample">
                         <div class="card">
-                            <div class="card-header" id="headingOne">
+                            <div class="card-header p-0" id="headingOne">
                                 <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn btn-primary btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Agregar formador
                                 </button>
                                 </h2>
@@ -121,10 +121,10 @@ destroyAdmin();
                                             echo "<tr>";
                                             echo '<td>' .$row['nombre'] . '</td>';
                                             echo '<td>' .$row['dni'] . '</td>';
-                                            echo '<td>' .$row['email'] . '</td>';
-                                            echo '<td>' .$row['telefono'] . '</td>';
+                                            echo '<td>' .$row['mail'] . '</td>';
+                                            echo '<td>' .$row['tel'] . '</td>';
                                             echo '<td>' .$row['estado'] . '</td>';
-                                            echo '<td>' . '<button name="submit">Deshabilitar formador</button>' . '</td>';
+                                            echo '<td>' . '<button name="submit" class="btn btn-sm btn-primary">Deshabilitar formador</button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }
@@ -170,7 +170,15 @@ destroyAdmin();
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+            });
+        });
+    </script>
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 

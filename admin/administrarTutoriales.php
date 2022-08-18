@@ -1,5 +1,11 @@
+<?php
+//seguridad de redireccionamiento
+session_start();
+include('modulos/segUrl.php');
+destroyAdmin();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -50,9 +56,9 @@
 
                     <div class="accordion" id="accordionExample">
                         <div class="card">
-                            <div class="card-header" id="headingOne">
+                            <div class="card-header p-0" id="headingOne">
                                 <h2 class="mb-0">
-                                <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <button class="btn btn-primary btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Agregar tutoriales
                                 </button>
                                 </h2>
@@ -61,7 +67,6 @@
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body">
 
-                                    <form id="agregar">
                                         <div class="form-group">
                                             <label>Titulo</label>
                                             <input type="text" name="titulo" id="titulo" class="form-control" required>
@@ -74,8 +79,7 @@
                                             <label>Url</label>
                                             <input type="text" name="url" id="url" class="form-control" rows="3" required></input>
                                         </div>           
-                                        <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
-                                    </form>
+                                        <button id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
 
                                 </div>
                             </div>
@@ -94,6 +98,29 @@
                                             <th>Mantenimiento</th>
                                         </tr>
                                     </thead>
+                                    <tbody>
+                                        <?php
+                                            include('../connection.php');
+
+                                            $query = "SELECT * FROM `tutoriales` WHERE 1";
+                                            $result = mysqli_query($connection, $query);
+                                            if($result) {
+                                            $row = mysqli_fetch_array($result);
+
+                                                foreach($result as $row) {
+                                                    echo 
+                                                    "
+                                                        <tr>
+                                                            <td>".$row['titulo']."</td>
+                                                            <td>".$row['des']."</td>
+                                                            <td><a href='".$row['url']."' target='_blank'>".$row['url']."</a></td>
+                                                            <td><button class='btn btn-sm btn-primary'>Deshabilitar tutorial</button></td>
+                                                        </tr>
+                                                     ";
+                                                }
+                                            }
+                                        ?> 
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -136,6 +163,33 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+
+    <!-- Script -->
+    <script type="text/javascript">
+
+        $("#submitA").click(function() {
+            agregar();
+        });
+
+        function agregar() {
+            let datos = {
+                titulo: $("#titulo").val(),
+                desc: $("#descripcion").val(),
+                url: $("#url").val(),
+                tipo: "tutorial"
+            }
+            let tablaDatos = "";
+
+            $.post("modulos/agregarConsultas.php", {titulo:datos.titulo, desc:datos.desc, url:datos.url, tipo:datos.tipo}, function(data) {
+                if(data == '1') {
+                    //console.log(data + " funciona");
+                    location.reload(); // :)
+                } else {
+                    console.log(data + " no funciona");
+                }
+            });
+        }
+    </script>
 
 </body>
 
