@@ -1,5 +1,5 @@
 <?php
-include('../../connection.php');
+include('../../../connection.php');
 include('funciones.php');
  $id = $_GET['id'];
 $sql = "SELECT * FROM `cursos` WHERE `id_curso`='$id'";
@@ -72,4 +72,3 @@ if($sqlEX){
     <script src="funciones.js"></script>
 </body>
 </html>
-

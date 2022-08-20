@@ -139,11 +139,11 @@ destroyAdmin();
                                             echo "<tr>";
                                             echo '<td>' .$row['nombre'] . '</td>';
                                             echo '<td>' .$row['area'] . '</td>';
-                                            echo '<td>' .'<a href="modulos/cambiarFormador.php?id='.$row['id_curso'].'">' .$row['formador'] .'</a>' . '</td>';
-                                            echo '<td>' .'<a href="modulos/cambiarDia.php?id='.$row['id_curso'].'">' .$row['dia'] .'</a>' . '</td>';
-                                            echo '<td>' .'<a href="modulos/cambiarHorario.php?id='.$row['id_curso'].'">' .$row['horario'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href="modulos/modCursos/cambiarFormador.php?id='.$row['id_curso'].'">' .$row['formador'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href="modulos/modCursos/cambiarDia.php?id='.$row['id_curso'].'">' .$row['dia'] .'</a>' . '</td>';
+                                            echo '<td>' .'<a href="modulos/modCursos/cambiarHorario.php?id='.$row['id_curso'].'">' .$row['horario'] .'</a>' . '</td>';
                                             echo '<td>' .'<a href='. $row['url'] .'>Ver</a>' . '</td>';
-                                            echo '<td>' . '<button name="submit"><a href="modulos/deshabilitarCurso.php?id='.$row['id_curso'].'">Deshabilitar curso</a></button>' . '</td>';
+                                            echo '<td>' . '<button name="submit"><a href="modulos/modCursos/deshabilitarCurso.php?id='.$row['id_curso'].'">Deshabilitar curso</a></button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }
@@ -192,6 +192,8 @@ destroyAdmin();
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+
+    <script src="funciones.js"></script>
 
 </body>
 
