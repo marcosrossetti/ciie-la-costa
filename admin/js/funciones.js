@@ -36,7 +36,7 @@ $('#agregar').submit(e => {
 
 
 
-
+//agregar una oferta
   $('#agregarOfe').submit(e => {
 
     
@@ -68,7 +68,42 @@ $('#agregar').submit(e => {
     });
   });
 
+
+//agregar Formador
+  $('#agregarFormador').submit(e => {
+
+    
+    const link = 'modulos/agregarConsultas.php';
+    e.preventDefault();
+    //creacion de objeto de almacenamiento de los inputs "postData"
+    const postData = {
+      //guardamos los input dentro de un objeto
+      nombreCompleto : $("#nombreCompleto").val(),
+      dni : $("#dni").val(),
+      email : $("#email").val(),
+      telefono : $("#telefono").val(),
+      tipo: "formador"
+    };
+    
+    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+    console.log(postData, link);
+    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+    //procesamiento de dichos datos)
+    $.post(link, postData, (response) => {
+
+        
+      
+        $('#agregarFormador').trigger('reset');
+        location.reload();
+        
+      
+    });
+  });
+
 });
+
+
+
 
 
 

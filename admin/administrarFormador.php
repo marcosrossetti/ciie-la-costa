@@ -68,22 +68,22 @@ destroyAdmin();
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body">
 
-                                    <form id="agregar">
+                                    <form id="agregarFormador">
                                         <div class="form-group">
                                             <label>Nombre completo</label>
                                             <input type="text" name="nombreCompleto" id="nombreCompleto" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label>DNI</label>
-                                            <input type="text" name="dni" id="dni" class="form-control" rows="3" required></input>
+                                            <input type="number" name="dni" id="dni" class="form-control" rows="3" required></input>
                                         </div>
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="text" name="email" id="email" class="form-control" rows="3" required></input>
+                                            <input type="email" name="email" id="email" class="form-control" rows="3" required></input>
                                         </div>         
                                         <div class="form-group">
                                             <label>Telefono</label>
-                                            <input type="text" name="telefono" id="telefono" class="form-control" rows="3" required></input>
+                                            <input type="number" name="telefono" id="telefono" class="form-control" rows="3" required></input>
                                         </div>    
                                         <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
                                     </form>
@@ -111,6 +111,7 @@ destroyAdmin();
                                     <tbody>
                                        <?php
                                        include('../connection.php');
+                                       include('modulos/modFor/deshabilitar.php');
 
                                        $sql = "SELECT * FROM `formador` WHERE 1";
                                        $sqlEX = mysqli_query($connection, $sql);
@@ -118,13 +119,14 @@ destroyAdmin();
                                         $row = mysqli_fetch_array($sqlEX);
 
                                         foreach($sqlEX as $row){
+                                            $id = $row['id'];
                                             echo "<tr>";
                                             echo '<td>' .$row['nombre'] . '</td>';
                                             echo '<td>' .$row['dni'] . '</td>';
                                             echo '<td>' .$row['mail'] . '</td>';
                                             echo '<td>' .$row['tel'] . '</td>';
                                             echo '<td>' .$row['estado'] . '</td>';
-                                            echo '<td>' . '<button name="submit" class="btn btn-sm btn-primary">Deshabilitar formador</button>' . '</td>';
+                                            echo '<td>' . '<button name="submit"><a href="modulos/modFor/deshabilitar.php?id='.$id.'">Deshabilitar formador</button>'. '</td>';
                                             echo "</tr>";
                                         }
                                        }
@@ -181,6 +183,8 @@ destroyAdmin();
     </script>
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+
+    <script src="js/funciones.js"></script>
 
 </body>
 

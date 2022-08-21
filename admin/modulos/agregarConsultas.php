@@ -18,7 +18,13 @@
             break;
 
         case 'formador':
-            # code...
+            $nombreCompleto = $_POST['nombreCompleto'];
+            $email = $_POST['email'];
+            $dni = $_POST['dni'];
+            $telefono = $_POST['telefono'];
+            $sql = "INSERT INTO `formador`(`mail`, `tel`, `nombre`, `dni`, `estado`) VALUES ('.$email.','.$telefono.','.$nombreCompleto.','$dni','0')";
+            $result = mysqli_query($connection, $sql);
+            echo "si";
             break;
         
         case 'area':
