@@ -129,10 +129,10 @@ destroyAdmin();
                                             echo "<tr>";
                                             echo '<td>' .$row['titulo'] . '</td>';
                                             echo '<td>' .$row['nivel'] . '</td>';
-                                            echo '<td>' .$row['fecha'] . '</td>';
+                                            echo '<td>' .'<button><a href="modulos/modOfe/editarFecha.php?id='.$id.'"> ' .$row['fecha'] . ' </a></button>' . '</td>';
                                             echo '<td>' .$row['descripcion'] . '</td>';
-                                            echo '<td>' .$row['estado'] . '</td>';
-                                            echo '<td>' . '<button name="submit"><a href="modulos/modOfe/deshabilitar.php?id=$id">Deshabilitar oferta</button>' . '</td>';
+                                            echo '<td>'.$row['estado'] .'</td>';
+                                            echo '<td>' . '<button name="submit"><a href="modulos/modOfe/deshabilitar.php?id='.$id.'">Deshabilitar oferta</button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }
