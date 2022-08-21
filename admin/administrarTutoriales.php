@@ -101,11 +101,13 @@ destroyAdmin();
                                     <tbody>
                                         <?php
                                             include('../connection.php');
+                                            error_reporting(0);
 
                                             $query = "SELECT * FROM `tutoriales` WHERE 1";
                                             $result = mysqli_query($connection, $query);
                                             if($result) {
                                             $row = mysqli_fetch_array($result);
+                                            $id = $row['id'];
 
                                                 foreach($result as $row) {
                                                     echo 
@@ -113,8 +115,8 @@ destroyAdmin();
                                                         <tr>
                                                             <td>".$row['titulo']."</td>
                                                             <td>".$row['des']."</td>
-                                                            <td><a href='".$row['url']."' target='_blank'>".$row['url']."</a></td>
-                                                            <td><button class='btn btn-sm btn-primary'>Deshabilitar tutorial</button></td>
+                                                            <td><a href='".$row['url']."' target='_blank'>Ver</a></td>
+                                                            <td><button class='btn btn-sm btn-primary'><a href='modulos/modTuto/deshabilitar.php?id=$id'>Deshabilitar tutorial</a></button></td>
                                                         </tr>
                                                      ";
                                                 }

@@ -120,6 +120,7 @@ destroyAdmin();
                                        $sqlEX = mysqli_query($connection, $sql);
                                        if($sqlEX){
                                         $row = mysqli_fetch_array($sqlEX);
+                                        $id = $row['id'];
 
                                         foreach($sqlEX as $row){
                                             echo "<tr>";
@@ -128,7 +129,7 @@ destroyAdmin();
                                             echo '<td>' .$row['fecha'] . '</td>';
                                             echo '<td>' .$row['descripcion'] . '</td>';
                                             echo '<td>' .$row['estado'] . '</td>';
-                                            echo '<td>' . '<button name="submit">Deshabilitar oferta</button>' . '</td>';
+                                            echo '<td>' . '<button name="submit"><a href="modulos/modTuto/deshabilitar.php">Deshabilitar oferta</button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }

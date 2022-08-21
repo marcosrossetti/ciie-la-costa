@@ -9,15 +9,12 @@ $('#agregar').submit(e => {
     //creacion de objeto de almacenamiento de los inputs "postData"
     const postData = {
       //guardamos los input dentro de un objeto
-        nombre : $('#nombre').val(),
         area : $('#area').val(),
+        nombre : $('#nombre').val(),
         formador : $('#formador').val(),
         dia : $('#dia').val(),
         horario : $('#horario').val(),
-        url : $('#url').val(),
-        descripcion : $('#descripcion').val(),
-        nivel : $('#nivel').val(),
-        mes_cursada : $('#mes_cursada').val()
+        url : $('#url').val()
     };
     
     //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
@@ -26,10 +23,13 @@ $('#agregar').submit(e => {
     //procesamiento de dichos datos)
     $.post(link, postData, (response) => {
 
-        alert(response);
+        result = JSON.parse(response);
+        if(result == "1"){
+      location.reload();}
       
 
         $('#agregar').trigger('reset');
+        
       
     });
   });

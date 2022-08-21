@@ -54,7 +54,7 @@ function deshabilitarCurso(){
 }
 
 function editarMes(){
-    include('../../connection.php');
+    include('../../../connection.php');
     $submitBtn = $_POST['submitM'];
         if(isset($submitBtn)){
     $id = $_GET['id'];
@@ -65,6 +65,19 @@ function editarMes(){
         header('location:../administrarOfertas.php');
     }
 }
+}
+
+
+//TUTORIALES
+
+function deshabilitarTuto(){
+    include('../../../connection.php');
+    $id = $_GET['id'];
+    $sql = "DELETE FROM `tutoriales` WHERE `id` = $id";
+    $sqlEX = mysqli_query($connection, $sql);
+    if($sqlEX){
+        header("location:../../administrarTutoriales.php");
+    }
 }
 
 

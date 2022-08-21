@@ -6,18 +6,33 @@ $formador = $_POST['formador'];
 $dia = $_POST['dia'];
 $horario = $_POST['horario'];
 $url = $_POST['url'];
-$descripcion = $_POST['descripcion'];
-$nivel = $_POST['nivel'];
-$mes_cursada = $_POST['mes_cursada'];
 
-$sql = "INSERT INTO `cursos`(`nombre`, `area`, `formador`, `dia`, `horario`, `url`, `descripcion`,`nivel`,`mes_cursada`) VALUES ('$nombre','$area','$formador','$dia','$horario','$url','$descripcion','$nivel', '$mes_cursada')";
+$queryID="
+SELECT * 
+FROM formador
+INNER JOIN cursos
+ON cursos.formador = formador.nombre
+WHERE cursos.formador = formador.nombre
+";
+
+$result = mysqli_query($connection, $queryID);
+
+if ($result) {
+    $fila = mysqli_fetch_array($result);
+    // $id_f = $fila['id'];
+    // echo $id_f;
+}
+
+$sql = "INSERT INTO `cursos`(`nombre`, `area`, `formador`, `dia`, `horario`, `link`) VALUES ('$nombre','$area','$formador','$dia','$horario','$url')";
 
 $sqlEX = mysqli_query($connection, $sql);
 
 if($sqlEX){
-    echo "Curso Guardado";
+    $json = "1";
+    $jsonStr = json_encode($json);
+    echo $jsonStr;
 }else{
-    echo "Error en la insercion de datos";
+    // echo "Error en la insercion de datos";
 }
 
 
