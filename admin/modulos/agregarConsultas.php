@@ -5,7 +5,12 @@
 
     switch ($tipo) {
         case 'oferta':
-            # code...
+            $titulo = $_POST['tituloOferta'];
+            $nivel = $_POST['nivel'];
+            $fecha = $_POST['fecha'];
+            $descripcion = $_POST['descripcion'];
+            $sql = "INSERT INTO `ofertas`(`fecha`, `titulo`, `nivel`,`descripcion`) VALUES ('$fecha','$titulo','$nivel','$descripcion')";
+            $result = mysqli_query($connection, $sql);
             break;
         
         case 'curso':

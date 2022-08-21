@@ -68,7 +68,7 @@ destroyAdmin();
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body">
 
-                                    <form id="agregar">
+                                    <form id="agregarOfe">
                                         <div class="form-group">
                                             <label>Titulo de la oferta</label>
                                             <input type="text" name="tituloOferta" id="tituloOferta" class="form-control" required>
@@ -83,7 +83,7 @@ destroyAdmin();
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha</label>
-                                            <input type="text" name="fecha" id="fecha" class="form-control" rows="3" required></input>
+                                            <input type="date" name="fecha" id="fecha" class="form-control" rows="3" required></input>
                                         </div>
                                         <div class="form-group">
                                             <label>Descripcion</label>
@@ -115,21 +115,24 @@ destroyAdmin();
                                     <tbody>
                                        <?php
                                        include('../connection.php');
+                                       error_reporting(0);
 
                                        $sql = "SELECT * FROM `ofertas` WHERE 1";
                                        $sqlEX = mysqli_query($connection, $sql);
                                        if($sqlEX){
                                         $row = mysqli_fetch_array($sqlEX);
-                                        $id = $row['id'];
+                                       
+                                        
 
                                         foreach($sqlEX as $row){
+                                            $id = $row['id_o'];
                                             echo "<tr>";
                                             echo '<td>' .$row['titulo'] . '</td>';
                                             echo '<td>' .$row['nivel'] . '</td>';
                                             echo '<td>' .$row['fecha'] . '</td>';
                                             echo '<td>' .$row['descripcion'] . '</td>';
                                             echo '<td>' .$row['estado'] . '</td>';
-                                            echo '<td>' . '<button name="submit"><a href="modulos/modTuto/deshabilitar.php">Deshabilitar oferta</button>' . '</td>';
+                                            echo '<td>' . '<button name="submit"><a href="modulos/modOfe/deshabilitar.php?id=$id">Deshabilitar oferta</button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }
@@ -178,6 +181,8 @@ destroyAdmin();
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+
+    <script src="modulos/funciones.js"></script>
 
 </body>
 
