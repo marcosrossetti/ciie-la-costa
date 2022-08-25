@@ -107,7 +107,6 @@ destroyAdmin();
                                             <th>Nivel</th>
                                             <th>Fecha</th>
                                             <th>Descripcion</th>
-                                            <th>Estado</th>
                                             <th>Mantenimiento</th>
                                         </tr>
                                     </thead>
@@ -125,13 +124,47 @@ destroyAdmin();
                                         
 
                                         foreach($sqlEX as $row){
+                                            $fecha = $row['fecha'];
                                             $id = $row['id_o'];
                                             echo "<tr>";
                                             echo '<td>' .$row['titulo'] . '</td>';
                                             echo '<td>' .$row['nivel'] . '</td>';
-                                            echo '<td>' .'<button><a href="modulos/modOfe/editarFecha.php?id='.$id.'"> ' .$row['fecha'] . ' </a></button>' . '</td>';
+                                            echo '<td>'
+                                            .'
+                                            <!-- Button trigger modal -->
+                                    <button  class="btn btn-primary formadorBtn" id="fechaBtn" onclick="" data-fecha="'.$fecha.'" data-id= "'.$id.'">
+                                    '.$fecha.'
+                                    </button> 
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Editar Fecha</h5>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                        <form id="fechaForm" action="" method="POST">
+                                        <input type="date" name="nuevaFecha" id="nuevaFecha">
+                                        </input>
+
+                                        <input type="hidden" id="idFecha" name="idFecha">
+                                        </input>
+                                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                                            <button type="submit" id="submitFecha" onclick="" class="btn btn-primary">Editar</button>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                                                                '.
+                                            '</td>';
                                             echo '<td>' .$row['descripcion'] . '</td>';
-                                            echo '<td>'.$row['estado'] .'</td>';
                                             echo '<td>' . '<button name="submit"><a href="modulos/modOfe/deshabilitar.php?id='.$id.'">Deshabilitar oferta</button>' . '</td>';
                                             echo "</tr>";
                                         }
@@ -149,6 +182,44 @@ destroyAdmin();
 
             </div>
             <!-- End of Main Content -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script>
+                //EDITAR FECHA
+                $(document).on('click', '#fechaBtn',function () {
+                let fecha = $(this).data('fecha');
+                let id = $(this).data('id');
+                console.log(id , fecha);
+                document.getElementById('idFecha').value = id;
+
+                $("#exampleModal").modal("show");
+
+                $('#fechaForm').submit(e => {
+                    e.preventDefault();
+                    //creacion de objeto de almacenamiento de los inputs "postData"
+                    const postData = {
+                    //guardamos los input dentro de un objeto
+                    nuevaFecha : $("#nuevaFecha").val(),
+                    id : $("#idFecha").val()
+                    };
+                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
+                    const url = "modulos/modOfe/editarFecha.php";
+                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+                    console.log(postData, url);
+                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+                    //procesamiento de dichos datos)
+                    $.post(url, postData, (response) => {
+
+                        const rta = JSON.parse(response);
+                    console.log(rta);
+                    if(rta == 1){
+                        window.location = "administrarOfertas.php";
+                    }
+                    
+                    });
+                });
+            });
+
+            </script>
 
             <!-- Footer -->
             <?php include('modulos/footer.php'); ?>

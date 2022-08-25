@@ -6,10 +6,10 @@ $query = "SELECT * FROM formador WHERE 1";
 $resultado = mysqli_query($connection, $query);
 $fila = mysqli_fetch_assoc($resultado);
 // echo '<script> alert("'.$fila['nombre'].'"); </script>'
-
-foreach ($resultado as $fila) {
+foreach($resultado as $fila){
     $nombre = $fila['nombre'];
-    echo '<option value="'.strtoupper($nombre).'"> '.strtoupper($nombre).'</option>';
 }
+
+
  
 ?>

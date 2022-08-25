@@ -103,7 +103,6 @@ destroyAdmin();
                                             <th>DNI</th>
                                             <th>Email</th>
                                             <th>Telefono</th>
-                                            <th>Estado</th>
                                             <th>Mantenimiento</th>
                                         </tr>
                                     </thead>
@@ -119,13 +118,18 @@ destroyAdmin();
                                         $row = mysqli_fetch_array($sqlEX);
 
                                         foreach($sqlEX as $row){
+                                            $nombre = $row['nombre'];
+                                            $dni = $row['dni'];
+                                            $mail = $row['mail'];
+                                            $tel = $row['tel'];
+
+
                                             $id = $row['id'];
                                             echo "<tr>";
-                                            echo '<td>' .$row['nombre'] . '</td>';
-                                            echo '<td>' .$row['dni'] . '</td>';
-                                            echo '<td>' .$row['mail'] . '</td>';
-                                            echo '<td>' .$row['tel'] . '</td>';
-                                            echo '<td>' .$row['estado'] . '</td>';
+                                            echo '<td>' . $nombre .  '</td>';
+                                            echo '<td>' . $dni .  '</td>';
+                                            echo '<td>' .$mail .  '</td>';
+                                            echo '<td>' .$tel .  '</td>';
                                             echo '<td>' . '<button name="submit"><a href="modulos/modFor/deshabilitar.php?id='.$id.'">Deshabilitar formador</button>'. '</td>';
                                             echo "</tr>";
                                         }
@@ -184,7 +188,7 @@ destroyAdmin();
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
-    <script src="js/funciones.js"></script>
+    <script src="modulos/funciones.js"></script>
 
 </body>
 
