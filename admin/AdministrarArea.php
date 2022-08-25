@@ -69,12 +69,12 @@ destroyAdmin();
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body">
 
-                                    <form id="agregar">
+                                    <form id="agregarArea">
                                         <div class="form-group">
                                             <label>Nombre</label>
-                                            <input type="text" name="nombre" id="nombre" class="form-control" required>
+                                            <input type="text" name="nombre" id="nombreArea" class="form-control" required>
                                         </div>
-                                        <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
+                                        <button type="submit" id="submitArea" name="submitArea" class="btn btn-primary">Cargar</button>
                                     </form>
 
                                 </div>
@@ -89,7 +89,6 @@ destroyAdmin();
                                     <thead>
                                         <tr>
                                             <th>Nombre</th>
-                                            <th>Estado</th>
                                             <th>Mantenimiento</th>
                                         </tr>
                                     </thead>
@@ -98,16 +97,16 @@ destroyAdmin();
                                        <?php
                                        include('../connection.php');
 
-                                       $sql = "SELECT * FROM `formador` WHERE 1";
+                                       $sql = "SELECT * FROM `area` WHERE 1";
                                        $sqlEX = mysqli_query($connection, $sql);
                                        if($sqlEX){
                                         $row = mysqli_fetch_array($sqlEX);
 
                                         foreach($sqlEX as $row){
+                                            $id = $row['id'];
                                             echo "<tr>";
                                             echo '<td>' .$row['nombre'] . '</td>';
-                                            echo '<td>' .$row['estado'] . '</td>';
-                                            echo '<td>' . '<button name="submit">Deshabilitar formador</button>' . '</td>';
+                                            echo '<td>' . '<button name="submit"> <a href="modulos/modArea/deshabilitar.php?id='.$id.'">Deshabilitar Area</a></button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }
@@ -156,6 +155,8 @@ destroyAdmin();
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
+
+    <script src="modulos/funciones.js"></script>
 
 </body>
 

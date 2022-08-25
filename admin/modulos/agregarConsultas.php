@@ -28,7 +28,10 @@
             break;
         
         case 'area':
-            # code...
+            $nombreArea = $_POST['nombre'];
+            $sql = "INSERT INTO `area`(`nombre`) VALUES ('".$nombreArea."')";
+            $result = mysqli_query($connection, $sql);
+            echo "si";
             break;
 
         case 'tutorial':
