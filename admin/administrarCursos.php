@@ -136,15 +136,133 @@ destroyAdmin();
                                         $row = mysqli_fetch_array($sqlEX);
 
                                         foreach($sqlEX as $row){
+                                            $id = $row['id_curso'];
+                                            $formador = $row['formador'];
+                                            $dia = $row['dia'];
+                                            $horario = $row['horario'];
+
+
                                             echo "<tr>";
                                             echo '<td>' .$row['nombre'] . '</td>';
                                             echo '<td>' .$row['area'] . '</td>';
-                                            echo '<td>' .'<a href="modulos/modCursos/cambiarFormador.php?id='.$row['id_curso'].'">' .$row['formador'] .'</a>' . '</td>';
-                                            echo '<td>' .'<a href="modulos/modCursos/cambiarDia.php?id='.$row['id_curso'].'">' .$row['dia'] .'</a>' . '</td>';
-                                            echo '<td>' .'<a href="modulos/modCursos/cambiarHorario.php?id='.$row['id_curso'].'">' .$row['horario'] .'</a>' . '</td>';
+
+                                            //EDITAR FORMADOR
+                                            echo '<td>'.'
+                                            <!-- Button trigger modal -->
+                                    <button  class="btn btn-primary formadorBtn" id="formadorBtn" onclick="" data-formador="'.$formador.'" data-id= "'.$id.'">
+                                    '.$row["formador"].'
+                                    </button> 
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Editar Formador</h5>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                        <form id="formadorForm" action="" method="POST">
+                                        <input type="text" name="nuevoFor" id="nuevoFor">
+                                        </input>
+
+                                        <input type="hidden" id="idFormador" name="idFormador">
+                                        </input>
+                                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                                            <button type="submit" id="submitFor" onclick="" class="btn btn-primary">Editar</button>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                                                                '.'</td>';
+
+
+                                            //EDITAR DIA
+                                            echo '<td>'.'
+                                            <!-- Button trigger modal -->
+                                    <button  class="btn btn-primary" id="diaBtn" data-dia="'.$dia.'" data-id="'.$id.'">
+                                    '.$row["dia"].'
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Editar Dia </h5>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                        <form id="diaForm" action="" method="POST">
+                                        
+                                        <select id="nuevoDia">
+                                        <option value="LUNES">LUNES</option>
+                                        <option value="MARTES">MARTES</option>
+                                        <option value="MIERCOLES">MIERCOLES</option>
+                                        <option value="JUEVES">JUEVES</option>
+                                        <option value="VIERNES">VIERNES</option>
+                                        </select>
+
+                                        <input type="hidden" id="idDia" name="idDia">
+                                        </input>
+                                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                                            <button type="submit" id="submitFor" onclick="" class="btn btn-primary">Editar</button>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                                                                '.'</td>';
+
+
+                                            //EDITAR HORA
+                                            echo '<td>'
+                                            .'
+                                            <!-- Button trigger modal -->
+                                    <button  class="btn btn-primary" id="horarioBtn" data-horario="'.$horario.'" data-id="'.$id.'">
+                                    '.$row["horario"].'
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Editar Horario ⌚</h5>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                        <form id="horarioForm" action="" method="POST">
+                                        <input type="time" name="nuevoHorario" id="nuevoHorario">
+                                        </input>
+
+                                        <input type="hidden" id="idHorario" name="idHorario">
+                                        </input>
+                                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                                            <button type="submit" id="submitFor" onclick="" class="btn btn-primary">Editar</button>
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                                                                '.
+                                            '</td>';
                                             echo '<td>' .'<a href='. $row['link'] .'>Ver</a>' . '</td>';
-                                            echo '<td>' . '<button name="submit"><a href="modulos/modCursos/deshabilitarCurso.php?id='.$row['id_curso'].'">Deshabilitar curso</a></button>' . '</td>';
+                                            echo '<td>' . '<button name="submit"><a href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'">Deshabilitar curso</a></button>' . '</td>';
                                             echo "</tr>";
+
                                         }
                                        }
                                        ?> 
@@ -160,6 +278,7 @@ destroyAdmin();
 
             </div>
             <!-- End of Main Content -->
+            
 
             <!-- Footer -->
             <?php include('modulos/footer.php'); ?>
@@ -170,6 +289,129 @@ destroyAdmin();
 
     </div>
     <!-- End of Page Wrapper -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+
+        //EDITAR FORMADOR
+       
+            $(document).on('click', '#formadorBtn',function () {
+                let formador = $(this).data('formador');
+                let id = $(this).data('id');
+                console.log(id , formador);
+                document.getElementById('idFormador').value = id;
+
+                $("#exampleModal").modal("show");
+
+                $('#formadorForm').submit(e => {
+                    e.preventDefault();
+                    //creacion de objeto de almacenamiento de los inputs "postData"
+                    const postData = {
+                    //guardamos los input dentro de un objeto
+                    nuevoFor : $("#nuevoFor").val(),
+                    id : $("#idFormador").val()
+                    };
+                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
+                    const url = "modulos/modCursos/editarFor.php";
+                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+                    console.log(postData, url);
+                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+                    //procesamiento de dichos datos)
+                    $.post(url, postData, (response) => {
+
+                    const rta = JSON.parse(response);
+                    console.log(rta);
+                    if(rta == 1){
+                        window.location = "administrarCursos.php";
+                    }
+                    
+                    });
+                });
+
+
+               
+
+
+             });
+
+             //EDITAR DIA
+
+             $(document).on('click', '#diaBtn',function () {
+                let dia = $(this).data('dia');
+                let id = $(this).data('id');
+                console.log(id , dia);
+                document.getElementById('idDia').value = id;
+
+                $("#exampleModal2").modal("show");
+
+                $('#diaForm').submit(e => {
+                    e.preventDefault();
+                    //creacion de objeto de almacenamiento de los inputs "postData"
+                    const postData = {
+                    //guardamos los input dentro de un objeto
+                    nuevoDia : $("#nuevoDia").val(),
+                    id : $("#idDia").val()
+                    };
+                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
+                    const url = "modulos/modCursos/editarDia.php";
+                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+                    console.log(postData, url);
+                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+                    //procesamiento de dichos datos)
+                    $.post(url, postData, (response) => {
+
+                    const rta = JSON.parse(response);
+                    console.log(rta);
+                    if(rta == 1){
+                        window.location = "administrarCursos.php";
+                    }
+                    
+                    });
+                });
+            });
+
+                    //EDITAR HORARIO
+                    
+                    $(document).on('click', '#horarioBtn',function () {
+                        let horario = $(this).data('horario');
+                        let id = $(this).data('id');
+                        console.log(id , horario);
+                        document.getElementById('idDia').value = id;
+
+                        $("#exampleModal3").modal("show");
+
+                        $('#horarioForm').submit(e => {
+                            e.preventDefault();
+                            //creacion de objeto de almacenamiento de los inputs "postData"
+                            const postData = {
+                            //guardamos los input dentro de un objeto
+                            nuevoHorario : $("#nuevoHorario").val(),
+                            id : $("#idDia").val()
+                            };
+                            //validacion ternaria de redireccion segun valor de la variable booleana "edit"
+                            const url = "modulos/modCursos/editarHorario.php";
+                            //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+                            console.log(postData, url);
+                            //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+                            //procesamiento de dichos datos)
+                            $.post(url, postData, (response) => {
+
+                            const rta = JSON.parse(response);
+                            console.log(rta);
+                            if(rta == 1){
+                                window.location = "administrarCursos.php";
+                            }
+                            
+                            });
+                        });
+
+               
+
+
+             });
+        
+    </script>
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -185,6 +427,7 @@ destroyAdmin();
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    
 
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
@@ -194,6 +437,7 @@ destroyAdmin();
     <script src="js/demo/datatables-demo.js"></script>
 
     <script src="modulos/funciones.js"></script>
+    
 
 </body>
 

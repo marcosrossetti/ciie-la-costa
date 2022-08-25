@@ -101,6 +101,16 @@ $('#agregar').submit(e => {
   });
 
 });
+$('#formadorForm').submit(e => {
+
+  console.log("A");
+
+  });
+
+
+
+
+
 
 
 
