@@ -31,6 +31,8 @@ destroyAdmin();
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
 </head>
 
 <body id="page-top">
@@ -118,9 +120,9 @@ destroyAdmin();
                                     <tr>
                                             <th>Nombre del curso</th>
                                             <th>Area</th>
-                                            <th>Formador</th>
                                             <th>Dia</th>
                                             <th>Horario</th>
+                                            <th>Formador</th>
                                             <th>Enlace</th>
                                             <th>Mantenimiento</th>
                                         </tr>
@@ -136,6 +138,16 @@ destroyAdmin();
                                         $row = mysqli_fetch_array($sqlEX);
 
                                         foreach($sqlEX as $row){
+
+                                            $query = "SELECT * FROM formador WHERE 1";
+                                            $resultado = mysqli_query($connection, $query);
+                                            $fila = mysqli_fetch_assoc($resultado);
+                                            // echo '<script> alert("'.$fila['nombre'].'"); </script>'
+                                            
+
+                                            
+                                        
+
                                             $id = $row['id_curso'];
                                             $formador = $row['formador'];
                                             $dia = $row['dia'];
@@ -146,43 +158,11 @@ destroyAdmin();
                                             echo '<td>' .$row['nombre'] . '</td>';
                                             echo '<td>' .$row['area'] . '</td>';
 
-                                            //EDITAR FORMADOR
-                                            echo '<td>'.'
-                                            <!-- Button trigger modal -->
-                                    <button  class="btn btn-primary formadorBtn" id="formadorBtn" onclick="" data-formador="'.$formador.'" data-id= "'.$id.'">
-                                    '.$row["formador"].'
-                                    </button> 
-                                    
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Editar Formador</h5>
                                             
-                                        </div>
-                                        <div class="modal-body">
-                                        <form id="formadorForm" action="" method="POST">
-                                        <input type="text" name="nuevoFor" id="nuevoFor">
-                                        </input>
-
-                                        <input type="hidden" id="idFormador" name="idFormador">
-                                        </input>
-                                        
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                                            <button type="submit" id="submitFor" onclick="" class="btn btn-primary">Editar</button>
-                                            </form>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    
-                                                                                '.'</td>';
 
 
                                             //EDITAR DIA
+                                            
                                             echo '<td>'.'
                                             <!-- Button trigger modal -->
                                     <button  class="btn btn-primary" id="diaBtn" data-dia="'.$dia.'" data-id="'.$id.'">
@@ -259,8 +239,65 @@ destroyAdmin();
                                     </div>
                                                                                 '.
                                             '</td>';
+
+                                            //EDITAR FORMADOR
+                                            echo '<td>'.'
+                                            <!-- Button trigger modal -->
+                                    <button  class="btn btn-primary formadorBtn" id="formadorBtn" onclick="" data-formador="'.$formador.'" data-id= "'.$id.'">
+                                    '.$row["formador"].'
+                                    </button> 
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Seleccionar Formador disponible</h5>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                        <form id="formadorForm" action="" method="POST">
+                                        <input type="hidden" id="idFormador" name="idFormador">
+                                        </input>
+
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                                        <button type="submit" id="submitFor" onclick="" class="btn btn-primary">Editar</button>
+                                        <select id="nuevoFor">
+                                        '.$query = "SELECT * FROM formador WHERE 1";
+                                        $resultado = mysqli_query($connection, $query);
+                                        $fila = mysqli_fetch_assoc($resultado);
+                                        foreach ($resultado as $fila) {
+                                            $nombreF = $fila["nombre"];
+
+                                            echo "<option value=".$nombreF." > ".$nombreF."</option>";
+                                        }
+                                        
+                                        ' '.''.'
+                                       
+                                        </select>
+
+                                        
+                                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            
+                                            </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    
+                                                                                '.'</td>';
+
+
                                             echo '<td>' .'<a href='. $row['link'] .'>Ver</a>' . '</td>';
+
+
+                                            
+
                                             echo '<td>' . '<button name="submit"><a href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'">Deshabilitar curso</a></button>' . '</td>';
+
+                                            
                                             echo "</tr>";
 
                                         }
