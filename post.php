@@ -37,16 +37,36 @@
         
         <?php include("modulos/header.php") ?>
 
-        <!-- ENCABEZADO -->
+        
 
-        <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+        <!-- CONTENIDO -->
+
+        <?php
+        include("connection.php");
+         $id = $_GET['id'];
+
+         $sql="SELECT * FROM `ofertas` WHERE `id_o` = '$id'";
+         $result = mysqli_query($connection, $sql);
+         $row = mysqli_fetch_array($result);
+
+         foreach($result as $row){
+
+            $titulo = $row['titulo'];
+            $nivel = $row['nivel'];
+            $fecha = $row['fecha'];
+            $descripcion = $row['descripcion'];
+
+            echo '
+            
+        
+
+        <header class="masthead" style="background-image: url("assets/img/post-bg.jpg">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="post-heading">
-                            <h1>Oferta de Formación Nivel Secundario</h1>
-                            <h3>(EJEMPLO DE POSTEO TRAIDO DEL BACK)</h3>
+                            <h1>Oferta de Formación Nivel '.$nivel.'.</h1>
                             <h2 class="subheading"></h2>
                             <span class="meta">
                             </span>
@@ -56,24 +76,34 @@
             </div>
         </header>
 
-        <!-- CIERRE ENCABEZADO -->
+       
+            ';
 
-        <!-- CONTENIDO -->
-
-        <article>
+            echo '
+            <article>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <h2>Información:</h2>
-                        <p>Fecha: Junio - Julio 2022</p>
+                        <p>Fecha de apertura: '.$fecha.'</p>
                         <p>Región 18.</p>
-                        <p>Inscripción: Nivel Secundario.</p>
-                        <p>Inicio de la cursada: A confirmar por el formador.</p>
-                        <h2 class="section-heading">Cursos disponibles:</h2>
+                        <p>Inscripción: Nivel '.$nivel.'.</p>
+                        <h3>Descripción de la oferta:</h3>
+                        <p>'.$descripcion.'</p>
                     </div>
                 </div>
             </div>
         </article>
+            
+            ';
+
+         }
+
+
+
+        ?>
+
+        
         <hr/>
 
         <!-- CIERRE CONTENIDO -->

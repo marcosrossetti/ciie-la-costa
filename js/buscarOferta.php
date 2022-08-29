@@ -15,7 +15,8 @@ $json[] = array(
     'titulo' => $row['titulo'],
     'fecha' => $row['fecha'],
     'descripcion' => $row['descripcion'],
-    'nivel' => $row['nivel']
+    'nivel' => $row['nivel'],
+    'id' => $row['id_o']
     
   );
 //compimimos el array para devolverlo en ajax

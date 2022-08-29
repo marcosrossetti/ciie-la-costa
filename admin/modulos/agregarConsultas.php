@@ -6,7 +6,7 @@
     switch ($tipo) {
         case 'oferta':
             $titulo = strtoupper($_POST['tituloOferta']);
-            $nivel = $_POST['nivel'];
+            $nivel = strtoupper($_POST['nivel']);
             $fecha = $_POST['fecha'];
             $descripcion = $_POST['descripcion'];
             $sql = "INSERT INTO `ofertas`(`fecha`, `titulo`, `nivel`,`descripcion`) VALUES ('$fecha','$titulo','$nivel','$descripcion')";
