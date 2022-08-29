@@ -69,44 +69,60 @@
 
         <!-- CONTENIDO -->
 
-        <div class="container">    
+        <div class="container">
+        
             <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto  contenedorOfertas">
+                <div class="col-lg-8 col-md-10 mx-auto  contenedorOfertas" id="contenedorOfertas">
                     <h1 class="tituloIndex">Ofertas Activas</h1>
+
+                    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+                     <script>
+                        function buscarOferta() {
+                            //inicializamos el ajax
+                            $.ajax({
+                            //definimos una direccion y el tipo de formulario que se va a hacer (GET, toma de datos desde el servidor)
+                            url: 'js/buscarOferta.php',
+                            type: 'GET',
+                            //en caso exitoso, devolvemos la siguiente funcion
+                            success: function(response) {
+
+                                
+
+                                let rta = JSON.parse(response);
+                                // console.log(response);
+
+                                let template = '';
+                                //lo iteramos y dibujamos con un foreach y etiquetas html
+                                rta.forEach(rta => {
+                                template += `
+                                <a href="post.php">
+                                <h2 class="post-title">${rta.titulo} </h2>
+                                <h3 class="post-subtitle">${rta.fecha}</h3>
+                                </a>
+                                <p class="post-meta">
+                                CIIE's - Región 18 - Inscripción: PARA NIVEL ${rta.nivel}
+                                </p>
+                                        
+                                        `
+                                });
+                                //mostramos el dibujo en el id selecionado, asignando la variable a mostrar
+                                $('#ofertaShow').html(template);
+                            
+
+                                
+                                
+                            }
+                            });
+                        }
+            
+            buscarOferta();</script>   
+
                     <hr class="hrTitulo">
-                    <div class="post-preview">
-                        <a href="post.php">
-                            <h2 class="post-title">Formación Nivel Secundario </h2>
-                            <h3 class="post-subtitle">Junio - Julio 2022</h3>
-                        </a>
-                        <p class="post-meta">
-                        CIIE's - Región 18 - Inscripción: PARA NIVEL SECUNDARIO - Inicio de la cursada: A confirmar por el formador
-                        </p>
+                    <div class="post-preview" id="ofertaShow">
+                        
                     </div>
                     <hr />
-                    <div class="post-preview">
-                        <a href="post.php">
-                            <h2 class="post-title">Formación Nivel Primario</h2>
-                            <h3 class="post-subtitle">Junio - Julio 2022</h3>
-                        </a>
-                        <p class="post-meta">
-                        CIIE's - Región 18 - Inscripción: PARA NIVEL PRIMARIO - Inicio de la cursada: Comienzan entre la primer y segunda semana de Junio. 
-                        <br> 
-                        Destinado a equipos de conducción, MG, Docentes de grado Educación Especial y Educación de Jóvenes, Adultos y Adultos Mayores. 
-                        Profesores segun modalidad, Estudiantes avanzados del 4° año del profesorado de educación primaria o modalidad según corresponda.
-                        </p>
-                    </div>
-                    <hr />
-                    <div class="post-preview">
-                        <a href="post.php">
-                            <h2 class="post-title">Formación Nivel Inicial </h2>
-                            <h3 class="post-subtitle">Junio - Julio 2022</h3>
-                        </a>
-                        <p class="post-meta">
-                        CIIE's - Región 18 - Inscripción: PARA NIVEL INICIAL - Inicio de la cursada: A confirmar por el formador.
-                        </p>
-                    </div>
-                    <hr />
+                    
                     <!-- Pager-->
                     <div class="clearfix"><a class="btn btn-primary float-right btnOfertas" href="noticias.php">Ofertas Antiguas →</a></div>
                 </div>
