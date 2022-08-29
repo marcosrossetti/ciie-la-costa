@@ -26,6 +26,9 @@ $('#agregar').submit(e => {
         result = JSON.parse(response);
         if(result == "1"){
       location.reload();}
+      else{
+        alert("El formador no se encuentra en la lista disponible");
+      }
       
 
         $('#agregar').trigger('reset');

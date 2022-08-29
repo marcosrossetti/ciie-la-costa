@@ -1,9 +1,9 @@
 <?php
 include('../../connection.php'); 
-$nombre = $_POST['nombre'];
-$area = $_POST['area'];
+$nombre = strtoupper($_POST['nombre']);
+$area = strtoupper($_POST['area']);
 $formador = $_POST['formador'];
-$dia = $_POST['dia'];
+$dia = strtoupper($_POST['dia']);
 $horario = $_POST['horario'];
 $url = $_POST['url'];
 

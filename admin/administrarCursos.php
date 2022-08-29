@@ -82,8 +82,22 @@ destroyAdmin();
                                             <input type="text" name="nombre" id="nombre" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Formador</label>
-                                            <input type="text" name="formador" id="formador" class="form-control" rows="3" required></input>
+                                            <label>Formadores Disponibles</label>
+                                            <!-- <input type="text" name="formador" id="formador" class="form-control" rows="3" required></input> -->
+                                            <select id="formador">
+                                                <?php include("modulos/modCursos/buscarFormador.php");
+
+                                                        foreach($resultado as $fila){
+                                                            $nombre = $fila['nombre'];
+                                                            
+
+                                                            
+                                                        
+                                                 echo '<option value="'.$nombre.'">  '.$nombre.' </option>';
+                                                        }
+                                                ?>
+                                               
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Dia</label>

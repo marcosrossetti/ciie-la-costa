@@ -5,7 +5,7 @@
 
     switch ($tipo) {
         case 'oferta':
-            $titulo = $_POST['tituloOferta'];
+            $titulo = strtoupper($_POST['tituloOferta']);
             $nivel = $_POST['nivel'];
             $fecha = $_POST['fecha'];
             $descripcion = $_POST['descripcion'];
@@ -18,24 +18,24 @@
             break;
 
         case 'formador':
-            $nombreCompleto = $_POST['nombreCompleto'];
+            $nombreCompleto = strtoupper($_POST['nombreCompleto']);
             $email = $_POST['email'];
             $dni = $_POST['dni'];
             $telefono = $_POST['telefono'];
-            $sql = "INSERT INTO `formador`(`mail`, `tel`, `nombre`, `dni`, `estado`) VALUES ('.$email.','.$telefono.','.$nombreCompleto.','$dni','0')";
+            $sql = "INSERT INTO `formador`(`mail`, `tel`, `nombre`, `dni`, `estado`) VALUES ('$email','$telefono','$nombreCompleto','$dni','0')";
             $result = mysqli_query($connection, $sql);
             echo "si";
             break;
         
         case 'area':
-            $nombreArea = $_POST['nombre'];
+            $nombreArea = strtoupper($_POST['nombre']);
             $sql = "INSERT INTO `area`(`nombre`) VALUES ('".$nombreArea."')";
             $result = mysqli_query($connection, $sql);
             echo "si";
             break;
 
         case 'tutorial':
-            $titulo = $_POST['titulo'];
+            $titulo = strtoupper($_POST['titulo']);
             $desc = $_POST['desc'];
             $url = $_POST['url'];
 
