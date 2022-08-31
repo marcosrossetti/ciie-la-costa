@@ -69,10 +69,14 @@
 
         <!-- CONTENIDO -->
 
-        <div class="container">
         
+        
+        
+        
+        <div class="container">
+
             <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto  contenedorOfertas" id="contenedorOfertas">
+                <div class="col-lg-5 col-md-10 mx-auto  contenedorOfertas" id="contenedorOfertas">
                     <h1 class="tituloIndex">Ofertas Activas</h1>
 
                     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -119,14 +123,25 @@
             
             buscarOferta();</script>   
 
-                    <hr class="hrTitulo">
                     <div class="post-preview" id="ofertaShow">
                         
                     </div>
-                    <hr />
                     
                     <!-- Pager-->
                     <div class="clearfix"><a class="btn btn-primary float-right btnOfertas" href="noticias.php">Ofertas Antiguas →</a></div>
+                </div>
+            
+            
+                <div class="col-lg-5 col-md-10 mx-auto  contenedorOfertas">
+                    <h1 class="tituloIndex">Facebook</h1>
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v14.0" nonce="t7AKkxAs"></script>
+                    
+                    <div class="fb-page" data-href="https://www.facebook.com/Test-Plugin-101876109333763" data-tabs="timeline" data-width="450" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/Test-Plugin-101876109333763" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/Test-Plugin-101876109333763">Test Plugin</a>
+                        </blockquote>
+                    </div>
                 </div>
             </div>
         </div>

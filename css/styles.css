@@ -138,6 +138,9 @@ img::-moz-selection {
 
   margin: auto;
   text-align: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid grey 2px;
 
 }
 
@@ -154,12 +157,6 @@ img::-moz-selection {
 .btnOfertas {
 
   border-radius: 6px;
-
-}
-
-.hrTitulo {
-
-  width: 50%;
 
 }
 
