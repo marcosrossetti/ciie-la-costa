@@ -38,7 +38,6 @@
         <?php include("modulos/header.php") ?>
 
         <!-- Page Header-->
-
         <header class="masthead" style="background-image: url('assets/img/fondopersonal.jpg')">
             <div class="overlay"></div>
             <div class="container">
@@ -52,10 +51,65 @@
             </div>
         </header>
         <!-- Main Content-->
+
+        <div class="row">
+                <div class="col-lg-5 col-md-10 mx-auto  tutorialesActivos" id="contenedorTutoriales">
+                    <h1 class="tituloIndex">Tutoriales</h1>
+
+                    <div class="post-preview" id="tutorialShow">
+                        
+                    </div>
+
+        </div>
+        </div>
         
         <hr/>
 
         <!-- Footer-->
+
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+        <script>
+            function buscarTutorial() {
+                            //inicializamos el ajax
+                            $.ajax({
+                            //definimos una direccion y el tipo de formulario que se va a hacer (GET, toma de datos desde el servidor)
+                            url: 'js/buscarTutorial.php',
+                            type: 'GET',
+                            //en caso exitoso, devolvemos la siguiente funcion
+                            success: function(response) {
+
+                                
+
+                                let rta = JSON.parse(response);
+                                // console.log(response);
+
+                                
+
+                                let template = '';
+                                //lo iteramos y dibujamos con un foreach y etiquetas html
+                                rta.forEach(rta => {
+                                template += `
+                                <a href="${rta.url}">
+                                <h2 class="post-title">${rta.titulo} </h2>
+                                <h3 class="post-subtitle">${rta.des}</h3>
+                                </a>
+                                        
+                                        `
+                                });
+                                //mostramos el dibujo en el id selecionado, asignando la variable a mostrar
+                                $('#tutorialShow').html(template);
+                            
+
+                                
+                                
+                            }
+                            });
+                        }
+
+                        buscarTutorial();
+
+        </script>
 
         <?php include("modulos/footer.php") ?>
 

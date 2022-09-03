@@ -107,18 +107,54 @@ destroyAdmin();
                                             $result = mysqli_query($connection, $query);
                                             if($result) {
                                             $row = mysqli_fetch_array($result);
-                                            $id = $row['id'];
+                                            
 
                                                 foreach($result as $row) {
+                                                    $des = $row['des'];
+                                                    $id = $row['id'];
+
                                                     echo 
-                                                    "
+                                                    '
                                                         <tr>
-                                                            <td>".$row['titulo']."</td>
-                                                            <td>".$row['des']."</td>
-                                                            <td><a href='".$row['url']."' target='_blank'>Ver</a></td>
-                                                            <td><button><a href='modulos/modTuto/deshabilitar.php?id=$id'>Deshabilitar tutorial</a></button></td>
+                                                            <td>'.$row["titulo"].'</td>
+
+                                                            <td>
+                                                            <!-- Button trigger modal -->
+                                                            <button  class="btn btn-primary" id="desBtn" data-des="'.$des.'" data-id="'.$id.'">
+                                                            '.$row["des"].'
+                                                            </button>
+                        
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Editar Descripcion </h5>
+                                                                    
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                <form id="nuevaDes" action="" method="POST">
+                                                                
+                                                                <input id="des"></input>
+                        
+                                                                <input type="hidden" id="idDes" name="idDes">
+                                                                </input>
+                                                                
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                                                                    <button type="submit" id="submitDes" onclick="" class="btn btn-primary">Editar</button>
+                                                                    </form>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            </td>
+
+                                                            <td><a href='.$row["url"].' target="_blank">Ver</a></td>
+                                                            <td><button><a href="modulos/modTuto/deshabilitar.php?id=$id">Deshabilitar tutorial</a></button></td>
                                                         </tr>
-                                                     ";
+                                                     ';
                                                 }
                                             }
                                         ?> 
@@ -143,6 +179,45 @@ destroyAdmin();
 
     </div>
     <!-- End of Page Wrapper -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).on('click', '#desBtn',function () {
+                let des = $(this).data('des');
+                let id = $(this).data('id');
+                console.log(id , des);
+                document.getElementById('idDes').value = id;
+
+                $("#exampleModal").modal("show");
+
+                $('#nuevaDes').submit(e => {
+                    e.preventDefault();
+                    //creacion de objeto de almacenamiento de los inputs "postData"
+                    const postData = {
+                    //guardamos los input dentro de un objeto
+                    nuevaDes : $("#des").val(),
+                    id : $("#idDes").val()
+                    };
+                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
+                    const url = "modulos/modTuto/editarDes.php";
+                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+                    console.log(postData, url);
+                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+                    //procesamiento de dichos datos)
+                    $.post(url, postData, (response) => {
+
+                    const rta = JSON.parse(response);
+                    console.log(rta);
+                    if(rta == 1){
+                        window.location = "administrarTutoriales.php";
+                    }
+                    
+                    });
+                });
+            });
+
+
+    </script>
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
