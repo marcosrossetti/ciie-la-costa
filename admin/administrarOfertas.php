@@ -126,6 +126,7 @@ destroyAdmin();
                                         foreach($sqlEX as $row){
                                             $fecha = $row['fecha'];
                                             $id = $row['id_o'];
+                                            $descripcion = $row['descripcion'];
                                             echo "<tr>";
                                             echo '<td>' .$row['titulo'] . '</td>';
                                             echo '<td>' .$row['nivel'] . '</td>';
@@ -164,7 +165,40 @@ destroyAdmin();
                                     
                                                                                 '.
                                             '</td>';
-                                            echo '<td>' .$row['descripcion'] . '</td>';
+                                            echo '<td>'
+                                            
+                                            .'<!-- Button trigger modal -->
+                                            <button  class="btn btn-primary" id="desBtn" data-des="'.$descripcion.'" data-id="'.$id.'">
+                                            '.$descripcion.'
+                                            </button>
+        
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Editar Descripcion </h5>
+                                                    
+                                                </div>
+                                                <div class="modal-body">
+                                                <form id="nuevaDes" action="" method="POST">
+                                                
+                                                <input id="des"></input>
+        
+                                                <input type="hidden" id="idDes" name="idDes">
+                                                </input>
+                                                
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                                                    <button type="submit" id="submitDes" onclick="" class="btn btn-primary">Editar</button>
+                                                    </form>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>'.
+                                            
+                                            '</td>';
                                             echo '<td>' . '<button name="submit"><a href="modulos/modOfe/deshabilitar.php?id='.$id.'">Deshabilitar oferta</button>' . '</td>';
                                             echo "</tr>";
                                         }
@@ -210,6 +244,42 @@ destroyAdmin();
                     $.post(url, postData, (response) => {
 
                         const rta = JSON.parse(response);
+                    console.log(rta);
+                    if(rta == 1){
+                        window.location = "administrarOfertas.php";
+                    }
+                    
+                    });
+                });
+            });
+
+            //EDITAR DESCRIPCION
+
+            $(document).on('click', '#desBtn',function () {
+                let des = $(this).data('des');
+                let id = $(this).data('id');
+                console.log(id , des);
+                document.getElementById('idDes').value = id;
+
+                $("#exampleModal2").modal("show");
+
+                $('#nuevaDes').submit(e => {
+                    e.preventDefault();
+                    //creacion de objeto de almacenamiento de los inputs "postData"
+                    const postData = {
+                    //guardamos los input dentro de un objeto
+                    nuevaDes : $("#des").val(),
+                    id : $("#idDes").val()
+                    };
+                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
+                    const url = "modulos/modOfe/editarDes.php";
+                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+                    console.log(postData, url);
+                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+                    //procesamiento de dichos datos)
+                    $.post(url, postData, (response) => {
+
+                    const rta = JSON.parse(response);
                     console.log(rta);
                     if(rta == 1){
                         window.location = "administrarOfertas.php";
