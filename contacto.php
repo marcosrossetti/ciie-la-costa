@@ -101,6 +101,58 @@
         <!-- CIERRE CONTENIDO -->
 
         <!-- FOOTER -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+        <script>
+            
+                
+
+                
+
+                $('#contactForm').submit(e => {
+                    e.preventDefault();
+                    //creacion de objeto de almacenamiento de los inputs "postData"
+                    const postData = {
+                    //guardamos los input dentro de un objeto
+                    nombre : $('#nombre').val(),
+                    email : $('#email').val(),
+                    tel : $('#phone').val(),
+                    message : $('#message').val()
+                    };
+                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
+                    const url = "admin/modContact.php";
+                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+                    console.log(postData, url);
+                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+                    //procesamiento de dichos datos)
+                    $.post(url, postData, (response) => {
+
+                        console.log(response);
+
+                    const rta = JSON.parse(response);
+                    console.log(rta);
+                    if(rta == 1){
+                        Swal.fire({
+                            title: 'Mensaje Enviado!',
+                            text: 'En la brevedad le responderemos, revise su E-Mail',
+                            imageUrl: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/46C8/production/_106202181_ggm1598.jpg',
+                            imageWidth: 400,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                            }).then(function(){
+                                $('#contactForm').trigger('reset');
+                            });
+                        
+                    }
+                    
+                    });
+                });
+            
+
+        </script>
 
         <?php include("modulos/footer.php") ?>
 
