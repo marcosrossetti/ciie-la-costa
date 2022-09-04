@@ -23,7 +23,8 @@
                             <th>Nombre</th>
                             <th>Email</th>
                             <th>Telefono</th>
-                            <th>Mensaje</th>        
+                            <th>Mensaje</th> 
+                            <th>Mantenimiento</th>       
                         </tr>
                     </thead>
                     <tbody>
@@ -40,7 +41,8 @@
                     <td>'.$row["nombre"].'</td>
                     <td>'.$row["email"].'</td>
                     <td>'.$row["telefono"].'</td>
-                    <td>'.$row["mensaje"].'</td>        
+                    <td>'.$row["mensaje"].'</td>
+                    <td><button data-id = "'.$row["id"].'" id="borrarMensaje">Mensaje recibido 🗑️</button></td>        
                     </tr>
                     ';
                     }
@@ -50,6 +52,7 @@
                               </tbody>
     </div>
 
+    
 
     <!--datatables scripts -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -64,8 +67,46 @@
 
         </script>
     <!-- Optional JavaScript; choose one of the two! -->
-    
- 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $(document).on('click', '#borrarMensaje',function () {
+                var id = $(this).data('id');
+                console.log(id);
+                   
+                    //creacion de objeto de almacenamiento de los inputs "postData"
+                    const postData = {
+                    //guardamos los input dentro de un objeto
+                   
+                    id : id
+                    };
+                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
+                    const url = "modulos/modContact/borrarMensaje.php";
+                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+                    console.log(postData, url);
+                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+                    //procesamiento de dichos datos)
+                   enviarDatos();
+
+                    function enviarDatos(){
+                        $.post(url, postData, (response) => {
+
+                            
+                            const rta = JSON.parse(response);
+                            console.log(rta);
+                            if(rta == 1){
+                                Swal.fire('Consulta eliminada, podrá requerirla en la tabla "Recibidos"').then(function(){
+                                    window.location = "administrarContacto.php";
+                                });
+
+                            }
+
+                            });
+                    }
+                    
+                
+            });
+    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
