@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-08-2022 a las 21:46:54
+-- Tiempo de generación: 04-09-2022 a las 04:36:43
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -29,8 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `area` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
+  `nombre` text NOT NULL,
   `estado` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contacto`
+--
+
+CREATE TABLE `contacto` (
+  `id` int(11) NOT NULL,
+  `nombre` text NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `telefono` varchar(12) NOT NULL,
+  `mensaje` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -40,14 +54,27 @@ CREATE TABLE `area` (
 --
 
 CREATE TABLE `cursos` (
-  `id` int(11) NOT NULL,
+  `id_curso` int(11) NOT NULL,
   `link` varchar(150) NOT NULL,
-  `horario` time NOT NULL,
-  `dia` date NOT NULL,
-  `nombre` varchar(100) NOT NULL,
+  `horario` time(6) NOT NULL,
+  `dia` text NOT NULL,
+  `nombre` text NOT NULL,
   `id_f` int(11) NOT NULL,
-  `id_a` int(11) NOT NULL
+  `id_a` int(11) NOT NULL,
+  `area` varchar(70) NOT NULL,
+  `formador` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cursos`
+--
+
+INSERT INTO `cursos` (`id_curso`, `link`, `horario`, `dia`, `nombre`, `id_f`, `id_a`, `area`, `formador`) VALUES
+(36, 'https://www.youtube.com/watch?v=IP29VlrTvB4&ab_channel=77riestra77', '13:12:00.000000', 'LUNES', 'RODRIGO', 0, 0, 'INFORMATICA', 'LAUTARO'),
+(37, 'https://www.youtube.com/watch?v=IP29VlrTvB4&ab_channel=77riestra77', '14:12:00.000000', 'MIERCOLES', 'RODRIGO', 0, 0, 'INFORMATICA', 'LAUTARO'),
+(38, 'https://www.youtube.com/watch?v=IP29VlrTvB4&ab_channel=77riestra77', '13:16:00.000000', 'MIERCOLES', 'RODRIGO', 0, 0, 'INFORMATICA', 'LAUTARO'),
+(39, 'https://www.youtube.com/watch?v=TtKPhnJDIL0&t=789s', '13:36:00.000000', 'MARTES', 'RODRIGO', 0, 0, 'INFORMATICA', 'LAUTARO'),
+(40, 'https://mail.google.com/mail/u/0/#inbox', '21:02:00.000000', 'MARTES', 'RODRIGO', 0, 0, 'DSADSA', 'LAUTARO');
 
 -- --------------------------------------------------------
 
@@ -57,12 +84,23 @@ CREATE TABLE `cursos` (
 
 CREATE TABLE `formador` (
   `id` int(11) NOT NULL,
-  `mail` varchar(100) NOT NULL,
-  `tel` int(16) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `dni` int(9) NOT NULL,
-  `estado` tinyint(1) NOT NULL
+  `mail` varchar(90) NOT NULL,
+  `tel` varchar(12) NOT NULL,
+  `nombre` text NOT NULL,
+  `dni` varchar(12) NOT NULL,
+  `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `formador`
+--
+
+INSERT INTO `formador` (`id`, `mail`, `tel`, `nombre`, `dni`, `estado`) VALUES
+(10, 'rodrigosebastianok@gmail.com', '2211321254', 'RODRIGO', '38844259', 0),
+(11, 'rodrigosebastianok@gmail.com', '2211321254', 'LAUTARO', '38844259', 0),
+(12, 'rodrigosebastianok@gmail.com', '2211321254', 'RODRIGO', '38844259', 0),
+(13, 'rodrigosebastianok@gmail.com', '2211321254', 'RODRIGO', '38844259', 0),
+(14, 'rodrigosebastianok@gmail.com', '2211321254', 'DSADASD', '38844259', 0);
 
 -- --------------------------------------------------------
 
@@ -78,6 +116,14 @@ CREATE TABLE `ofertas` (
   `estado` tinyint(1) NOT NULL,
   `descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `ofertas`
+--
+
+INSERT INTO `ofertas` (`id_o`, `fecha`, `titulo`, `nivel`, `estado`, `descripcion`) VALUES
+(20, '2022-09-10', 'PROGRAMACION ORIENTADA A OBJETOS PHP', 'SECUNDARIO', 0, 'aprende lo mas nuevo de la programacion orientada a objetos!'),
+(26, '2022-09-16', 'CURSO DE EDUCACION MATERNAL', 'SECUNDARIO', 0, 'Lorep ipsum');
 
 -- --------------------------------------------------------
 
@@ -99,9 +145,16 @@ CREATE TABLE `rel_ofcu` (
 CREATE TABLE `tutoriales` (
   `id` int(11) NOT NULL,
   `url` varchar(150) NOT NULL,
-  `titulo` varchar(150) NOT NULL,
-  `des` text NOT NULL
+  `titulo` varchar(100) NOT NULL,
+  `des` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tutoriales`
+--
+
+INSERT INTO `tutoriales` (`id`, `url`, `titulo`, `des`) VALUES
+(12, 'https://www.youtube.com/watch?v=g5ylN-d9v5c&ab_channel=LavinyTuttini', 'COMO INSERTAR VIDEOS DE YOUTUBE (API)', 'hola');
 
 -- --------------------------------------------------------
 
@@ -120,8 +173,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `password`) VALUES
-(1, 'lauti1304@gmail.com', '123123'),
-(2, 'martinezfoscofranco@gmail.com', '12345678');
+(1, 'rodrigo12@gmail.com', '12345678');
 
 --
 -- Índices para tablas volcadas
@@ -134,12 +186,16 @@ ALTER TABLE `area`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  ADD UNIQUE KEY `id` (`id`),
-  ADD UNIQUE KEY `id_f` (`id_f`),
-  ADD UNIQUE KEY `id_a` (`id_a`);
+  ADD PRIMARY KEY (`id_curso`);
 
 --
 -- Indices de la tabla `formador`
@@ -152,13 +208,6 @@ ALTER TABLE `formador`
 --
 ALTER TABLE `ofertas`
   ADD PRIMARY KEY (`id_o`);
-
---
--- Indices de la tabla `rel_ofcu`
---
-ALTER TABLE `rel_ofcu`
-  ADD UNIQUE KEY `id_o` (`id_o`),
-  ADD UNIQUE KEY `id_c` (`id_c`);
 
 --
 -- Indices de la tabla `tutoriales`
@@ -180,65 +229,43 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `area`
 --
 ALTER TABLE `area`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `formador`
 --
 ALTER TABLE `formador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `ofertas`
 --
 ALTER TABLE `ofertas`
-  MODIFY `id_o` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_o` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `tutoriales`
 --
 ALTER TABLE `tutoriales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `area`
---
-ALTER TABLE `area`
-  ADD CONSTRAINT `area_ibfk_1` FOREIGN KEY (`id`) REFERENCES `cursos` (`id_a`);
-
---
--- Filtros para la tabla `cursos`
---
-ALTER TABLE `cursos`
-  ADD CONSTRAINT `cursos_ibfk_1` FOREIGN KEY (`id`) REFERENCES `rel_ofcu` (`id_c`);
-
---
--- Filtros para la tabla `formador`
---
-ALTER TABLE `formador`
-  ADD CONSTRAINT `formador_ibfk_1` FOREIGN KEY (`id`) REFERENCES `cursos` (`id_f`);
-
---
--- Filtros para la tabla `rel_ofcu`
---
-ALTER TABLE `rel_ofcu`
-  ADD CONSTRAINT `rel_ofcu_ibfk_1` FOREIGN KEY (`id_o`) REFERENCES `ofertas` (`id_o`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
