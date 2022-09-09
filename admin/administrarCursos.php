@@ -79,7 +79,16 @@ destroyAdmin();
                                     <form id="agregar">
                                         <div class="form-group">
                                             <label>Area</label>
-                                            <input type="text" name="area" id="area" class="form-control" rows="3" required></input>
+                                            <select id="area" name="area">
+                                            <?php include("modulos/modCursos/buscarArea.php");
+
+                                                    foreach($resultado as $row){
+                                                        $nmb = $row['nombre'];
+                                                        
+                                                        echo '<option value="'.$nmb.'">  '.$nmb.' </option>';
+                                                        }
+                                                ?>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Nombre del curso</label>

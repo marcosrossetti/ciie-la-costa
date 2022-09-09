@@ -12,13 +12,7 @@ session_start();
 session_destroy();
 
 
- ?>
+//redirigimos al usuario al index.html
+header("Location:../login.php");
 
-<!--redirigimos al usuario al index.html -->
- <script type="text/javascript"> 
- 	function back(){
- 		window.location = "../../index.php";
- 	}
-    
-    back();
- </script>
+ ?>
