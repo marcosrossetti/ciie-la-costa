@@ -16,7 +16,7 @@ destroyAdmin();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>ADMIN - CIIE La Costa</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -49,11 +49,15 @@ destroyAdmin();
             <!-- Main Content -->
             <div id="content">
 
+                <div class="row m-0 mb-3" style="background-color:#fff"> 
+                    <h1 class="pl-3 pt-3 h3 mb-4 text-gray-800">Administrar formadores</h1>
+                </div>  
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Administrar formadores</h1>
+                    
 
                     <div class="accordion" id="accordionExample">
                         <div class="card">
@@ -130,7 +134,7 @@ destroyAdmin();
                                             echo '<td>' . $dni .  '</td>';
                                             echo '<td>' .$mail .  '</td>';
                                             echo '<td>' .$tel .  '</td>';
-                                            echo '<td>' . '<button name="submit"><a href="modulos/modFor/deshabilitar.php?id='.$id.'">Deshabilitar formador</button>'. '</td>';
+                                            echo '<td>' . '<button class="btn btn-primary">Editar</button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modFor/deshabilitar.php?id='.$id.'">Deshabilitar</button>'. '</td>';
                                             echo "</tr>";
                                         }
                                        }

@@ -15,7 +15,7 @@ destroyAdmin();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>ADMIN - CIIE La Costa</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,11 +48,16 @@ destroyAdmin();
             <!-- Main Content -->
             <div id="content">
 
+                <div class="row m-0 mb-3" style="background-color:#fff"> 
+                    <h1 class="pl-3 pt-3 h3 mb-4 text-gray-800">Administrar tutoriales</h1>
+                </div>
+                
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Administrar tutoriales</h1>
+                    
 
                     <div class="accordion" id="accordionExample">
                         <div class="card">
@@ -152,7 +157,7 @@ destroyAdmin();
                                                             </td>
 
                                                             <td><a href='.$row["url"].' target="_blank">Ver</a></td>
-                                                            <td><button><a href="modulos/modTuto/deshabilitar.php?id=$id">Deshabilitar tutorial</a></button></td>
+                                                            <td><button class="btn btn-primary">Editar</button><button class="btn btn-danger"><a style="color:white; text-decoration:none; "href="modulos/modTuto/deshabilitar.php?id=$id">Deshabilitar</a></button></td>
                                                         </tr>
                                                      ';
                                                 }
@@ -237,6 +242,15 @@ destroyAdmin();
     <!-- Page level plugins -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                }
+            });
+        });
+    </script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
