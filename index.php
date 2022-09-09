@@ -137,9 +137,9 @@
                     <div id="fb-root"></div>
                     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v14.0" nonce="t7AKkxAs"></script>
                     
-                    <div class="fb-page" data-href="https://www.facebook.com/Test-Plugin-101876109333763" data-tabs="timeline" data-width="450" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                        <blockquote cite="https://www.facebook.com/Test-Plugin-101876109333763" class="fb-xfbml-parse-ignore">
-                            <a href="https://www.facebook.com/Test-Plugin-101876109333763">Test Plugin</a>
+                    <div class="fb-page" data-href="https://www.facebook.com/lacosta.ciie" data-tabs="timeline" data-width="500" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false">
+                        <blockquote cite="https://www.facebook.com/lacosta.ciie" class="fb-xfbml-parse-ignore">
+                            <a href="https://www.facebook.com/lacosta.ciie">CIIE Partido de La Costa</a>
                         </blockquote>
                     </div>
                 </div>
