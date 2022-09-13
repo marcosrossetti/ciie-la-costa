@@ -14,8 +14,11 @@
   </head>
   <body>
 
+<div class="p-5 text-center bg-light">
+    <h1 class="mb-3">Consultas de Usuarios</h1>
+  </div>
   
-        
+  <div class="row">      
   <div class="container mt-5">
   <table id="tablaContacto" class="table table-striped table-bordered" style="width:100%">
                     <thead>
@@ -36,13 +39,16 @@
                     $row = mysqli_fetch_array($sqlEX);
 
                     foreach($sqlEX as $row){
+                        $id = $row["id"];
                     echo '
                     <tr>
                     <td>'.$row["nombre"].'</td>
                     <td>'.$row["email"].'</td>
                     <td>'.$row["telefono"].'</td>
                     <td>'.$row["mensaje"].'</td>
-                    <td><button data-id = "'.$row["id"].'" id="borrarMensaje">Mensaje recibido 🗑️</button></td>        
+                    <td>
+                    <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" data-id="'.$id.'" id="borrarMensaje">Eliminar este mensaje</a></button>
+                    </td>        
                     </tr>
                     ';
                     }
@@ -50,8 +56,9 @@
 
                         
                               </tbody>
-    </div>
-
+    
+</table>
+</div>
     
 
     <!--datatables scripts -->
