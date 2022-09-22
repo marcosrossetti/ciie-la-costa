@@ -20,9 +20,9 @@ destroyAdmin();
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -134,76 +134,9 @@ destroyAdmin();
                                             echo "<tr>";
                                             echo '<td>' .$row['titulo'] . '</td>';
                                             echo '<td>' .$row['nivel'] . '</td>';
-                                            echo '<td>'
-                                            .'
-                                            <!-- Button trigger modal -->
-                                    <button  class="btn btn-primary formadorBtn" id="fechaBtn" onclick="" data-fecha="'.$fecha.'" data-id= "'.$id.'">
-                                    '.$fecha.'
-                                    </button> 
-                                    
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Editar Fecha</h5>
-                                            
-                                        </div>
-                                        <div class="modal-body">
-                                        <form id="fechaForm" action="" method="POST">
-                                        <input type="date" name="nuevaFecha" id="nuevaFecha">
-                                        </input>
-
-                                        <input type="hidden" id="idFecha" name="idFecha">
-                                        </input>
-                                        
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                                            <button type="submit" id="submitFecha" onclick="" class="btn btn-primary">Editar</button>
-                                            </form>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    
-                                                                                '.
-                                            '</td>';
-                                            echo '<td>'
-                                            
-                                            .'<!-- Button trigger modal -->
-                                            <button  class="btn btn-primary" id="desBtn" data-des="'.$descripcion.'" data-id="'.$id.'">
-                                            '.$descripcion.'
-                                            </button>
-        
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Editar Descripcion </h5>
-                                                    
-                                                </div>
-                                                <div class="modal-body">
-                                                <form id="nuevaDes" action="" method="POST">
-                                                
-                                                <input id="des"></input>
-        
-                                                <input type="hidden" id="idDes" name="idDes">
-                                                </input>
-                                                
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                                                    <button type="submit" id="submitDes" onclick="" class="btn btn-primary">Editar</button>
-                                                    </form>
-                                                </div>
-                                                </div>
-                                            </div>
-                                            </div>'.
-                                            
-                                            '</td>';
-                                            echo '<td>' . '<button class="btn btn-primary">Editar</button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'">Deshabilitar</button>' . '</td>';
+                                            echo '<td>' .$fecha.'</td>';
+                                            echo '<td>'.$descripcion.'</td>';
+                                            echo '<td>' . '<button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }

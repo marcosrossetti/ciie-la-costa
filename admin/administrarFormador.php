@@ -24,6 +24,9 @@ destroyAdmin();
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -134,7 +137,7 @@ destroyAdmin();
                                             echo '<td>' . $dni .  '</td>';
                                             echo '<td>' .$mail .  '</td>';
                                             echo '<td>' .$tel .  '</td>';
-                                            echo '<td>' . '<button class="btn btn-primary">Editar</button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modFor/deshabilitar.php?id='.$id.'">Deshabilitar</button>'. '</td>';
+                                            echo '<td>' . '<button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modFor/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>' . '</td>';
                                             echo "</tr>";
                                         }
                                        }

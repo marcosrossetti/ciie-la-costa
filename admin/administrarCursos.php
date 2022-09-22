@@ -25,6 +25,8 @@ destroyAdmin();
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -190,141 +192,19 @@ destroyAdmin();
 
                                             //EDITAR DIA
                                             
-                                            echo '<td>'.'
-                                            <!-- Button trigger modal -->
-                                    <button  class="btn btn-primary" id="diaBtn" data-dia="'.$dia.'" data-id="'.$id.'">
-                                    '.$row["dia"].'
-                                    </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Editar Dia </h5>
-                                            
-                                        </div>
-                                        <div class="modal-body">
-                                        <form id="diaForm" action="" method="POST">
-                                        
-                                        <select id="nuevoDia">
-                                        <option value="LUNES">LUNES</option>
-                                        <option value="MARTES">MARTES</option>
-                                        <option value="MIERCOLES">MIERCOLES</option>
-                                        <option value="JUEVES">JUEVES</option>
-                                        <option value="VIERNES">VIERNES</option>
-                                        </select>
-
-                                        <input type="hidden" id="idDia" name="idDia">
-                                        </input>
-                                        
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                                            <button type="submit" id="submitFor" onclick="" class="btn btn-primary">Editar</button>
-                                            </form>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    
-                                                                                '.'</td>';
+                                            echo '<td>'.$row["dia"].'</td>';
 
 
                                             //EDITAR HORA
-                                            echo '<td>'
-                                            .'
-                                            <!-- Button trigger modal -->
-                                    <button  class="btn btn-primary" id="horarioBtn" data-horario="'.$horario.'" data-id="'.$id.'">
-                                    '.$row["horario"].'
-                                    </button>
-
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Editar Horario ⌚</h5>
-                                            
-                                        </div>
-                                        <div class="modal-body">
-                                        <form id="horarioForm" action="" method="POST">
-                                        <input type="time" name="nuevoHorario" id="nuevoHorario">
-                                        </input>
-
-                                        <input type="hidden" id="idHorario" name="idHorario">
-                                        </input>
-                                        
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                                            <button type="submit" id="submitFor" onclick="" class="btn btn-primary">Editar</button>
-                                            </form>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                                                                '.
-                                            '</td>';
+                                            echo '<td>'.$row["horario"].'</td>';
 
                                             //EDITAR FORMADOR
-                                            echo '<td>'.'
-                                            <!-- Button trigger modal -->
-                                    <button  class="btn btn-primary formadorBtn" id="formadorBtn" onclick="" data-formador="'.$formador.'" data-id= "'.$id.'">
-                                    '.$row["formador"].'
-                                    </button> 
-                                    
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Seleccionar Formador disponible</h5>
-                                            
-                                        </div>
-                                        <div class="modal-body">
-                                        <form id="formadorForm" action="" method="POST">
-                                        <input type="hidden" id="idFormador" name="idFormador">
-                                        </input>
-
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-                                        <button type="submit" id="submitFor" onclick="" class="btn btn-primary">Editar</button>
-                                        <select id="nuevoFor">
-                                        '.$query = "SELECT * FROM formador WHERE 1";
-                                        $resultado = mysqli_query($connection, $query);
-                                        $fila = mysqli_fetch_assoc($resultado);
-                                        foreach ($resultado as $fila) {
-                                            $nombreF = $fila["nombre"];
-
-                                            echo "<option value=".$nombreF." > ".$nombreF."</option>";
-                                        }
-                                        
-                                        ' '.''.'
-                                       
-                                        </select>
-
-                                        
-                                        
-                                        </div>
-                                        <div class="modal-footer">
-                                            
-                                            </form>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    
-                                                                                '.'</td>';
-
+                                            echo '<td>'.$row["formador"].'</td>';
 
                                             echo '<td>' .'<a href='. $row['link'] .'>Ver</a>' . '</td>';
 
+                                            echo '<td>' . '<button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>' . '</td>';
 
-                                            
-
-                                            echo '<td>' . '<button class="btn btn-primary">Editar</button><button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'">Deshabilitar</a></button>' . '</td>';
-
-                                            
                                             echo "</tr>";
 
                                         }
