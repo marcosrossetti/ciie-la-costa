@@ -157,7 +157,7 @@ destroyAdmin();
                                                             </td>
 
                                                             <td><a href='.$row["url"].' target="_blank">Ver</a></td>
-                                                            <td><button class="btn btn-primary">Editar</button><button class="btn btn-danger"><a style="color:white; text-decoration:none; "href="modulos/modTuto/deshabilitar.php?id=$id">Deshabilitar</a></button></td>
+                                                            <td><button class="btn btn-primary">Editar</button><button class="btn btn-danger"><a style="color:white; text-decoration:none; "href="modulos/modTuto/deshabilitar.php?id='.$row["id"].'">Deshabilitar</a></button></td>
                                                         </tr>
                                                      ';
                                                 }
