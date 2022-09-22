@@ -206,7 +206,7 @@ destroyAdmin();
 
                                             echo '<td> prueba </td>';
 
-                                            echo '<td>' . '<button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>' . '</td>';
+                                            echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>' . '</td>';
 
                                             echo "</tr>";
 

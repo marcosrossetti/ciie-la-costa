@@ -132,7 +132,7 @@ destroyAdmin();
 
                                                             <td> prueba </td>
                                                             
-                                                            <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger"><a style="color:white; text-decoration:none; "href="modulos/modTuto/deshabilitar.php?id='.$row["id"].'"><i class="fa-solid fa-eraser"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button></td>
+                                                            <td width="20%" class="text-center"><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger"><a style="color:white; text-decoration:none; "href="modulos/modTuto/deshabilitar.php?id='.$row["id"].'"><i class="fa-solid fa-eraser"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button></td>
                                                         </tr>
                                                      ';
                                                 }
