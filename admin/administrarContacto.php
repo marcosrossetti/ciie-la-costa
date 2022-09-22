@@ -26,7 +26,8 @@
                             <th>Nombre</th>
                             <th>Email</th>
                             <th>Telefono</th>
-                            <th>Mensaje</th> 
+                            <th>Mensaje</th>
+                            <th>Estado</th>
                             <th>Mantenimiento</th>       
                         </tr>
                     </thead>
@@ -46,6 +47,7 @@
                     <td>'.$row["email"].'</td>
                     <td>'.$row["telefono"].'</td>
                     <td>'.$row["mensaje"].'</td>
+                    <td> prueba </td>
                     <td>
                     <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" data-id="'.$id.'" id="borrarMensaje">Eliminar este mensaje</a></button>
                     </td>        

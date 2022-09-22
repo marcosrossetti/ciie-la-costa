@@ -153,6 +153,7 @@ destroyAdmin();
                                             <th>Horario</th>
                                             <th>Formador</th>
                                             <th>Enlace</th>
+                                            <th>Estado</th>
                                             <th>Mantenimiento</th>
                                         </tr>
                                     </thead>
@@ -202,6 +203,8 @@ destroyAdmin();
                                             echo '<td>'.$row["formador"].'</td>';
 
                                             echo '<td>' .'<a href='. $row['link'] .'>Ver</a>' . '</td>';
+
+                                            echo '<td> prueba </td>';
 
                                             echo '<td>' . '<button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>' . '</td>';
 

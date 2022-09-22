@@ -110,6 +110,7 @@ destroyAdmin();
                                             <th>DNI</th>
                                             <th>Email</th>
                                             <th>Telefono</th>
+                                            <th>Estado</th>
                                             <th>Mantenimiento</th>
                                         </tr>
                                     </thead>
@@ -137,6 +138,7 @@ destroyAdmin();
                                             echo '<td>' . $dni .  '</td>';
                                             echo '<td>' .$mail .  '</td>';
                                             echo '<td>' .$tel .  '</td>';
+                                            echo '<td> prueba </td>';
                                             echo '<td>' . '<button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modFor/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>' . '</td>';
                                             echo "</tr>";
                                         }
