@@ -147,7 +147,7 @@ destroyAdmin();
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                     <tr>
-                                            <th>Nombre del curso</th>
+                                            <th>Nombre</th>
                                             <th>Area</th>
                                             <th>Dia</th>
                                             <th>Horario</th>
@@ -206,9 +206,38 @@ destroyAdmin();
 
                                             echo '<td> prueba </td>';
 
-                                            echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>' . '</td>';
+                                            echo '<td class="text-center">' . '<button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
 
                                             echo "</tr>";
+
+                                            echo '
+
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                    <div class="modal-body">
+                                                        <input type="text" placeholder="Nombre del curso" class="form-control mb-2" required>
+                                                        <input type="text" placeholder="Area" class="form-control mb-2" required>
+                                                        <input type="text" placeholder="Dia" class="form-control mb-2" required>
+                                                        <input type="text" placeholder="Horario" class="form-control mb-2" required>
+                                                        <input type="text" placeholder="Formador" class="form-control mb-2" required>
+                                                        <input type="text" placeholder="Enlace" class="form-control mb-2" required>
+                                                    </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                                            <button type="button" class="btn btn-primary">Guardar cambios</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            ';
 
                                         }
                                        }

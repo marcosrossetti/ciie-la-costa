@@ -73,7 +73,7 @@
 
             <div class="row">
                 <div class="col-lg-5 col-md-10 mx-auto  contenedorOfertas" id="contenedorOfertas">
-                    <h1 class="tituloIndex">Ofertas Activas</h1>
+                    <h1 class="tituloIndex">Novedades</h1>
 
                     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
                      <script>
@@ -124,7 +124,7 @@
                     </div>
                     
                     <!-- Pager-->
-                    <div class="clearfix"><a class="btn btn-primary float-right btnOfertas" href="noticias.php">Ofertas Antiguas →</a></div>
+                    <div class="clearfix"><a class="btn btn-primary float-right btnOfertas" href="noticias.php">Ver mas</a></div>
                 </div>
             
             

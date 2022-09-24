@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="index.php">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="noticias.php">Noticias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="noticias.php">Novedades</a></li>
                     <li class="nav-item"><a class="nav-link" href="biblioteca.php">Biblioteca Digital</a></li>
                     <li class="nav-item"><a class="nav-link" href="tutoriales.php">Tutoriales</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.php">Contacto</a></li>
