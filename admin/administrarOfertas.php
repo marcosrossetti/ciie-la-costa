@@ -138,34 +138,49 @@ destroyAdmin();
                                             echo '<td>' .$fecha.'</td>';
                                             echo '<td><a href="#" onclick="alert(`(alert temporal)\n'.$descripcion.'`);">ver mas...</a></td>';
                                             echo '<td> prueba </td>';
-                                            echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
+                                            echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" data-toggle="modal" id="editarBtn" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
                                             echo "</tr>";
+
                                             echo '
+
                                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <button type="button" id="modal"  class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                         <div class="modal-body">
-                                                            <input type="text" placeholder="Titulo de la oferta" class="form-control mb-2" required>
-                                                            <input type="text" placeholder="Nivel" class="form-control mb-2" required>
-                                                            <input type="text" placeholder="Fecha" class="form-control mb-2" required>
-                                                            <input type="text" placeholder="Descripcion" class="form-control mb-2" required>
-                                                        </div>
+                                                        <form id="idForm">
+                                                            <input type="text" id="nuevoTitulo" placeholder="Titulo de la oferta" class="form-control mb-2" required>
+                                                            <select id="nuevoNivel">
+                                                            <option value="Inicial">Inicial</option>
+                                                            <option value="Primario">Primario</option>
+                                                            <option value="Secundario">Secundario</option>
+                                                            <select/>
+                                                            <input type="date" id="nuevaFecha" placeholder="Fecha" class="form-control mb-2" required>
+                                                            <input type="text" id="nuevaDescripcion" placeholder="Descripcion" class="form-control mb-2" required>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                                                <button type="button" class="btn btn-primary">Guardar cambios</button>
+                                                                <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
+
                                                             </div>
+                                                            </div>
+                                                            
+                                                            </form>
+                                                        
+                                                            
                                                         </div>
+                                                        
                                                     </div>
                                                 </div>
                                             
                                             
                                             ';
+                                        
                                         }
                                        }
                                        ?> 
@@ -183,76 +198,68 @@ destroyAdmin();
             <!-- End of Main Content -->
             <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
             <script>
-                //EDITAR FECHA
-                $(document).on('click', '#fechaBtn',function () {
-                let fecha = $(this).data('fecha');
-                let id = $(this).data('id');
-                console.log(id , fecha);
-                document.getElementById('idFecha').value = id;
+                
+                   $(document).on('click','#editarBtn',function (){
+                     let id = $(this).data('id');
+                     console.log(id);
 
-                $("#exampleModal").modal("show");
 
-                $('#fechaForm').submit(e => {
+                    $("#exampleModal").modal("show");
+
+                    $('#idForm').submit(e => {
                     e.preventDefault();
+                    $(document).on('click','#submit', function (){
+
                     //creacion de objeto de almacenamiento de los inputs "postData"
                     const postData = {
                     //guardamos los input dentro de un objeto
                     nuevaFecha : $("#nuevaFecha").val(),
-                    id : $("#idFecha").val()
+                    id : id,
+                    nuevoTitulo : $("#nuevoTitulo").val(),
+                    nuevoNivel : $("#nuevoNivel").val(),
+                    nuevaDescripcion : $("#nuevaDescripcion").val()
                     };
                     //validacion ternaria de redireccion segun valor de la variable booleana "edit"
-                    const url = "modulos/modOfe/editarFecha.php";
+                    const url = "modulos/modOfe/editar.php";
                     //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
                     console.log(postData, url);
                     //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
                     //procesamiento de dichos datos)
                     $.post(url, postData, (response) => {
+                        
 
                         const rta = JSON.parse(response);
                     console.log(rta);
                     if(rta == 1){
                         window.location = "administrarOfertas.php";
                     }
+
+                    
                     
                     });
-                });
-            });
-
-            //EDITAR DESCRIPCION
-
-            $(document).on('click', '#desBtn',function () {
-                let des = $(this).data('des');
-                let id = $(this).data('id');
-                console.log(id , des);
-                document.getElementById('idDes').value = id;
-
-                $("#exampleModal2").modal("show");
-
-                $('#nuevaDes').submit(e => {
-                    e.preventDefault();
-                    //creacion de objeto de almacenamiento de los inputs "postData"
-                    const postData = {
-                    //guardamos los input dentro de un objeto
-                    nuevaDes : $("#des").val(),
-                    id : $("#idDes").val()
-                    };
-                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
-                    const url = "modulos/modOfe/editarDes.php";
-                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
-                    console.log(postData, url);
-                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
-                    //procesamiento de dichos datos)
-                    $.post(url, postData, (response) => {
-
-                    const rta = JSON.parse(response);
-                    console.log(rta);
-                    if(rta == 1){
-                        window.location = "administrarOfertas.php";
-                    }
-                    
                     });
-                });
-            });
+                    
+                });   
+
+                   }); 
+
+                
+                
+
+                
+                
+                
+
+                
+            
+
+
+                // $(document).on('click','#submit',e => {
+                //     e.preventDefault();
+                //     //creacion de objeto de almacenamiento de los inputs "postData"
+                    
+                // });
+           
 
             </script>
 
