@@ -102,8 +102,8 @@ destroyAdmin();
                                             <select id="formador">
                                                 <?php include("modulos/modCursos/buscarFormador.php");
 
-                                                        foreach($resultado as $fila){
-                                                            $nombre = $fila['nombre'];
+                                                        foreach($resultado2 as $fila2){
+                                                            $nombre = $fila2['nombre'];
                                                             
 
                                                             
@@ -161,6 +161,20 @@ destroyAdmin();
                                     <tbody>
                                        <?php
                                        include('../connection.php');
+                                       
+
+                                       include("modulos/modCursos/buscarFormador.php");
+
+                                                        foreach($resultado2 as $fila2){
+                                                            $nombre2 = $fila2['nombre'];
+
+                                                            $template = '
+                                                            <option value="'.$nombre2.'">'.$nombre2.'</option>
+
+                                                            ';
+                                                        }
+
+
 
                                        $sql = "SELECT * FROM `cursos` WHERE 1";
                                        $sqlEX = mysqli_query($connection, $sql);
@@ -173,15 +187,13 @@ destroyAdmin();
                                             $resultado = mysqli_query($connection, $query);
                                             $fila = mysqli_fetch_assoc($resultado);
                                             // echo '<script> alert("'.$fila['nombre'].'"); </script>'
-                                            
-
-                                            
                                         
 
                                             $id = $row['id_curso'];
                                             $formador = $row['formador'];
                                             $dia = $row['dia'];
                                             $horario = $row['horario'];
+
 
 
                                             echo "<tr>";
@@ -206,7 +218,7 @@ destroyAdmin();
 
                                             echo '<td> prueba </td>';
 
-                                            echo '<td class="text-center">' . '<button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
+                                            echo '<td class="text-center">' . '<button class="btn btn-primary" data-toggle="modal" id="editarBtn" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
 
                                             echo "</tr>";
 
@@ -221,24 +233,35 @@ destroyAdmin();
                                                             <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
+                                                        <form id="idForm">
                                                     <div class="modal-body">
-                                                        <input type="text" placeholder="Nombre del curso" class="form-control mb-2" required>
-                                                        <input type="text" placeholder="Area" class="form-control mb-2" required>
-                                                        <input type="text" placeholder="Dia" class="form-control mb-2" required>
-                                                        <input type="text" placeholder="Horario" class="form-control mb-2" required>
-                                                        <input type="text" placeholder="Formador" class="form-control mb-2" required>
-                                                        <input type="text" placeholder="Enlace" class="form-control mb-2" required>
-                                                    </div>
-                                                        <div class="modal-footer">
+                                                        <input type="text" id="nuevoNombre" placeholder="Nombre del curso" class="form-control mb-2" required>
+                                                        <input type="number" id="nuevaArea" placeholder="Area" class="form-control mb-2" required>
+                                                        <input type="date" id="nuevoDia" placeholder="Dia" class="form-control mb-2" required>
+                                                        <input type="time" id="nuevoHorario" placeholder="Horario" class="form-control mb-2" required>
+                                                        <select id="nuevoFormador">
+
+                                                            '.  $template .'
+                                                        </select>
+                                                        
+                                                        <input type="text" id="nuevoEnlace" placeholder="Enlace" class="form-control mb-2" required>
+
+                                                        
+
+                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                                             <button type="button" class="btn btn-primary">Guardar cambios</button>
                                                         </div>
                                                     </div>
+                                                       
+                                                    </div>
+                                                    </form>
                                                 </div>
                                             </div>
         
                                             ';
-
+                                        
+                                            
                                         }
                                        }
                                        ?> 
@@ -270,122 +293,51 @@ destroyAdmin();
 
     <script>
 
-        //EDITAR FORMADOR
+       $(document).on('click','#editarBtn',function (){
+                     let id = $(this).data('id');
+                     console.log(id);
+
+
+                    $("#exampleModal").modal("show");
+
+                    $('#idForm').submit(e => {
+                    e.preventDefault();
+                    $(document).on('click','#submit', function (){
+
+                    //creacion de objeto de almacenamiento de los inputs "postData"
+                    const postData = {
+                    //guardamos los input dentro de un objeto
+                    nuevaFecha : $("#nuevaFecha").val(),
+                    id : id,
+                    nuevoTitulo : $("#nuevoTitulo").val(),
+                    nuevoNivel : $("#nuevoNivel").val(),
+                    nuevaDescripcion : $("#nuevaDescripcion").val()
+                    };
+                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
+                    const url = "modulos/modOfe/editar.php";
+                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
+                    console.log(postData, url);
+                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
+                    //procesamiento de dichos datos)
+                    $.post(url, postData, (response) => {
+                        
+
+                        const rta = JSON.parse(response);
+                    console.log(rta);
+                    if(rta == 1){
+                        window.location = "administrarOfertas.php";
+                    }
+
+                    
+                    
+                    });
+                    });
+                    
+                });   
+
+                   }); 
        
-            $(document).on('click', '#formadorBtn',function () {
-                let formador = $(this).data('formador');
-                let id = $(this).data('id');
-                console.log(id , formador);
-                document.getElementById('idFormador').value = id;
-
-                $("#exampleModal").modal("show");
-
-                $('#formadorForm').submit(e => {
-                    e.preventDefault();
-                    //creacion de objeto de almacenamiento de los inputs "postData"
-                    const postData = {
-                    //guardamos los input dentro de un objeto
-                    nuevoFor : $("#nuevoFor").val(),
-                    id : $("#idFormador").val()
-                    };
-                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
-                    const url = "modulos/modCursos/editarFor.php";
-                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
-                    console.log(postData, url);
-                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
-                    //procesamiento de dichos datos)
-                    $.post(url, postData, (response) => {
-
-                    const rta = JSON.parse(response);
-                    console.log(rta);
-                    if(rta == 1){
-                        window.location = "administrarCursos.php";
-                    }
-                    
-                    });
-                });
-
-
-               
-
-
-             });
-
-             //EDITAR DIA
-
-             $(document).on('click', '#diaBtn',function () {
-                let dia = $(this).data('dia');
-                let id = $(this).data('id');
-                console.log(id , dia);
-                document.getElementById('idDia').value = id;
-
-                $("#exampleModal2").modal("show");
-
-                $('#diaForm').submit(e => {
-                    e.preventDefault();
-                    //creacion de objeto de almacenamiento de los inputs "postData"
-                    const postData = {
-                    //guardamos los input dentro de un objeto
-                    nuevoDia : $("#nuevoDia").val(),
-                    id : $("#idDia").val()
-                    };
-                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
-                    const url = "modulos/modCursos/editarDia.php";
-                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
-                    console.log(postData, url);
-                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
-                    //procesamiento de dichos datos)
-                    $.post(url, postData, (response) => {
-
-                    const rta = JSON.parse(response);
-                    console.log(rta);
-                    if(rta == 1){
-                        window.location = "administrarCursos.php";
-                    }
-                    
-                    });
-                });
-            });
-
-                    //EDITAR HORARIO
-                    
-                    $(document).on('click', '#horarioBtn',function () {
-                        let horario = $(this).data('horario');
-                        let id = $(this).data('id');
-                        console.log(id , horario);
-                        document.getElementById('idDia').value = id;
-
-                        $("#exampleModal3").modal("show");
-
-                        $('#horarioForm').submit(e => {
-                            e.preventDefault();
-                            //creacion de objeto de almacenamiento de los inputs "postData"
-                            const postData = {
-                            //guardamos los input dentro de un objeto
-                            nuevoHorario : $("#nuevoHorario").val(),
-                            id : $("#idDia").val()
-                            };
-                            //validacion ternaria de redireccion segun valor de la variable booleana "edit"
-                            const url = "modulos/modCursos/editarHorario.php";
-                            //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
-                            console.log(postData, url);
-                            //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
-                            //procesamiento de dichos datos)
-                            $.post(url, postData, (response) => {
-
-                            const rta = JSON.parse(response);
-                            console.log(rta);
-                            if(rta == 1){
-                                window.location = "administrarCursos.php";
-                            }
-                            
-                            });
-                        });
-
-               
-
-
-             });
+            
         
     </script>
 

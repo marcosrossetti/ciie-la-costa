@@ -3,8 +3,8 @@
 
  
 $query = "SELECT * FROM formador WHERE 1";
-$resultado = mysqli_query($connection, $query);
-$fila = mysqli_fetch_assoc($resultado);
+$resultado2 = mysqli_query($connection, $query);
+$fila2 = mysqli_fetch_assoc($resultado);
 // echo '<script> alert("'.$fila['nombre'].'"); </script>'
 
 
