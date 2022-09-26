@@ -197,71 +197,7 @@ destroyAdmin();
             </div>
             <!-- End of Main Content -->
             <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-            <script>
-                
-                   $(document).on('click','#editarBtn',function (){
-                     let id = $(this).data('id');
-                     console.log(id);
-
-
-                    $("#exampleModal").modal("show");
-
-                    $('#idForm').submit(e => {
-                    e.preventDefault();
-                    $(document).on('click','#submit', function (){
-
-                    //creacion de objeto de almacenamiento de los inputs "postData"
-                    const postData = {
-                    //guardamos los input dentro de un objeto
-                    nuevaFecha : $("#nuevaFecha").val(),
-                    id : id,
-                    nuevoTitulo : $("#nuevoTitulo").val(),
-                    nuevoNivel : $("#nuevoNivel").val(),
-                    nuevaDescripcion : $("#nuevaDescripcion").val()
-                    };
-                    //validacion ternaria de redireccion segun valor de la variable booleana "edit"
-                    const url = "modulos/modOfe/editar.php";
-                    //mostramos por pantalla el objeto y la direccion donde sera enviada para ser procesado
-                    console.log(postData, url);
-                    //metodo post por jquery parametros = (direccion url del archivo php, el objeto que guarda los datos a procesar, una funcion de respuesta al
-                    //procesamiento de dichos datos)
-                    $.post(url, postData, (response) => {
-                        
-
-                        const rta = JSON.parse(response);
-                    console.log(rta);
-                    if(rta == 1){
-                        window.location = "administrarOfertas.php";
-                    }
-
-                    
-                    
-                    });
-                    });
-                    
-                });   
-
-                   }); 
-
-                
-                
-
-                
-                
-                
-
-                
             
-
-
-                // $(document).on('click','#submit',e => {
-                //     e.preventDefault();
-                //     //creacion de objeto de almacenamiento de los inputs "postData"
-                    
-                // });
-           
-
-            </script>
 
             <!-- Footer -->
             <?php include('modulos/footer.php'); ?>

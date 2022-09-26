@@ -113,7 +113,7 @@ destroyAdmin();
                                             echo "<tr>";
                                             echo '<td>' .$row['nombre'] . '</td>';
                                             echo '<td> prueba </td>';
-                                            echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modArea/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
+                                            echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" data-toggle="modal" data-id="'.$id.'" id="editarBtnA"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modArea/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
                                             echo "</tr>";
                                             echo '
                                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -125,14 +125,16 @@ destroyAdmin();
                                                                 <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
+                                                            <form id="idFormA">
                                                         <div class="modal-body">
-                                                            <input type="text" placeholder="Nombre" class="form-control mb-2" required>
+                                                            <input type="text" id="nuevoNombre" placeholder="Nombre" class="form-control mb-2" required>
                                                         </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                                                <button type="button" class="btn btn-primary">Guardar cambios</button>
+                                                                <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
                                                             </div>
                                                         </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             ';
