@@ -10,55 +10,44 @@ destroyAdmin();
 
 <head>
 
+    <!-- META -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ADMIN - CIIE La Costa</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- LINKS FUENTES Y FONT AWESOME -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Custom styles for this template-->
+    <!-- LINKS CSS PLANTILLA -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this page -->
+    <!-- LINK DATA TABLES -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <title>ADMIN - CIIE La Costa</title>
 
 </head>
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-
+        <!-- INCLUDE MODULO SIDEBAR -->
         <?php include("modulos/slidebar.php") ?>
 
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
             <div id="content">
-
                 <div class="row m-0 mb-3" style="background-color:#fff"> 
                     <h1 class="pl-3 pt-3 h3 mb-4 text-gray-800">Administrar ofertas</h1>
                 </div>  
-
-                <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    
-
+                    <!-- BOTON ACORDEON -->
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                             <div class="card-header p-0" id="headingOne">
@@ -68,10 +57,8 @@ destroyAdmin();
                                     </button>
                                 </h2>
                             </div>
-
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body">
-
                                     <form id="agregarOfe">
                                         <div class="form-group">
                                             <label>Titulo de la oferta</label>
@@ -79,11 +66,11 @@ destroyAdmin();
                                         </div>
                                         <div class="form-group">
                                             <label>Nivel</label>
-                                                <select name="nivel" id="nivel" class="form-control">
-                                                    <option value="inicial">Inicial</option>
-                                                    <option value="primario">Primario</option>
-                                                    <option value="secundario">Secundario</option>
-                                                </select>
+                                            <select name="nivel" id="nivel" class="form-control">
+                                                <option value="inicial">Inicial</option>
+                                                <option value="primario">Primario</option>
+                                                <option value="secundario">Secundario</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha</label>
@@ -95,15 +82,15 @@ destroyAdmin();
                                         </div>                    
                                         <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
                                      </form>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                     
+                    <!-- TABLA -->
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                        <div class="table-responsive">
+                            <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -115,99 +102,77 @@ destroyAdmin();
                                             <th>Mantenimiento</th>
                                         </tr>
                                     </thead>
-
                                     <tbody>
-                                       <?php
-                                       include('../connection.php');
-                                       error_reporting(0);
+                                        <?php
+                                            include('../connection.php');
+                                            error_reporting(0);
 
-                                       $sql = "SELECT * FROM `ofertas` WHERE 1";
-                                       $sqlEX = mysqli_query($connection, $sql);
-                                       if($sqlEX){
-                                        $row = mysqli_fetch_array($sqlEX);
-                                       
-                                        
+                                            $sql = "SELECT * FROM `ofertas` WHERE 1";
+                                            $sqlEX = mysqli_query($connection, $sql);
+                                            if($sqlEX){
+                                                $row = mysqli_fetch_array($sqlEX);
+                                            
+                                                foreach($sqlEX as $row){
+                                                    $fecha = $row['fecha'];
+                                                    $id = $row['id_o'];
+                                                    $descripcion = $row['descripcion'];
 
-                                        foreach($sqlEX as $row){
-                                            $fecha = $row['fecha'];
-                                            $id = $row['id_o'];
-                                            $descripcion = $row['descripcion'];
-                                            echo "<tr>";
-                                            echo '<td>' .$row['titulo'] . '</td>';
-                                            echo '<td>' .$row['nivel'] . '</td>';
-                                            echo '<td>' .$fecha.'</td>';
-                                            echo '<td><a href="#" onclick="alert(`(alert temporal)\n'.$descripcion.'`);">ver mas...</a></td>';
-                                            echo '<td> prueba </td>';
-                                            echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
-                                            echo "</tr>";
-
-                                            echo '
-
-                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                              
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                                                                <button type="button" id="modal"  class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                                </button>
+                                                    echo "<tr>";
+                                                    echo '<td>' .$row['titulo'] . '</td>';
+                                                    echo '<td>' .$row['nivel'] . '</td>';
+                                                    echo '<td>' .$fecha.'</td>';
+                                                    echo '<td><a href="#" onclick="alert(`(alert temporal)\n'.$descripcion.'`);">ver mas...</a></td>';
+                                                    echo '<td> prueba </td>';
+                                                    echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><a style="color:white; text-decoration:none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'"<i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
+                                                    echo "</tr>";
+                                                    echo '
+                                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                                                                        <button type="button" id="modal"  class="close" data-dismiss="modal" aria-label="Close">
+                                                                            <span aria-hidden="true">&times;</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form id="idForm">
+                                                                        <input type="text" id="nuevoTitulo" placeholder="Titulo de la oferta" class="form-control mb-2" required>
+                                                                        <select id="nuevoNivel" class="form-control mb-2">
+                                                                            <option value="Inicial">Inicial</option>
+                                                                            <option value="Primario">Primario</option>
+                                                                            <option value="Secundario">Secundario</option>
+                                                                        <select/>
+                                                                        <input type="date" id="nuevaFecha" placeholder="Fecha" class="form-control mb-2" required>
+                                                                        <input type="text" id="nuevaDescripcion" placeholder="Descripcion" class="form-control mb-2" required>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                                                            <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
                                                             </div>
-                                                        <div class="modal-body">
-                                                        <form id="idForm">
-                                                            <input type="text" id="nuevoTitulo" placeholder="Titulo de la oferta" class="form-control mb-2" required>
-                                                            <select id="nuevoNivel" class="form-control mb-2">
-                                                            <option value="Inicial">Inicial</option>
-                                                            <option value="Primario">Primario</option>
-                                                            <option value="Secundario">Secundario</option>
-                                                            <select/>
-                                                            <input type="date" id="nuevaFecha" placeholder="Fecha" class="form-control mb-2" required>
-                                                            <input type="text" id="nuevaDescripcion" placeholder="Descripcion" class="form-control mb-2" required>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                                                <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
-
-                                                            </div>
-                                                            </div>
-                                                            
-                                                            </form>
-                                                        
-                                                            
                                                         </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                            
-                                            
-                                            ';
-                                        
-                                        }
-                                       }
-                                       ?> 
-                                      
+                                                    ';
+                                                }
+                                            }
+                                        ?> 
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
             <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
             
 
-            <!-- Footer -->
+            <!-- INCLUDE MODULO FOOTER -->
             <?php include('modulos/footer.php'); ?>
-            <!-- End of Footer -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
-    <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -224,7 +189,7 @@ destroyAdmin();
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
+    <!-- SCRIPTS DATA TABLE Y TRADUCCION -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">

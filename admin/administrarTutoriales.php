@@ -35,32 +35,20 @@ destroyAdmin();
 
 <body id="page-top">
 
-    <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
+        <!-- INCLUDE MODULO SIDEBAR -->
 
-        <?php include("modulos/slidebar.php") ?>
+        <?php include("modulos/sidebar.php") ?>
 
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
             <div id="content">
-
                 <div class="row m-0 mb-3" style="background-color:#fff"> 
                     <h1 class="pl-3 pt-3 h3 mb-4 text-gray-800">Administrar tutoriales</h1>
                 </div>
-                
-                <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    
 
-                    <!-- Page Heading -->
-                    
-
+                    <!-- BOTON ACORDEON -->
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                             <div class="card-header p-0" id="headingOne">
@@ -70,32 +58,30 @@ destroyAdmin();
                                 </button>
                                 </h2>
                             </div>
-
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 <div class="card-body">
-
-                                        <div class="form-group">
-                                            <label>Titulo</label>
-                                            <input type="text" name="titulo" id="titulo" class="form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Descripcion</label>
-                                            <input type="text" name="descripcion" id="descripcion" class="form-control" rows="3" required></input>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Url</label>
-                                            <input type="text" name="url" id="url" class="form-control" rows="3" required></input>
-                                        </div>           
-                                        <button id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
-
+                                    <div class="form-group">
+                                        <label>Titulo</label>
+                                        <input type="text" name="titulo" id="titulo" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Descripcion</label>
+                                        <input type="text" name="descripcion" id="descripcion" class="form-control" rows="3" required></input>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Url</label>
+                                        <input type="text" name="url" id="url" class="form-control" rows="3" required></input>
+                                    </div>           
+                                    <button id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- TABLA -->
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                        <div class="table-responsive">
+                            <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -114,53 +100,49 @@ destroyAdmin();
                                             $query = "SELECT * FROM `tutoriales` WHERE 1";
                                             $result = mysqli_query($connection, $query);
                                             if($result) {
-                                            $row = mysqli_fetch_array($result);
-                                            
+                                                $row = mysqli_fetch_array($result);
+                                                    foreach($result as $row) {
+                                                        $des = $row['des'];
+                                                        $id = $row['id'];
 
-                                                foreach($result as $row) {
-                                                    $des = $row['des'];
-                                                    $id = $row['id'];
+                                                        echo 
+                                                        '
+                                                            <tr>
+                                                                <td>'.$row["titulo"].'</td>
 
-                                                    echo 
-                                                    '
-                                                        <tr>
-                                                            <td>'.$row["titulo"].'</td>
+                                                                <td>'.$row["des"].'</td>
 
-                                                            <td>'.$row["des"].'</td>
+                                                                <td><a href='.$row["url"].' target="_blank">Ver</a></td>
 
-                                                            <td><a href='.$row["url"].' target="_blank">Ver</a></td>
-
-                                                            <td> prueba </td>
-                                                            
-                                                            <td width="20%" class="text-center"><button class="btn btn-primary" title="Editar datos" data-toggle="modal" data-id="'.$id.'" id="editarBtnT"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado"><a style="color:white; text-decoration:none; "href="modulos/modTuto/deshabilitar.php?id='.$row["id"].'"><i class="fa-solid fa-person-arrow-down-to-line"></i></a></button> <button class="btn btn-danger" title="Eliminar"><i class="fa-solid fa-eraser"></i></button></td>
-                                                        </tr>
-
-                                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                        </button>
+                                                                <td> prueba </td>
+                                                                
+                                                                <td width="20%" class="text-center"><button class="btn btn-primary" title="Editar datos" data-toggle="modal" data-id="'.$id.'" id="editarBtnT"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><a style="color: white; text-decoration:none" "href="modulos/modTuto/deshabilitar.php?id='.$row["id"].'"><i class="fa-solid fa-eraser"></i></a></button></td>
+                                                            </tr>
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <form id="idFormT">
+                                                                            <div class="modal-body">
+                                                                                <input type="text" id="nuevoTitulo" placeholder="Titulo" class="form-control mb-2" required>
+                                                                                <input type="text" id="nuevaDescripcion" placeholder="Descripcion" class="form-control mb-2" required>
+                                                                                <input type="text" id="nuevoEnlace" placeholder="Enlace" class="form-control mb-2" required>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                                                                <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
+                                                                            </div>
+                                                                        </form>
                                                                     </div>
-                                                                    <form id="idFormT">
-                                                                <div class="modal-body">
-                                                                    <input type="text" id="nuevoTitulo" placeholder="Titulo" class="form-control mb-2" required>
-                                                                    <input type="text" id="nuevaDescripcion" placeholder="Descripcion" class="form-control mb-2" required>
-                                                                    <input type="text" id="nuevoEnlace" placeholder="Enlace" class="form-control mb-2" required>
                                                                 </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                                                        <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
-                                                                    </div>
-                                                                </div>
-                                                                </form>
                                                             </div>
-
-                                                        </div>
-                                                    ';
-                                                }
+                                                        ';
+                                                    }
                                             }
                                         ?> 
                                     </tbody>
@@ -168,21 +150,15 @@ destroyAdmin();
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
 
-            <!-- Footer -->
+            <!-- INCLUDE MODULO FOOTER -->
             <?php include('modulos/footer.php'); ?>
-            <!-- End of Footer -->
 
         </div>
-        <!-- End of Content Wrapper -->
-
     </div>
+
     <!-- End of Page Wrapper -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
@@ -239,7 +215,7 @@ destroyAdmin();
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
+    <!-- SCRIPTS DATA TABLE Y TRADUCCION -->
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
