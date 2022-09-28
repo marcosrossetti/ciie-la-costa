@@ -218,7 +218,7 @@ destroyAdmin();
 
                                             echo '<td> prueba </td>';
 
-                                            echo '<td class="text-center">' . '<button class="btn btn-primary" data-toggle="modal" id="editarBtn" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></a></button> <button class="btn btn-danger"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
+                                            echo '<td class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></a></button> <button class="btn btn-danger" title="Eliminar"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
 
                                             echo "</tr>";
 
@@ -239,7 +239,7 @@ destroyAdmin();
                                                         <input type="number" id="nuevaArea" placeholder="Area" class="form-control mb-2" required>
                                                         <input type="date" id="nuevoDia" placeholder="Dia" class="form-control mb-2" required>
                                                         <input type="time" id="nuevoHorario" placeholder="Horario" class="form-control mb-2" required>
-                                                        <select id="nuevoFormador">
+                                                        <select id="nuevoFormador" class="form-control mb-2">
 
                                                             '.  $template .'
                                                         </select>

@@ -139,7 +139,7 @@ destroyAdmin();
                                             echo '<td>' .$mail .  '</td>';
                                             echo '<td>' .$tel .  '</td>';
                                             echo '<td> prueba </td>';
-                                            echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" data-toggle="modal" id="editarBtnF" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modFor/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
+                                            echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtnF" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado" name="submit"><a style="color:white; text-decoration: none;" href="modulos/modFor/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><i class="fa-solid fa-eraser"></i></button>' . '</td>';
                                             echo "</tr>";
                                             echo '
                                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
