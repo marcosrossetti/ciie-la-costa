@@ -38,7 +38,7 @@ destroyAdmin();
     <div id="wrapper">
 
         <!-- INCLUDE MODULO SIDEBAR -->
-        <?php include("modulos/slidebar.php") ?>
+        <?php include("modulos/sidebar.php") ?>
 
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">

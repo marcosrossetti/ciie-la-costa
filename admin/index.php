@@ -35,7 +35,7 @@ destroyAdmin();
 
         <!-- Sidebar -->
 
-        <?php include("modulos/slidebar.php") ?>
+        <?php include("modulos/sidebar.php") ?>
         
         <!-- End of Sidebar -->
 
