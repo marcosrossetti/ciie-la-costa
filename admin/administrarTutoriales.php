@@ -118,33 +118,10 @@ destroyAdmin();
                                                                 
                                                                 <td width="20%" class="text-center"><button class="btn btn-primary" title="Editar datos" data-toggle="modal" data-id="'.$id.'" id="editarBtnT"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><a style="color: white; text-decoration:none" "href="modulos/modTuto/deshabilitar.php?id='.$row["id"].'"><i class="fa-solid fa-eraser"></i></a></button></td>
                                                             </tr>
-                                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                <span aria-hidden="true">&times;</span>
-                                                                            </button>
-                                                                        </div>
-                                                                        <form id="idFormT">
-                                                                            <div class="modal-body">
-                                                                                <input type="text" id="nuevoTitulo" placeholder="Titulo" class="form-control mb-2" required>
-                                                                                <input type="text" id="nuevaDescripcion" placeholder="Descripcion" class="form-control mb-2" required>
-                                                                                <input type="text" id="nuevoEnlace" placeholder="Enlace" class="form-control mb-2" required>
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                                                                <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
-                                                                            </div>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        ';
+                                                            ';
+                                                        }
                                                     }
-                                            }
-                                        ?> 
+                                                    ?> 
                                     </tbody>
                                 </table>
                             </div>
@@ -152,7 +129,31 @@ destroyAdmin();
                     </div>
                 </div>
             </div>
-
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="idFormT">
+                            <div class="modal-body">
+                                <input type="text" id="nuevoTitulo" placeholder="Titulo" class="form-control mb-2" required>
+                                <input type="text" id="nuevaDescripcion" placeholder="Descripcion" class="form-control mb-2" required>
+                                <input type="text" id="nuevoEnlace" placeholder="Enlace" class="form-control mb-2" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
             <!-- INCLUDE MODULO FOOTER -->
             <?php include('modulos/footer.php'); ?>
 

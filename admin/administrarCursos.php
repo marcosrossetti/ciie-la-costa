@@ -136,6 +136,7 @@ destroyAdmin();
                                     </thead>
                                     <tbody>
                                         <?php
+
                                             include('../connection.php');
 
                                             include("modulos/modCursos/buscarFormador.php");
@@ -143,7 +144,7 @@ destroyAdmin();
                                             foreach($resultado2 as $fila2){
                                                 $nombre2 = $fila2['nombre'];
 
-                                                $template = '
+                                                $template = @$template. '
                                                 <option value="'.$nombre2.'">'.$nombre2.'</option>';
                                             }
 
@@ -172,37 +173,7 @@ destroyAdmin();
                                                     echo '<td>' .'<a href='. $row['link'] .'>Ver</a>' . '</td>';
                                                     echo '<td> prueba </td>';
                                                     echo '<td class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><a style="color:white; text-decoration:none" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
-                                                    echo "</tr>";
-                                                    echo '
-                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <form id="idForm">
-                                                                    <div class="modal-body">
-                                                                        <input type="text" id="nuevoNombre" placeholder="Nombre del curso" class="form-control mb-2" required>
-                                                                        <input type="number" id="nuevaArea" placeholder="Area" class="form-control mb-2" required>
-                                                                        <input type="date" id="nuevoDia" placeholder="Dia" class="form-control mb-2" required>
-                                                                        <input type="time" id="nuevoHorario" placeholder="Horario" class="form-control mb-2" required>
-                                                                        <select id="nuevoFormador" class="form-control mb-2">
-                                                                            '.  $template .'
-                                                                        </select>
-                                                                        <input type="text" id="nuevoEnlace" placeholder="Enlace" class="form-control mb-2" required>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                                                            <button type="button" class="btn btn-primary">Guardar cambios</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    ';   
+                                                    echo "</tr>";   
                                                 }
                                             }
                                         ?>   
@@ -219,6 +190,37 @@ destroyAdmin();
 
         </div>
 
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="idForm">
+                    <div class="modal-body">
+                        <input type="text" id="nuevoNombre" placeholder="Nombre del curso" class="form-control mb-2" required>
+                        <input type="text" id="nuevaArea" placeholder="Area" class="form-control mb-2" required>
+                        <input type="date" id="nuevoDia" placeholder="Dia" class="form-control mb-2" required>
+                        <input type="time" id="nuevoHorario" placeholder="Horario" class="form-control mb-2" required>
+                        <select id="nuevoFormador" class="form-control mb-2">
+                        <?php
+                            echo "$template";
+                        ?>
+                        </select>
+                        <input type="text" id="nuevoEnlace" placeholder="Enlace" class="form-control mb-2" required>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
 

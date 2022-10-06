@@ -126,38 +126,10 @@ destroyAdmin();
                                                     echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><a style="color:white; text-decoration:none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'"<i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";
                                                     echo '
-                                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                                                                        <button type="button" id="modal"  class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form id="idForm">
-                                                                        <input type="text" id="nuevoTitulo" placeholder="Titulo de la oferta" class="form-control mb-2" required>
-                                                                        <select id="nuevoNivel" class="form-control mb-2">
-                                                                            <option value="Inicial">Inicial</option>
-                                                                            <option value="Primario">Primario</option>
-                                                                            <option value="Secundario">Secundario</option>
-                                                                        <select/>
-                                                                        <input type="date" id="nuevaFecha" placeholder="Fecha" class="form-control mb-2" required>
-                                                                        <input type="text" id="nuevaDescripcion" placeholder="Descripcion" class="form-control mb-2" required>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                                                            <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     ';
                                                 }
                                             }
-                                        ?> 
+                                            ?> 
                                     </tbody>
                                 </table>
                             </div>
@@ -165,20 +137,47 @@ destroyAdmin();
                     </div>
                 </div>
             </div>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-            
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="idForm">
+                            <div class="modal-body">
+                                <input type="text" id="nuevoTitulo" placeholder="Titulo de la oferta" class="form-control mb-2" required>
+                                <select id="nuevoNivel" class="form-control mb-2">
+                                    <option value="Inicial">Inicial</option>
+                                    <option value="Primario">Primario</option>
+                                    <option value="Secundario">Secundario</option>
+                                </select>
+                                <input type="date" id="nuevaFecha" placeholder="Fecha" class="form-control mb-2" required>
+                                <input type="text" id="nuevaDescripcion" placeholder="Descripcion" class="form-control mb-2" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                <button type="submit" id="submit" class="btn btn-primary">Guardar cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <!-- INCLUDE MODULO FOOTER -->
             <?php include('modulos/footer.php'); ?>
-
+            
         </div>
     </div>
-
+    
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
