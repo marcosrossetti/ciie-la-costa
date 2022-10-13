@@ -65,7 +65,7 @@ destroyAdmin();
                                     <form id="agregar">
                                         <div class="form-group">
                                             <label>Area</label>
-                                            <select id="area" name="area">
+                                            <select id="area" name="area" class="form-control">
                                                 <?php include("modulos/modCursos/buscarArea.php");
                                                     foreach($resultado as $row){
                                                         $nmb = $row['nombre'];
@@ -81,7 +81,7 @@ destroyAdmin();
                                         </div>
                                         <div class="form-group">
                                             <label>Formadores Disponibles</label>
-                                            <select id="formador">
+                                            <select id="formador" class="form-control">
                                                 <?php include("modulos/modCursos/buscarFormador.php");
                                                     foreach($resultado2 as $fila2){
                                                         $nombre = $fila2['nombre'];
