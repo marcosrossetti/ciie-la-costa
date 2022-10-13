@@ -82,7 +82,7 @@ destroyAdmin();
                                         </div>
                                         <div class="form-group">
                                             <label>Agregar cursos</label>
-                                            <button class="btn btn-primary d-block"><i class="fa-solid fa-plus"></i></button>
+                                            <button class="btn btn-primary d-block" data-toggle="modal" data-target="#exampleModal1"><i class="fa-solid fa-plus"></i></button>
                                         </div>                  
                                         <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
                                      </form>
@@ -90,7 +90,52 @@ destroyAdmin();
                             </div>
                         </div>
                     </div>
-                    
+
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel1">Agregar cursos</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <label>Cursos disponibles</label>
+                                <select id="" class="form-control mb-2">
+                                    <option value="">Ejemplo 1</option>
+                                    <option value="">Ejemplo 2</option>
+                                    <option value="">Ejemplo 3</option>
+                                </select>
+                                <select id="" class="form-control mb-2">
+                                    <option value="">Ejemplo 1</option>
+                                    <option value="">Ejemplo 2</option>
+                                    <option value="">Ejemplo 3</option>
+                                </select>
+                                <select id="" class="form-control mb-2">
+                                    <option value="">Ejemplo 1</option>
+                                    <option value="">Ejemplo 2</option>
+                                    <option value="">Ejemplo 3</option>
+                                </select>
+                                <select id="" class="form-control mb-2">
+                                    <option value="">Ejemplo 1</option>
+                                    <option value="">Ejemplo 2</option>
+                                    <option value="">Ejemplo 3</option>
+                                </select>
+                                <select id="" class="form-control mb-2">
+                                    <option value="">Ejemplo 1</option>
+                                    <option value="">Ejemplo 2</option>
+                                    <option value="">Ejemplo 3</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary">Guardar</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                                            
                     <!-- TABLA -->
                     <div class="card shadow mb-4">
                         <div class="card-body">
