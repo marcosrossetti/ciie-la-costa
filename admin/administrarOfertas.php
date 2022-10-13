@@ -82,7 +82,7 @@ destroyAdmin();
                                         </div>
                                         <div class="form-group">
                                             <label>Agregar cursos</label>
-                                            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
+                                            <button class="btn btn-primary d-block"><i class="fa-solid fa-plus"></i></button>
                                         </div>                  
                                         <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
                                      </form>
