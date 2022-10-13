@@ -74,7 +74,7 @@ destroyAdmin();
                                         <div class="form-group">
                                             <label>Telefono</label>
                                             <input type="number" name="telefono" id="telefono" class="form-control" rows="3" required></input>
-                                        </div>    
+                                        </div>
                                         <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
                                     </form>
                                 </div>

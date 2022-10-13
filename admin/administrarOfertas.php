@@ -79,7 +79,11 @@ destroyAdmin();
                                         <div class="form-group">
                                             <label>Descripcion</label>
                                             <input type="text" name="descripcion" id="descripcion" class="form-control" rows="3" required></input>
-                                        </div>                    
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Agregar cursos</label>
+                                            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
+                                        </div>                  
                                         <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
                                      </form>
                                 </div>
