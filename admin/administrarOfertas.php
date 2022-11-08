@@ -1,12 +1,14 @@
 <?php
-//seguridad de redireccionamiento
-session_start();
-include('modulos/segUrl.php');
-destroyAdmin();
+    //seguridad de redireccionamiento
+    session_start();
+    include('modulos/segUrl.php');
+    destroyAdmin();
+    include('../connection.php');
+    error_reporting(0);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
@@ -52,7 +54,7 @@ destroyAdmin();
                         <div class="card">
                             <div class="card-header p-0" id="headingOne">
                                 <h2 class="mb-0">
-                                    <button class="btn btn-primary btn-block text-center" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="btn btn-primary btn-block text-center" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         Agregar ofertas
                                     </button>
                                 </h2>
@@ -79,11 +81,7 @@ destroyAdmin();
                                         <div class="form-group">
                                             <label>Descripcion</label>
                                             <input type="text" name="descripcion" id="descripcion" class="form-control" rows="3" required></input>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Agregar cursos</label>
-                                            <button class="btn btn-primary d-block" data-toggle="modal" data-target="#exampleModal1"><i class="fa-solid fa-plus"></i></button>
-                                        </div>                  
+                                        </div>                
                                         <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
                                      </form>
                                 </div>
@@ -91,41 +89,29 @@ destroyAdmin();
                         </div>
                     </div>
 
-                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                    <div class="modal fade" id="modalRelOfcu" tabindex="-1" aria-labelledby="modalRelOfcuLabel1" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel1">Agregar cursos</h5>
+                                <h5 class="modal-title" id="modalRelOfcuLabel1">Agregar cursos</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
                                 <label>Cursos disponibles</label>
-                                <select id="" class="form-control mb-2">
-                                    <option value="">Ejemplo 1</option>
-                                    <option value="">Ejemplo 2</option>
-                                    <option value="">Ejemplo 3</option>
-                                </select>
-                                <select id="" class="form-control mb-2">
-                                    <option value="">Ejemplo 1</option>
-                                    <option value="">Ejemplo 2</option>
-                                    <option value="">Ejemplo 3</option>
-                                </select>
-                                <select id="" class="form-control mb-2">
-                                    <option value="">Ejemplo 1</option>
-                                    <option value="">Ejemplo 2</option>
-                                    <option value="">Ejemplo 3</option>
-                                </select>
-                                <select id="" class="form-control mb-2">
-                                    <option value="">Ejemplo 1</option>
-                                    <option value="">Ejemplo 2</option>
-                                    <option value="">Ejemplo 3</option>
-                                </select>
-                                <select id="" class="form-control mb-2">
-                                    <option value="">Ejemplo 1</option>
-                                    <option value="">Ejemplo 2</option>
-                                    <option value="">Ejemplo 3</option>
+                                <select class="form-control mb-2">
+                                    <?php
+                                        $sql = "SELECT * FROM `cursos` WHERE 1";
+                                        $sqlEX = mysqli_query($connection, $sql);
+                                        if($sqlEX){
+                                            $row = mysqli_fetch_array($sqlEX);
+                                        
+                                            foreach($sqlEX as $row){
+                                                echo'<option id="'.$row['id_curso'].'">'.$row['nombre'].'</option>';
+                                            }
+                                        }
+                                    ?>
                                 </select>
                             </div>
                             <div class="modal-footer">
@@ -153,9 +139,6 @@ destroyAdmin();
                                     </thead>
                                     <tbody>
                                         <?php
-                                            include('../connection.php');
-                                            error_reporting(0);
-
                                             $sql = "SELECT * FROM `ofertas` WHERE 1";
                                             $sqlEX = mysqli_query($connection, $sql);
                                             if($sqlEX){
@@ -172,7 +155,11 @@ destroyAdmin();
                                                     echo '<td>' .$fecha.'</td>';
                                                     echo '<td><a href="#" onclick="alert(`(alert temporal)\n'.$descripcion.'`);">ver mas...</a></td>';
                                                     echo '<td> prueba </td>';
-                                                    echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><a style="color:white; text-decoration:none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'"<i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
+                                                    echo '<td width="20%" class="text-center">' . 
+                                                    '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                                     <button class="btn btn-sm btn-primary" title="Agregar cursos" data-toggle="modal" data-target="#modalRelOfcu"><i class="fa-solid fa-plus"></i></button>
+                                                     <button class="btn btn-sm btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button>
+                                                      <button class="btn btn-sm btn-danger" title="Eliminar"><a style="color:white; text-decoration:none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'"<i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";
                                                     echo '
                                                     ';
