@@ -35,6 +35,7 @@
     </head>
     <body>
 
+
         <!-- LINK HEADER -->
 
         <?php include("modulos/header.php") ?>
@@ -57,8 +58,29 @@
 
         <!-- CIERRE ENCABEZADO -->
 
+        <div id="visitas">
+            
+        </div>
+
         <?php
             include('connection.php');
+
+            $visitasQuery = "SELECT * FROM `visitas` WHERE 1";
+            $visitasEX = mysqli_query($connection, $visitasQuery);
+            $visitasRow = mysqli_fetch_array($visitasEX);
+            $visitas = $visitasRow['visitas'];
+
+            
+
+            $count = $visitas + 1;
+
+            $countQuery = "UPDATE `visitas` SET `visitas` = $count WHERE 1";
+            $countEX = mysqli_query($connection, $countQuery);
+
+
+            echo $visitas;
+
+
             $sql = "SELECT * FROM `cursos` WHERE 1";
             $sqlEX = mysqli_query($connection, $sql);
 
