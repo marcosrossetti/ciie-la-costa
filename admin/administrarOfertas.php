@@ -19,7 +19,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <!-- LINKS FUENTES Y FONT AWESOME -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -100,7 +102,7 @@
                             </div>
                             <div class="modal-body">
                                 <label>Cursos disponibles</label>
-                                <select class="form-control mb-2">
+                                <select id="opciones" class="form-control mb-2">
                                     <?php
                                         $sql = "SELECT * FROM `cursos` WHERE 1";
                                         $sqlEX = mysqli_query($connection, $sql);
@@ -116,7 +118,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Guardar</button>
+                                <button type="button" class="btn btn-primary" id="envio-rel">Guardar</button>
                             </div>
                             </div>
                         </div>
@@ -139,7 +141,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $sql = "SELECT * FROM `ofertas` WHERE 1";
+                                            $sql = "SELECT * FROM `ofertas` WHERE `eliminado` = 0";
                                             $sqlEX = mysqli_query($connection, $sql);
                                             if($sqlEX){
                                                 $row = mysqli_fetch_array($sqlEX);
@@ -148,18 +150,25 @@
                                                     $fecha = $row['fecha'];
                                                     $id = $row['id_o'];
                                                     $descripcion = $row['descripcion'];
+                                                    $estado = $row['estado'];
+                                                    if($estado == 0){
+                                                        $estadoE = "Activo";
+
+                                                    } else {
+                                                        $estadoE = "Desactivado";
+                                                    }
 
                                                     echo "<tr>";
                                                     echo '<td>' .$row['titulo'] . '</td>';
                                                     echo '<td>' .$row['nivel'] . '</td>';
                                                     echo '<td>' .$fecha.'</td>';
                                                     echo '<td><a href="#" onclick="alert(`(alert temporal)\n'.$descripcion.'`);">ver mas...</a></td>';
-                                                    echo '<td> prueba </td>';
+                                                    echo '<td>'.$estadoE.'</td>';
                                                     echo '<td width="20%" class="text-center">' . 
                                                     '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button>
-                                                     <button class="btn btn-sm btn-primary" title="Agregar cursos" data-toggle="modal" data-target="#modalRelOfcu"><i class="fa-solid fa-plus"></i></button>
-                                                     <button class="btn btn-sm btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button>
-                                                      <button class="btn btn-sm btn-danger" title="Eliminar"><a style="color:white; text-decoration:none;" href="modulos/modOfe/deshabilitar.php?id='.$id.'"<i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
+                                                     <button class="btn btn-sm btn-primary" title="Agregar cursos" data-toggle="modal" data-id="'.$id.'" data-target="#modalRelOfcu" id="agregado-id"><i class="fa-solid fa-plus"></i></button>
+                                                     <button class="btn btn-sm btn-danger" id="estado-adit" title="Editar estado" data-estado="'.$estado.'" data-id="'.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button>
+                                                      <button class="btn btn-sm btn-danger" title="Eliminar" data-id="'.$id.'" id="elim_of"><a style="color:white; text-decoration:none;"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";
                                                     echo '
                                                     ';
@@ -236,6 +245,7 @@
             });
         });
     </script>
+    <script src="modulos/modOfe/ofe.js"></script>
 
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
