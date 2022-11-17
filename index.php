@@ -70,16 +70,10 @@
             $visitasRow = mysqli_fetch_array($visitasEX);
             $visitas = $visitasRow['visitas'];
 
-            
-
             $count = $visitas + 1;
 
             $countQuery = "UPDATE `visitas` SET `visitas` = $count WHERE 1";
             $countEX = mysqli_query($connection, $countQuery);
-
-
-            echo $visitas;
-
 
             $sql = "SELECT * FROM `cursos` WHERE 1";
             $sqlEX = mysqli_query($connection, $sql);
@@ -160,6 +154,10 @@
                             <a href="https://www.facebook.com/lacosta.ciie">CIIE Partido de La Costa</a>
                         </blockquote>
                     </div>
+                </div>
+
+                <div class="col-12 mx-auto contenedorOfertas">
+                    <h2 class="text-center">Visitas totales: <?php echo $visitas; ?></h2>
                 </div>
             </div>
         </div>
