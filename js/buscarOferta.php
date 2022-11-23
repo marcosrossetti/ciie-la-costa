@@ -1,7 +1,7 @@
 <?php
 include("../connection.php");
 
-$sql = "SELECT * FROM `ofertas` WHERE 1";
+$sql = "SELECT * FROM `ofertas` WHERE `estado` = 0 AND `eliminado` = 0 LIMIT 2";
 $sqlEX = mysqli_query($connection, $sql);
 
 $row = mysqli_fetch_array($sqlEX);
