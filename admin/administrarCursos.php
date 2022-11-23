@@ -17,6 +17,9 @@ destroyAdmin();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- LINKS FUENTES Y FONT AWESOME-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -148,7 +151,7 @@ destroyAdmin();
                                                 <option value="'.$nombre2.'">'.$nombre2.'</option>';
                                             }
 
-                                            $sql = "SELECT * FROM `cursos` WHERE 1";
+                                            $sql = "SELECT * FROM `cursos` WHERE `eliminado` = 0";
                                             $sqlEX = mysqli_query($connection, $sql);
                                             if($sqlEX){
                                                 $row = mysqli_fetch_array($sqlEX);
@@ -160,10 +163,16 @@ destroyAdmin();
                                                     $fila = mysqli_fetch_assoc($resultado);
 
                                                     $id = $row['id_curso'];
+                                                    $est = $row['estado'];
                                                     $formador = $row['formador'];
                                                     $dia = $row['dia'];
                                                     $horario = $row['horario'];
+                                                    if($est == 0){
+                                                        $estE = "Activo";
 
+                                                    } else {
+                                                        $estE = "Desactivado";
+                                                    }
                                                     echo "<tr>";
                                                     echo '<td>' .$row['nombre'] . '</td>';
                                                     echo '<td>' .$row['area'] . '</td>';
@@ -171,8 +180,8 @@ destroyAdmin();
                                                     echo '<td>'.$row["horario"].'</td>';
                                                     echo '<td>'.$row["formador"].'</td>';
                                                     echo '<td>' .'<a href='. $row['link'] .'>Ver</a>' . '</td>';
-                                                    echo '<td> prueba </td>';
-                                                    echo '<td class="text-center">' . '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-sm btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-sm btn-danger" title="Eliminar"><a style="color:white; text-decoration:none" href="modulos/modCursos/deshabilitarCurso.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
+                                                    echo '<td>'.$estE.'</td>';
+                                                    echo '<td class="text-center">' . '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-sm btn-danger" title="Editar estado" id="estado-adit" data-id ="'.$id.'" data-estado="'.$est.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-sm btn-danger" title="Eliminar" id="elim_cu" data-id="'.$id.'"><a style="color:white; text-decoration:none"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";   
                                                 }
                                             }
@@ -303,6 +312,7 @@ destroyAdmin();
         });
     </script>
 
+    <script src="modulos/modCursos/cur.js"></script>
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 

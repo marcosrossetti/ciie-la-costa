@@ -17,6 +17,9 @@ destroyAdmin();
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- LINKS FUENTES Y FONT AWESOME -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -102,7 +105,7 @@ destroyAdmin();
                                             include('../connection.php');
                                             include('modulos/modFor/deshabilitar.php');
 
-                                            $sql = "SELECT * FROM `formador` WHERE 1";
+                                            $sql = "SELECT * FROM `formador` WHERE `eliminado` = 0";
                                             $sqlEX = mysqli_query($connection, $sql);
                                             if($sqlEX){
                                                 $row = mysqli_fetch_array($sqlEX);
@@ -113,14 +116,21 @@ destroyAdmin();
                                                     $mail = $row['mail'];
                                                     $tel = $row['tel'];
                                                     $id = $row['id'];
+                                                    $est = $row['estado'];
+                                                    if($est == 0){
+                                                        $estE = "Activo";
 
-                                                    echo "<tr>";
+                                                    } else {
+                                                        $estE = "Desactivado";
+                                                    }
+
+                                                    echo '<tr>';
                                                     echo '<td>' . $nombre .  '</td>';
                                                     echo '<td>' . $dni .  '</td>';
                                                     echo '<td>' .$mail .  '</td>';
                                                     echo '<td>' .$tel .  '</td>';
-                                                    echo '<td> prueba </td>';
-                                                    echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtnF" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><a style="color:white; text-decoration:none" href="modulos/modFor/deshabilitar.php?id='.$id.'"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
+                                                    echo '<td>'.$estE.'</td>';
+                                                    echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtnF" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado" data-id="'.$id.'"  data-estado="'.$est.'" id="estado-adit"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar" data-id="'.$id.'" id="elim_fo"><a style="color:white; text-decoration:none"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";    
                                                 }
                                             }
@@ -199,6 +209,9 @@ destroyAdmin();
     <script src="js/demo/datatables-demo.js"></script>
 
     <script src="modulos/funciones.js"></script>
+
+    <script src="modulos/modFor/for.js"></script>
+
 
 </body>
 

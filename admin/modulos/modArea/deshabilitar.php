@@ -1,21 +1,21 @@
 <?php
 include('db.php');
-error_reporting(0);
-$id = $_GET['id'];
-if(isset($id)) {
-    //si id contiene algo, bajamos id para procesarlo
-    
-    $query = "DELETE FROM `area` WHERE `id` = '$id'"; 
-    $result = mysqli_query($connection, $query);
-  
-    if (!$result) {
-      die('Query Failed.');
+
+$id = $_POST['id'];
+$est = $_POST['est'];
+if($est == 0){
+    $sql = "UPDATE `area` SET `estado`= 1 WHERE `id` = $id";
+    $sqlEX = mysqli_query($connection, $sql);
+    if($sqlEX){
+        header("location:../../administrarFormador.php");
     }
-    
-    header("location:../../administrarArea.php");  
-  
-  }
-  
+} elseif ($est == 1){
+    $sql = "UPDATE `area` SET `estado`= 0 WHERE `id` = $id";
+    $sqlEX = mysqli_query($connection, $sql);
+    if($sqlEX){
+        header("location:../../administrarFormador.php");
+    }
+}
 
 
 ?>
