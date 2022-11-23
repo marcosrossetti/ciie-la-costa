@@ -156,7 +156,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 mx-auto contenedorOfertas">
+                <div class="col-lg-11 col-md-10 col-12 mx-auto contenedorOfertas">
                     <h2 class="text-center">Visitas totales: <?php echo $visitas; ?></h2>
                 </div>
             </div>
