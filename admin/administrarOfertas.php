@@ -125,7 +125,7 @@
                                 <hr>
                                 <label>Agregar cursos</label>
                                 <div class="row">
-                                    <div class="col-9">
+                                    <div class="col-12">
                                         <select id="opciones" class="form-control mb-2">
                                             <?php
                                                 $sql = "SELECT * FROM `cursos` WHERE 1";
@@ -139,9 +139,6 @@
                                                 }
                                             ?>
                                         </select>
-                                    </div>
-                                    <div class="col-3">
-                                        <button type="button" class="btn btn-primary">Agregar</button>
                                     </div>
                                 </div>
                             </div>
