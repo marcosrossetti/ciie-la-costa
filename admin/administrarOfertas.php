@@ -95,26 +95,55 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="modalRelOfcuLabel1">Agregar cursos</h5>
+                                <h5 class="modal-title" id="modalRelOfcuLabel1">Administrar cursos</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <label>Cursos disponibles</label>
-                                <select id="opciones" class="form-control mb-2">
-                                    <?php
-                                        $sql = "SELECT * FROM `cursos` WHERE 1";
-                                        $sqlEX = mysqli_query($connection, $sql);
-                                        if($sqlEX){
-                                            $row = mysqli_fetch_array($sqlEX);
-                                        
-                                            foreach($sqlEX as $row){
-                                                echo'<option id="'.$row['id_curso'].'">'.$row['nombre'].'</option>';
-                                            }
-                                        }
-                                    ?>
-                                </select>
+                                <label>Editar cursos</label>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <select id="opciones" class="form-control mb-2">
+                                            <?php
+                                                $sql = "SELECT * FROM `cursos` WHERE 1";
+                                                $sqlEX = mysqli_query($connection, $sql);
+                                                if($sqlEX){
+                                                    $row = mysqli_fetch_array($sqlEX);
+                                                
+                                                    foreach($sqlEX as $row){
+                                                        echo'<option id="'.$row['id_curso'].'">'.$row['nombre'].'</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-danger">Borrar</button>
+                                    </div>
+                                </div>
+                                <hr>
+                                <label>Agregar cursos</label>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <select id="opciones" class="form-control mb-2">
+                                            <?php
+                                                $sql = "SELECT * FROM `cursos` WHERE 1";
+                                                $sqlEX = mysqli_query($connection, $sql);
+                                                if($sqlEX){
+                                                    $row = mysqli_fetch_array($sqlEX);
+                                                
+                                                    foreach($sqlEX as $row){
+                                                        echo'<option id="'.$row['id_curso'].'">'.$row['nombre'].'</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-primary">Agregar</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
