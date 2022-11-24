@@ -176,7 +176,7 @@
                                                     echo '<td>' .$row['titulo'] . '</td>';
                                                     echo '<td>' .$row['nivel'] . '</td>';
                                                     echo '<td>' .$fecha.'</td>';
-                                                    echo '<td><a href="#" onclick="alert(`(alert temporal)\n'.$descripcion.'`);">ver mas...</a></td>';
+                                                    echo '<td><a href="#" onclick="Swal.fire({text:`'.$descripcion.'`});">ver mas...</a></td>';
                                                     echo '<td>'.$estadoE.'</td>';
                                                     echo '<td width="20%" class="text-center">' . 
                                                     '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button>
