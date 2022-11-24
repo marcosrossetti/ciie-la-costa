@@ -181,7 +181,7 @@ destroyAdmin();
                                                     echo '<td>'.$row["formador"].'</td>';
                                                     echo '<td>' .'<a href='. $row['link'] .'>Ver</a>' . '</td>';
                                                     echo '<td>'.$estE.'</td>';
-                                                    echo '<td class="text-center">' . '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-sm btn-danger" title="Editar estado" id="estado-adit" data-id ="'.$id.'" data-estado="'.$est.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-sm btn-danger" title="Eliminar" id="elim_cu" data-id="'.$id.'"><a style="color:white; text-decoration:none"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
+                                                    echo '<td class="text-center">' . '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-sm btn-danger" title="Editar estado" id="estado-adit" data-id ="'.$id.'" data-estado="'.$est.'"><i class="fa-solid fa-right-left"></i></button> <button class="btn btn-sm btn-danger" title="Eliminar" id="elim_cu" data-id="'.$id.'"><a style="color:white; text-decoration:none"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";   
                                                 }
                                             }

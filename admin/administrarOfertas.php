@@ -181,7 +181,7 @@
                                                     echo '<td width="20%" class="text-center">' . 
                                                     '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button>
                                                      <button onclick="obtenerDatos($(this).data(`id`))" class="btn btn-sm btn-primary" id="administrarCursos" title="Administrar cursos" data-toggle="modal" data-id="'.$id.'" data-target="#modalRelOfcu" id="agregado-id"><i class="fa-solid fa-plus"></i></button>
-                                                     <button class="btn btn-sm btn-danger" id="estado-adit" title="Editar estado" data-estado="'.$estado.'" data-id="'.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button>
+                                                     <button class="btn btn-sm btn-danger" id="estado-adit" title="Editar estado" data-estado="'.$estado.'" data-id="'.$id.'"><i class="fa-solid fa-right-left"></i></button>
                                                       <button class="btn btn-sm btn-danger" title="Eliminar" data-id="'.$id.'" id="elim_of"><a style="color:white; text-decoration:none;"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";
                                                     echo '
