@@ -25,6 +25,8 @@ destroyAdmin();
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        <!-- SweetAlert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -97,13 +99,20 @@ destroyAdmin();
                                             include('../connection.php');
                                             error_reporting(0);
 
-                                            $query = "SELECT * FROM `tutoriales` WHERE 1";
+                                            $query = "SELECT * FROM `tutoriales` WHERE `eliminado` = 0";
                                             $result = mysqli_query($connection, $query);
                                             if($result) {
                                                 $row = mysqli_fetch_array($result);
                                                     foreach($result as $row) {
                                                         $des = $row['des'];
                                                         $id = $row['id'];
+                                                        $estado = $row['estado'];
+                                                        if($estado == 0){
+                                                            $estadoE = "Activo";
+
+                                                        } else {
+                                                            $estadoE = "Desactivado";
+                                                        }
 
                                                         echo 
                                                         '
@@ -114,9 +123,9 @@ destroyAdmin();
 
                                                                 <td><a href='.$row["url"].' target="_blank">Ver</a></td>
 
-                                                                <td> prueba </td>
+                                                                <td>'.$estadoE.'</td>
                                                                 
-                                                                <td width="20%" class="text-center"><button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" data-id="'.$id.'" id="editarBtnT"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-sm btn-danger" title="Editar estado"><i class="fa-solid fa-right-left"></i></button> <button class="btn btn-sm btn-danger" title="Eliminar"><a style="color: white; text-decoration:none" href="modulos/modTuto/deshabilitar.php?id='.$row["id"].'"><i class="fa-solid fa-eraser"></i></a></button></td>
+                                                                <td width="20%" class="text-center"><button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" data-id="'.$id.'" id="editarBtnT"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-sm btn-danger" title="Editar estado" data-id="'.$id.'" id="estado-adit" data-estado="'.$estado.'"><i class="fa-solid fa-right-left"></i></button> <button class="btn btn-sm btn-danger" title="Eliminar" data-id="'.$id.'" id="elim_tu"><a style="color: white; text-decoration:none"><i class="fa-solid fa-eraser"></i></a></button></td>
                                                             </tr>
                                                             ';
                                                         }
@@ -260,6 +269,8 @@ destroyAdmin();
     </script>
 
     <script src="modulos/funciones.js"></script>
+    <script src="modulos/modTuto/tut.js"></script>
+
 
 </body>
 
