@@ -85,7 +85,7 @@
                                             <input type="text" name="descripcion" id="descripcion" class="form-control" rows="3" required></input>
                                         </div>                
                                         <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
-                                     </form>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -103,20 +103,8 @@
                             <div class="modal-body">
                                 <label>Editar cursos</label>
                                 <div class="row">
-                                    <div class="col-9">
-                                        <select id="opciones" class="form-control mb-2">
-                                            <?php
-                                                $sql = "SELECT * FROM `cursos` WHERE 1";
-                                                $sqlEX = mysqli_query($connection, $sql);
-                                                if($sqlEX){
-                                                    $row = mysqli_fetch_array($sqlEX);
-                                                
-                                                    foreach($sqlEX as $row){
-                                                        echo'<option id="'.$row['id_curso'].'">'.$row['nombre'].'</option>';
-                                                    }
-                                                }
-                                            ?>
-                                        </select>
+                                    <div class="col-9 selectEditar">
+                                        <select id='opciones' class='form-control mb-2'></select>
                                     </div>
                                     <div class="col-3">
                                         <button type="button" class="btn btn-danger">Borrar</button>
@@ -192,7 +180,7 @@
                                                     echo '<td>'.$estadoE.'</td>';
                                                     echo '<td width="20%" class="text-center">' . 
                                                     '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button>
-                                                     <button class="btn btn-sm btn-primary" title="Agregar cursos" data-toggle="modal" data-id="'.$id.'" data-target="#modalRelOfcu" id="agregado-id"><i class="fa-solid fa-plus"></i></button>
+                                                     <button onclick="obtenerDatos($(this).data(`id`));" class="btn btn-sm btn-primary" id="administrarCursos" title="Administrar cursos" data-toggle="modal" data-id="'.$id.'" data-target="#modalRelOfcu" id="agregado-id"><i class="fa-solid fa-plus"></i></button>
                                                      <button class="btn btn-sm btn-danger" id="estado-adit" title="Editar estado" data-estado="'.$estado.'" data-id="'.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button>
                                                       <button class="btn btn-sm btn-danger" title="Eliminar" data-id="'.$id.'" id="elim_of"><a style="color:white; text-decoration:none;"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";
@@ -270,6 +258,26 @@
                 }
             });
         });
+
+        function obtenerDatos(id) {
+            let html = "<select id='opciones' class='form-control mb-2'>";
+            $.ajax({
+                url:'modulos/modOfe/adminRel.php',
+                type:'POST',
+                data: {
+                    id: id
+                },
+                success:function(response) {
+                    let tarea = JSON.parse(response);
+                    alert(tarea[0].nombre);
+                    tarea.forEach(dato=>{
+                        html+= `<option id="${dato.id}">${dato.nombre}</option>`;
+                    });
+                    html+= '</select>';
+                    $(".selectEditar").html(html);
+                }
+            });
+        }
     </script>
     <script src="modulos/modOfe/ofe.js"></script>
 
