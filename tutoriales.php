@@ -38,7 +38,7 @@
         <?php include("modulos/header.php") ?>
 
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/fondopersonal.jpg')">
+        <header class="masthead" style="background-image: url('assets/img/fondotutos.png')">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
