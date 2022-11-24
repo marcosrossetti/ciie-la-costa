@@ -116,7 +116,7 @@ destroyAdmin();
 
                                                                 <td> prueba </td>
                                                                 
-                                                                <td width="20%" class="text-center"><button class="btn btn-primary" title="Editar datos" data-toggle="modal" data-id="'.$id.'" id="editarBtnT"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar"><a style="color: white; text-decoration:none" href="modulos/modTuto/deshabilitar.php?id='.$row["id"].'"><i class="fa-solid fa-eraser"></i></a></button></td>
+                                                                <td width="20%" class="text-center"><button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" data-id="'.$id.'" id="editarBtnT"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-sm btn-danger" title="Editar estado"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-sm btn-danger" title="Eliminar"><a style="color: white; text-decoration:none" href="modulos/modTuto/deshabilitar.php?id='.$row["id"].'"><i class="fa-solid fa-eraser"></i></a></button></td>
                                                             </tr>
                                                             ';
                                                         }

@@ -130,7 +130,7 @@ destroyAdmin();
                                                     echo '<td>' .$mail .  '</td>';
                                                     echo '<td>' .$tel .  '</td>';
                                                     echo '<td>'.$estE.'</td>';
-                                                    echo '<td width="20%" class="text-center">' . '<button class="btn btn-primary" title="Editar datos" data-toggle="modal" id="editarBtnF" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-danger" title="Editar estado" data-id="'.$id.'"  data-estado="'.$est.'" id="estado-adit"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-danger" title="Eliminar" data-id="'.$id.'" id="elim_fo"><a style="color:white; text-decoration:none"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
+                                                    echo '<td class="text-center">' . '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtnF" data-id="'.$id.'"><i class="fa-solid fa-pen-to-square"></i></button> <button class="btn btn-sm btn-danger" title="Editar estado" data-id="'.$id.'"  data-estado="'.$est.'" id="estado-adit"><i class="fa-solid fa-person-arrow-down-to-line"></i></button> <button class="btn btn-sm btn-danger" title="Eliminar" data-id="'.$id.'" id="elim_fo"><a style="color:white; text-decoration:none"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";    
                                                 }
                                             }
