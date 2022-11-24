@@ -114,7 +114,7 @@
                                 <label>Agregar cursos</label>
                                 <div class="row">
                                     <div class="col-12">
-                                        <select id="opciones" class="form-control mb-2">
+                                        <select id="opciones_edit" class="form-control mb-2">
                                             <?php
                                                 $sql = "SELECT * FROM `cursos` WHERE 1";
                                                 $sqlEX = mysqli_query($connection, $sql);
@@ -180,7 +180,7 @@
                                                     echo '<td>'.$estadoE.'</td>';
                                                     echo '<td width="20%" class="text-center">' . 
                                                     '<button class="btn btn-sm btn-primary" title="Editar datos" data-toggle="modal" id="editarBtn" data-id="'.$id.'" data-bs-target="#exampleModal"><i class="fa-solid fa-pen-to-square"></i></button>
-                                                     <button onclick="obtenerDatos($(this).data(`id`));" class="btn btn-sm btn-primary" id="administrarCursos" title="Administrar cursos" data-toggle="modal" data-id="'.$id.'" data-target="#modalRelOfcu" id="agregado-id"><i class="fa-solid fa-plus"></i></button>
+                                                     <button onclick="obtenerDatos($(this).data(`id`))" class="btn btn-sm btn-primary" id="administrarCursos" title="Administrar cursos" data-toggle="modal" data-id="'.$id.'" data-target="#modalRelOfcu" id="agregado-id"><i class="fa-solid fa-plus"></i></button>
                                                      <button class="btn btn-sm btn-danger" id="estado-adit" title="Editar estado" data-estado="'.$estado.'" data-id="'.$id.'"><i class="fa-solid fa-person-arrow-down-to-line"></i></button>
                                                       <button class="btn btn-sm btn-danger" title="Eliminar" data-id="'.$id.'" id="elim_of"><a style="color:white; text-decoration:none;"><i class="fa-solid fa-eraser"></i></a></button>' . '</td>';
                                                     echo "</tr>";
@@ -260,24 +260,24 @@
         });
 
         function obtenerDatos(id) {
-            let html = "<select id='opciones' class='form-control mb-2'>";
-            $.ajax({
-                url:'modulos/modOfe/adminRel.php',
-                type:'POST',
-                data: {
-                    id: id
-                },
-                success:function(response) {
-                    let tarea = JSON.parse(response);
-                    alert(tarea[0].nombre);
-                    tarea.forEach(dato=>{
-                        html+= `<option id="${dato.id}">${dato.nombre}</option>`;
-                    });
-                    html+= '</select>';
-                    $(".selectEditar").html(html);
-                }
-            });
-        }
+  let html = "<select id='opciones' class='form-control mb-2'>";
+  $.ajax({
+      url:'modulos/modOfe/adminRel.php',
+      type:'POST',
+      data: {
+          id: id
+      },
+      success:function(response) {
+          let tarea = JSON.parse(response);
+          //alert(tarea[0].nombre);
+          tarea.forEach(dato=>{
+              html+= `<option id="${dato.id}">${dato.nombre}</option>`;
+          });
+          html+= '</select>';
+          $(".selectEditar").html(html);
+      }
+  });
+}
     </script>
     <script src="modulos/modOfe/ofe.js"></script>
 

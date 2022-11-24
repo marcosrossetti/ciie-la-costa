@@ -34,13 +34,13 @@ Swal.fire({
 
 });
 var id_a;
-$(document).on('click','#agregado-id',function (){ 
+$(document).on('click','#administrarCursos',function (){ 
     id_a = $(this).data('id');
 });
 
 $(document).on('click','#envio-rel',function (){
-  var op = $("#opciones").find('option:selected').attr('id');
-  
+  var op = $("#opciones_edit").find('option:selected').attr('id');
+  console.log(id_a),
   Swal.fire({
     title: 'Agregar curso?',
     showCancelButton: true,
