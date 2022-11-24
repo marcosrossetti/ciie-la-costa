@@ -52,18 +52,16 @@
         </header>
         <!-- Main Content-->
 
-        <div class="row">
+        <div class="container">
+            <div class="row">
                 <div class="col-lg-5 col-md-10 mx-auto  tutorialesActivos" id="contenedorTutoriales">
                     <h1 class="tituloIndex">Tutoriales</h1>
-
-                    <div class="post-preview" id="tutorialShow">
-                        
-                    </div>
-
-        </div>
+                    <div class="post-preview" id="tutorialShow"></div>
+                </div>
+            </div>
         </div>
         
-        <hr/>
+        <hr>
 
         <!-- Footer-->
 
