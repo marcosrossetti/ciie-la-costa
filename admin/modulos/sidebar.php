@@ -42,20 +42,13 @@
             <hr class="sidebar-divider">
 
             <div class="sidebar-heading">
-                Administrar tutoriales y redes
+                Administrar tutoriales
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="administrarTutoriales.php" aria-expanded="true">
                     <span>Tutoriales</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="administrarContacto.php" aria-expanded="true">
-                    <span>Contacto y redes</span>
                 </a>
             </li>
 
