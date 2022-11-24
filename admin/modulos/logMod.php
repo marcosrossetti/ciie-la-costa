@@ -52,7 +52,7 @@ if (isset($submitBtn)) {
     		if($password == $row['password']){
                 $_SESSION['dni'] = $row['dni'];
                 $_SESSION['email'] = $row['email'];
-                header("location: ../index.php");
+                header("location: ../administrarOfertas.php");
     		}
         //si la contaseña es incorrecta notificamos
     		else{echo '<script> swal({
