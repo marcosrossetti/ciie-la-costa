@@ -2,7 +2,7 @@
 $(document).on('click','#estado-adit',function (){ 
 var id = $(this).data("id");
 var est = $(this).data("estado");
-
+var rta = "";
 Swal.fire({
   title: 'Actualizar estado?',
   showCancelButton: true,
@@ -48,8 +48,6 @@ $(document).on('click','#envio-rel',function (){
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
-      Swal.fire('Agregado!', '', 'success')
-      setTimeout(function() {
       $.ajax({
       
         url:"modulos/modOfe/rel.php",
@@ -59,11 +57,18 @@ $(document).on('click','#envio-rel',function (){
         valor:op
         },
         success: function(response) {
-          console.log(response);
-          window.location = "administrarOfertas.php";
+          rta = JSON.parse(response);
+          console.log(rta);
+          if(rta == 1){
+            Swal.fire('Curso ya cargado!', '', 'error')
+          } else{
+            Swal.fire('Agregado!', '', 'success')
+            setTimeout(function() {
+            window.location = "administrarOfertas.php";
+            }, 800)
+          }
         }
       });
-    }, 800)
     }
   });
 
@@ -97,10 +102,34 @@ $(document).on('click','#elim_of',function (){
     }, 800)
     }
   });
-
-      
-  
-    
-    
 });
 
+$(document).on('click','#astolfo',function (){
+  var el = $("#opciones").find('option:selected').attr('id');
+
+  Swal.fire({
+    title: 'Eliminar curso?',
+    showCancelButton: true,
+    confirmButtonText: 'Enviar'
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      Swal.fire('Eliminado!', '', 'success')
+      setTimeout(function() {
+      $.ajax({
+      
+        url:"modulos/modOfe/elimCur.php",
+        type:"POST",
+        data:{ 
+        id:el
+        },
+        success: function(response) {
+          console.log(response);
+          window.location = "administrarOfertas.php";
+        }
+      });
+    }, 800)
+    }
+  });
+
+});
