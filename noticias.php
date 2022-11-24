@@ -59,45 +59,7 @@
 
         <!-- CONTENIDO -->
 
-        <div class="container">
-            <div class="row">
-                <div class="col-8 mx-auto">
-                    <div class="post-preview">
-                        <a href="post.php">
-                            <h2 class="post-title">Oferta de Formación Nivel Secundario </h2>
-                            <h3 class="post-subtitle">Junio - Julio 2022</h3>
-                        </a>
-                        <p class="post-meta">
-                        CIIE's - Región 18 - Inscripción: PARA NIVEL SECUNDARIO - Inicio de la cursada: A confirmar por el formador
-                        </p>
-                    </div>
-                    <hr />
-                    <div class="post-preview">
-                        <a href="post.php">
-                            <h2 class="post-title">Oferta de formación Nivel Primario</h2>
-                            <h3 class="post-subtitle">Junio - Julio 2022</h3>
-                        </a>
-                        <p class="post-meta">
-                        CIIE's - Región 18 - Inscripción: PARA NIVEL PRIMARIO - Inicio de la cursada: Comienzan entre la primer y segunda semana de Junio. 
-                        <br> 
-                        Destinado a equipos de conducción, MG, Docentes de grado Educación Especial y Educación de Jóvenes, Adultos y Adultos Mayores. 
-                        Profesores segun modalidad, Estudiantes avanzados del 4° año del profesorado de educación primaria o modalidad según corresponda.
-                        </p>
-                    </div>
-                    <hr />
-                    <div class="post-preview">
-                        <a href="post.php">
-                            <h2 class="post-title">Oferta de formación Nivel Inicial </h2>
-                            <h3 class="post-subtitle">Junio - Julio 2022</h3>
-                        </a>
-                        <p class="post-meta">
-                        CIIE's - Región 18 - Inscripción: PARA NIVEL INICIAL - Inicio de la cursada: A confirmar por el formador.
-                        </p>
-                    </div>
-                    <hr />
-                </div>      
-            </div>
-        </div>
+        <div id="ofertaShow"></div> 
 
         <!--
         <div class="container">
@@ -176,6 +138,65 @@
         <!-- SCRIPTS -->
 
         <script src="js/scripts.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+                        <script>
+                        function buscarOferta() {
+                            //inicializamos el ajax
+                            $.ajax({
+                            //definimos una direccion y el tipo de formulario que se va a hacer (GET, toma de datos desde el servidor)
+                            url: 'js/buscarOfertaBack.php',
+                            type: 'GET',
+                            //en caso exitoso, devolvemos la siguiente funcion
+                            success: function(response) {
+
+                                
+
+                                let rta = JSON.parse(response);
+                                // console.log(response);
+
+                                
+
+                                let template = '';
+                                
+                                //lo iteramos y dibujamos con un foreach y etiquetas html
+                                rta.forEach(rta => {
+                                template += `
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-8 mx-auto">
+                                            <div class="post-preview">
+                                            <a href="postNoticias.php?id=${rta.id}">
+                                                        <h1 class="post-title"> ${rta.titulo}  </h1>
+                                                        <h3 class="post-title">Oferta de Formación Nivel ${rta.nivel}  </h3>
+                                                        <h3 class="post-subtitle">Fecha de inicio: ${rta.fecha} </h3>
+                                                    </a>
+                                                    <p class="post-meta">
+                                                    ${rta.descripcion}
+                                                    </p>
+                                                </div>
+                                        </div> 
+                                    </div> 
+                                </div>
+
+                                
+                                        
+                                        `;
+                                });
+                                //mostramos el dibujo en el id selecionado, asignando la variable a mostrar
+                                $('#ofertaShow').html(template);
+                            
+
+                                
+                                
+                            }
+                            });
+                        }
+            
+            buscarOferta();</script>   
+
+       
         
     </body>
 </html>
