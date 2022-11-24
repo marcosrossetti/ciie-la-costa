@@ -107,7 +107,7 @@
                                         <select id='opciones' class='form-control mb-2'></select>
                                     </div>
                                     <div class="col-3">
-                                        <button type="button" class="btn btn-danger">Borrar</button>
+                                        <button type="button" class="btn btn-danger" id="astolfo">Borrar</button>
                                     </div>
                                 </div>
                                 <hr>
