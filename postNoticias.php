@@ -58,19 +58,14 @@
             $descripcion = $row['descripcion'];
 
             echo '
-            
-        
-
-        <header class="masthead" style="background-image: url("assets/img/post-bg.jpg">
+        <header class="masthead" style="background-image: url(assets/img/fondonoticias.png);">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <div class="post-heading">
-                            <h1>Oferta de Formación Nivel '.$nivel.'.</h1>
-                            <h2 class="subheading"></h2>
-                            <span class="meta">
-                            </span>
+                            <h1>'.$titulo.' - Nivel '.$nivel.'.</h1>
+                            <h2 class="subheading">'.$fecha.'</h2>
                         </div>
                     </div>
                 </div>
@@ -81,16 +76,40 @@
             ';
 
             echo '
-            <article>
+            <article class="mb-4">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
-                        <h2>Información:</h2>
-                        <p>Fecha de apertura: '.$fecha.'</p>
-                        <p>Región 18.</p>
-                        <p>Inscripción: Nivel '.$nivel.'.</p>
-                        <h3>Descripción de la oferta:</h3>
-                        <p>'.$descripcion.'</p>
+                        <p class="h3 text-justify font-weight-normal">'.$descripcion.'</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <h2 class="section-heading">CURSOS</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Curso</th>
+                                        <th>Area</th>
+                                        <th>Dia</th>
+                                        <th>Horario</th>
+                                        <th>Formador</th>
+                                        <th>Enlace</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>prueba</td>
+                                        <td>pruebaa</td>
+                                        <td>pruebaaa</td>
+                                        <td>pruebaaaa</td>
+                                        <td>pruebaaaaa</td>
+                                        <td><a class="text-info" href="https://www.youtube.com/watch?v=UUkau4Fy7_w" target="_blank">Abrir enlace</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,7 +122,6 @@
 
 
         ?>
-
         
         <hr/>
 

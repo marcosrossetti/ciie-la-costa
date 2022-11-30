@@ -113,7 +113,7 @@
                                 //lo iteramos y dibujamos con un foreach y etiquetas html
                                 rta.forEach(rta => {
                                 template += `
-                                <a href="post.php?id=${rta.id}">
+                                <a href="postNoticias.php?id=${rta.id}">
                                 <h2 class="post-title">${rta.titulo} </h2>
                                 <h3 class="post-subtitle">${rta.fecha}</h3>
                                 </a>
