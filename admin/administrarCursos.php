@@ -83,7 +83,7 @@ destroyAdmin();
                                             <input type="text" name="nombre" id="nombre" class="form-control" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Formadores Disponibles</label>
+                                            <label>Formadores disponibles</label>
                                             <select id="formador" class="form-control">
                                                 <?php include("modulos/modCursos/buscarFormador.php");
                                                     foreach($resultado2 as $fila2){
@@ -110,8 +110,8 @@ destroyAdmin();
                                             <input type="time" name="horario" id="horario" class="form-control" rows="3" required></input>
                                         </div>
                                         <div class="form-group">
-                                            <label>Enlace del Curso</label>
-                                            <input type="text" name="url" id="url" class="form-control" rows="3" required></input>
+                                            <label>Enlace del curso</label>
+                                            <input type="text" name="url" id="url" class="form-control" rows="3" placeholder="Enlace del formulario" required></input>
                                         </div>                    
                                         <button type="submit" id="submitA" name="submitA" class="btn btn-primary">Cargar</button>
                                     </form>
