@@ -13,3 +13,11 @@ height: calc(100% - 73px);
 height: 100%;
 }
 }
+
+.clearfix{
+
+
+    bottom: 0;
+    right: 0;
+
+}

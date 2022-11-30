@@ -157,6 +157,9 @@ img::-moz-selection {
 .btnOfertas {
 
   border-radius: 6px;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
 
 }
 

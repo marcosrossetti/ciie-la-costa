@@ -88,7 +88,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-5 col-md-10 mx-auto  contenedorOfertas" id="contenedorOfertas">
+                <div class="col-lg-5 col-md-10 mx-auto position-relative pb-5 contenedorOfertas" id="contenedorOfertas">
                     <h1 class="tituloIndex">Novedades</h1>
 
                     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -120,6 +120,7 @@
                                 <p class="post-meta">
                                 CIIE's - Región 18 - Inscripción: PARA NIVEL ${rta.nivel}
                                 </p>
+                                <hr>
                                         
                                         `
                                 });
@@ -140,7 +141,7 @@
                     </div>
                     
                     <!-- Pager-->
-                    <div class="clearfix"><a class="btn btn-primary float-right btnOfertas" href="noticias.php">Ver mas</a></div>
+                    <div class=" pt-5 clearfix"><a class="btn btn-primary position-absolute btnOfertas" href="noticias.php">Ver mas</a></div>
                 </div>
             
             
