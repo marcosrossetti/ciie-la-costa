@@ -88,7 +88,7 @@
                                 //lo iteramos y dibujamos con un foreach y etiquetas html
                                 rta.forEach(rta => {
                                 template += `
-                                <a href="${rta.url}">
+                                <a href="${rta.url}" target="_blank">
                                 <h2 class="post-title">${rta.titulo} </h2>
                                 <h3 class="post-subtitle">${rta.des}</h3>
                                 </a>

@@ -11,10 +11,12 @@ $fecha = $row['fecha'];
 $descripcion = $row['descripcion'];
 $nivel = $row['nivel'];
 
+$descripcion = mb_strimwidth($descripcion, 0, 50, '...');
+
 $json[] = array(
     'titulo' => $row['titulo'],
     'fecha' => $row['fecha'],
-    'descripcion' => $row['descripcion'],
+    'descripcion' => $descripcion,
     'nivel' => $row['nivel'],
     'id' => $row['id_o']
     

@@ -26,10 +26,18 @@
 
         <link href="css/styles.css" rel="stylesheet"/>
 
+        <!-- LINKS DATA TABLES -->
+        <link href="admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
         <!-- TITULO -->
 
         <title>CIIE La Costa</title>
 
+        <style>
+            .dataTables_filter,.dataTables_length,.dataTables_info {
+                display: none;
+            }
+        </style>
     </head>
     <body>
 
@@ -83,45 +91,45 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <h2 class="section-heading">CURSOS</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Curso</th>
-                                        <th>Area</th>
-                                        <th>Dia</th>
-                                        <th>Horario</th>
-                                        <th>Formador</th>
-                                        <th>Enlace</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $id=$_GET['id'];
-                                    $sql2 = "SELECT * FROM `ofertas` INNER JOIN `rel_ofcu` ON ofertas.id_o = rel_ofcu.id_o INNER JOIN `cursos` ON rel_ofcu.id_c = cursos.id_curso WHERE ofertas.id_o = $id";
-                                    $result2 = mysqli_query($connection, $sql2);
-                                    $row2 = mysqli_fetch_array($result2);
-                                    foreach($result2 as $row2){
-                                echo '
-                                    <tr>
-                                        <td>'.$row2['nombre'].'</td>
-                                        <td>'.$row2['area'].'</td>
-                                        <td>'.$row2['dia'].' '.$row2['fecha'].'</td>
-                                        <td>'.$row2['horario'].'</td>
-                                        <td>'.$row2['formador'].'</td>
-                                        <td><a class="text-info" href="'.$row2['link'].'" target="_blank">Abrir enlace</a></td>
-                                    </tr>
-                                    ';
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Curso</th>
+                                <th>Area</th>
+                                <th>Dia</th>
+                                <th>Horario</th>
+                                <th>Formador</th>
+                                <th>Enlace</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $id=$_GET['id'];
+                            $sql2 = "SELECT * FROM `ofertas` INNER JOIN `rel_ofcu` ON ofertas.id_o = rel_ofcu.id_o INNER JOIN `cursos` ON rel_ofcu.id_c = cursos.id_curso WHERE ofertas.id_o = $id";
+                            $result2 = mysqli_query($connection, $sql2);
+                            $row2 = mysqli_fetch_array($result2);
+                            foreach($result2 as $row2){
+                        echo '
+                            <tr>
+                                <td>'.$row2['nombre'].'</td>
+                                <td>'.$row2['area'].'</td>
+                                <td>'.$row2['dia'].'</td>
+                                <td>'.$row2['horario'].'</td>
+                                <td>'.$row2['formador'].'</td>
+                                <td><a class="text-info" href="'.$row2['link'].'" target="_blank">Abrir enlace</a></td>
+                            </tr>
+                            ';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </article>
-            
+        
             
 
 
@@ -142,6 +150,21 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
         
         <!-- LINKS SCRIPTS -->
+
+        <!-- SCRIPTS DATA TABLE Y TRADUCCION -->
+        <script src="admin/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#dataTable').DataTable({
+                    "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+                    }
+                });
+            });
+        </script>
+
+        <script src="admin/js/demo/datatables-demo.js"></script>
 
         <script src="js/scripts.js"></script>
 
