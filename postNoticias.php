@@ -43,14 +43,13 @@
 
         <?php
         include("connection.php");
-         $id = $_GET['id'];
-         
+        $id = $_GET['id'];
 
-         $sql= "SELECT * FROM `ofertas` WHERE `id_o` = $id";
-         $result = mysqli_query($connection, $sql);
-         $row = mysqli_fetch_array($result);
+        $sql= "SELECT * FROM `ofertas` WHERE `id_o` = $id";
+        $result = mysqli_query($connection, $sql);
+        $row = mysqli_fetch_array($result);
 
-         foreach($result as $row){
+        foreach($result as $row){
 
             $titulo = $row['titulo'];
             $nivel = $row['nivel'];
@@ -70,18 +69,16 @@
                     </div>
                 </div>
             </div>
-        </header>
-
-       
-            ';
-
-            echo '
+        </header>            
             <article class="mb-4">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <p class="h3 text-justify font-weight-normal">'.$descripcion.'</p>
                     </div>
+                    ';
+        }
+        ?>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 col-md-10 mx-auto">
@@ -99,14 +96,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    $id=$_GET['id'];
+                                    $sql2 = "SELECT * FROM `ofertas` INNER JOIN `rel_ofcu` ON ofertas.id_o = rel_ofcu.id_o INNER JOIN `cursos` ON rel_ofcu.id_c = cursos.id_curso WHERE ofertas.id_o = $id";
+                                    $result2 = mysqli_query($connection, $sql2);
+                                    $row2 = mysqli_fetch_array($result2);
+                                    foreach($result2 as $row2){
+                                echo '
                                     <tr>
-                                        <td>prueba</td>
-                                        <td>pruebaa</td>
-                                        <td>pruebaaa</td>
-                                        <td>pruebaaaa</td>
-                                        <td>pruebaaaaa</td>
-                                        <td><a class="text-info" href="https://www.youtube.com/watch?v=UUkau4Fy7_w" target="_blank">Abrir enlace</a></td>
+                                        <td>'.$row2['nombre'].'</td>
+                                        <td>'.$row2['area'].'</td>
+                                        <td>'.$row2['dia'].' '.$row2['fecha'].'</td>
+                                        <td>'.$row2['horario'].'</td>
+                                        <td>'.$row2['formador'].'</td>
+                                        <td><a class="text-info" href="'.$row2['link'].'" target="_blank">Abrir enlace</a></td>
                                     </tr>
+                                    ';
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -115,13 +122,11 @@
             </div>
         </article>
             
-            ';
-
-         }
+            
 
 
 
-        ?>
+        
         
         <hr/>
 
