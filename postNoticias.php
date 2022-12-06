@@ -108,7 +108,7 @@
                         <tbody>
                             <?php
                             $id=$_GET['id'];
-                            $sql2 = "SELECT * FROM `ofertas` INNER JOIN `rel_ofcu` ON ofertas.id_o = rel_ofcu.id_o INNER JOIN `cursos` ON rel_ofcu.id_c = cursos.id_curso WHERE ofertas.id_o = $id";
+                            $sql2 = "SELECT * FROM `ofertas` INNER JOIN `rel_ofcu` ON ofertas.id_o = rel_ofcu.id_o INNER JOIN `cursos` ON rel_ofcu.id_c = cursos.id_curso WHERE ofertas.id_o = $id AND rel_ofcu.estado = 1";
                             $result2 = mysqli_query($connection, $sql2);
                             $row2 = mysqli_fetch_array($result2);
                             foreach($result2 as $row2){
