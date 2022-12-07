@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-12-2022 a las 17:38:34
+-- Tiempo de generación: 07-12-2022 a las 17:42:57
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -135,7 +135,7 @@ CREATE TABLE `ofertas` (
 
 INSERT INTO `ofertas` (`id_o`, `fecha`, `titulo`, `nivel`, `estado`, `eliminado`, `descripcion`) VALUES
 (30, '2023-12-15', 'Termotanque', 'Primario', 1, 0, 'Eso no ma'),
-(31, '2002-12-13', 'Prueba 2', 'Inicial', 0, 0, 'aaa'),
+(31, '2002-12-13', 'Prueba 2', 'Inicial', 0, 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
 (32, '2022-11-06', 'PRUEBA123', 'SECUNDARIO', 0, 0, 'pruebaAaaa');
 
 -- --------------------------------------------------------
@@ -221,7 +221,7 @@ CREATE TABLE `visitas` (
 --
 
 INSERT INTO `visitas` (`id`, `visitas`) VALUES
-(1, 62);
+(1, 64);
 
 --
 -- Índices para tablas volcadas
